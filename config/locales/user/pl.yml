@@ -1,0 +1,6 @@
+pl:
+  helpers:
+    label:
+      user:
+        password: "Hasło"
+        email: "Email"

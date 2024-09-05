@@ -29,6 +29,7 @@ pl:
       updated: "Twoje hasło zostało pomyślnie zmienione. Jesteś teraz zalogowany."
       updated_not_active: "Twoje hasło zostało pomyślnie zmienione."
   sessions:
+    log_in: "Zaloguj się"
     signed_in: "Zalogowano pomyślnie."
     signed_out: "Wylogowano pomyślnie."
     already_signed_out: "Wylogowano pomyślnie."
