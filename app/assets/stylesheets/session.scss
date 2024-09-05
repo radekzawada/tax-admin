@@ -1,0 +1,33 @@
+.session-form {
+  .header {
+    text-align: center;
+    margin: 40px;
+  }
+
+  form.login-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 400px;
+    margin: auto;
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .actions {
+      text-align: center;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.flash {
+  min-height: 100px;
+}
