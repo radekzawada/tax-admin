@@ -1,0 +1,19 @@
+body {
+  height: 100vh;
+}
+
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #f8f9fa; /* Light background for sidebar */
+  height: 100%;
+}
+
+.nav-item {
+  padding: 0.5rem 1rem;
+}
+
+.sidebar .nav-item:hover {
+  background-color: #e9ecef; /* Lighter background for sidebar items */
+}
