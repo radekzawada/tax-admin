@@ -1,2 +1,7 @@
 pl:
-  hello: "Witaj świecie"
+  app_name: ST Admin
+  navbar:
+    logout: "Wyloguj"
+  sidebar:
+    dashboard: "Dashboard"
+    message_packages: "Paczki wiadomości"
