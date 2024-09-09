@@ -20,7 +20,9 @@ gem "jbuilder"
 gem "redis", ">= 4.0.1"
 
 # Use SCSS for stylesheets [https://sass-lang.com/documentation/syntax]
-gem 'sassc-rails'
+gem "sassc-rails"
+# Use Bootstrap for stylesheets
+gem "bootstrap", "~> 5.3.3"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -47,7 +49,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem 'rspec-rails', '~> 7.0.0'
+  gem "rspec-rails", "~> 7.0.0"
 end
 
 group :development do
@@ -59,7 +61,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-  gem 'shoulda-matchers', '~> 6.0'
+  gem "shoulda-matchers", "~> 6.0"
 end
 
 gem "devise", "~> 4.9"
