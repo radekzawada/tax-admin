@@ -1,0 +1,23 @@
+<nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><%= t("app_name") %></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
+
+      <li class="d-flex nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="fa fa-user"></i>
+            <%= current_user.fullname %>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <%= button_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                <i class="fa fa-sign-out"></i>
+                <%= t("navbar.logout") %>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+    </div>
+  </div>
+</nav>
