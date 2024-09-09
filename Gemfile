@@ -23,7 +23,8 @@ gem "redis", ">= 4.0.1"
 gem "sassc-rails"
 # Use Bootstrap for stylesheets
 gem "bootstrap", "~> 5.3.3"
-
+# Use Google Sheets API for accessing Google Sheets
+gem 'google-apis-sheets_v4', '~> 0.3'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -40,6 +41,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  gem 'dotenv-rails'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
