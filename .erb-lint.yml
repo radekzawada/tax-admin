@@ -1,0 +1,37 @@
+---
+EnableDefaultLinters: true
+exclude:
+  - "vendor/**/*"
+linters:
+  ErbSafety:
+    enabled: true
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      inherit_from:
+        - .rubocop.yml
+      Layout/InitialIndentation:
+        Enabled: false
+      Layout/LeadingEmptyLines:
+        Enabled: false
+      Layout/TrailingEmptyLines:
+        Enabled: false
+      Layout/TrailingWhitespace:
+        Enabled: false
+      Lint/UselessAssignment:
+        Enabled: false
+      Style/FrozenStringLiteralComment:
+        Enabled: false
+      Style/OpenStructUse:
+        Exclude:
+          - app/views/partners/webhook_subscriptions/_form.html.erb
+  AllowedScriptType:
+    enabled: true
+    allowed_types:
+      - "application/json"
+      - "application/ld+json"
+      - "text/x-tmpl"
+  RequireInputAutocomplete:
+    enabled: false
+
+
