@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   namespace :admin do
-    resources :message_packages, only: [ :index ]
+    get :mailbox, to: "mailbox#index"
+    post "mailbox/template_file", to: "mailbox#create_template_file"
   end
 
   # Defines the root path route ("/")

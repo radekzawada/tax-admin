@@ -4,4 +4,4 @@ pl:
     logout: "Wyloguj"
   sidebar:
     dashboard: "Dashboard"
-    message_packages: "Paczki wiadomości"
+    mailbox: "Poczta"

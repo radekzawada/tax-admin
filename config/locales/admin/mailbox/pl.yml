@@ -1,0 +1,17 @@
+pl:
+  admin:
+    mailbox:
+      index:
+        title: "Poczta"
+        configure_template: "Skonfiguruj szablon"
+        no_templates_configured: "Nie skonfigurowano jeszcze żadnych szablonów"
+        form:
+          title: "Konfiguracja pliku szablonu"
+          submit: "Zapisz"
+          close: "Zamknij"
+          labels:
+            template: "Szablon"
+            emails: "Dostęp dla adresów email (każda linia to osobny adres)"
+          templates:
+            taxes: "Podatki"
+            insurance: "Ubezpieczenie"
