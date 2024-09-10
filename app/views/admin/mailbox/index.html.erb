@@ -1,0 +1,22 @@
+<% content_for(:page_header) do %>
+  <%= t("admin.mailbox.index.title") %>
+<% end %>
+
+<% content_for(:page_actions) do %>
+  <%= button_tag type: "button",
+    class: "btn btn-action",
+    data: { bs_toggle: "modal", bs_target: "#addFileTemplateModal" } do %>
+
+    <i class="fa fa-plus"></i>
+    <%= t("admin.mailbox.index.configure_template") %>
+  <% end %>
+<% end %>
+
+<% if @presenter.template_data_containers.present? %>
+<% else %>
+  <div class="alert alert-info" role="alert">
+    <%= t("admin.mailbox.index.no_templates_configured") %>
+  </div>
+<% end %>
+
+<%= render partial: "modal_template_file_form", locals: { disabled_templates: @presenter.disabled_templates } %>

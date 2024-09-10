@@ -1,0 +1,35 @@
+<div class="modal fade" id="addFileTemplateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <%= t("admin.mailbox.index.form.title") %>
+        </h1>
+        <%= button_tag "", type: "button", class: "btn-close", data: { bs_dismiss: "modal" },
+            aria: { label: "Close" } %>
+      </div>
+      <%= form_with url: admin_mailbox_template_file_url do %>
+        <div class="modal-body">
+          <%= label_tag :template, t("admin.mailbox.index.form.labels.template"), class: "form-label" %>
+          <%= select_tag :template,
+              options_for_select(
+                t("admin.mailbox.index.form.templates").invert.to_a,
+                disabled: disabled_templates,
+                selected: nil
+              ),
+              include_blank: true,
+              required: true,
+              class: "form-control" %>
+
+          <%= label_tag :emails, t("admin.mailbox.index.form.labels.emails"), class: "form-label" %>
+          <%= text_area_tag :emails, nil, class: "form-control", rows: 3 %>
+        </div>
+        <div class="modal-footer">
+          <%= button_tag t("admin.mailbox.index.form.close"), type: "button", class: "btn btn-secondary",
+              data: { bs_dismiss: "modal" } %>
+          <%= button_tag t("admin.mailbox.index.form.submit"), type: "submit", class: "btn btn-action" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

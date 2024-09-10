@@ -1,0 +1,11 @@
+<div class="title-header">
+  <div class="row">
+    <div class="col-sm-3">
+      <h4><%= content_for(:page_header) || t("app_name") %></h4>
+    </div>
+    <div class="col-sm-9 d-flex justify-content-end">
+      <%= content_for(:page_actions) %>
+    </div>
+  </div>
+  <hr>
+</div>
