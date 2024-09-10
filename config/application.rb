@@ -7,7 +7,7 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 if Rails.env.development? || Rails.env.test?
-  Dotenv::Railtie.load
+  Dotenv::Rails.load
 end
 
 module StAdmin
