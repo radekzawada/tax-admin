@@ -24,9 +24,9 @@ gem "sassc-rails"
 # Use Bootstrap for stylesheets
 gem "bootstrap", "~> 5.3.3"
 # Use Google Sheets API for accessing Google Sheets
-gem 'google-apis-sheets_v4', '~> 0.3'
+gem "google-apis-sheets_v4", "~> 0.3"
 # Use Google Drive API for accessing Google Drive
-gem 'google-apis-drive_v3', '~> 0.5'
+gem "google-apis-drive_v3", "~> 0.5"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -39,11 +39,14 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem "dry-initializer", "~> 3"
+gem "dry-monads", "~> 1"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem 'dotenv-rails'
+  gem "dotenv-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
