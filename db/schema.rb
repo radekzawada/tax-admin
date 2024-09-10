@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_05_103106) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_10_092439) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "template_data_containers", force: :cascade do |t|
+    t.string "template_name", null: false
+    t.string "external_spreadsheet_id", null: false
+    t.string "permitted_emails", default: [], null: false, array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["external_spreadsheet_id"], name: "index_template_data_containers_on_external_spreadsheet_id", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
