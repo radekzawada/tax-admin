@@ -5,3 +5,30 @@ pl:
   sidebar:
     dashboard: "Dashboard"
     mailbox: "Poczta"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Rekord jest nieprawidłowy"
+        restrict_dependent_destroy:
+          has_one: "Nie można usunąć, ponieważ istnieje powiązany rekord %{record}"
+          has_many: "Nie można usunąć, ponieważ istnieją powiązane rekordy %{record}"
+        blank: "nie może być puste"
+        invalid: "jest nieprawidłowe"
+        too_short: "jest za krótkie (minimum to %{count} znaków)"
+        too_long: "jest za długie (maksymalnie %{count} znaków)"
+        wrong_length: "ma niewłaściwą długość (powinno mieć %{count} znaków)"
+        taken: "jest już zajęte"
+        not_a_number: "nie jest liczbą"
+        not_an_integer: "nie jest liczbą całkowitą"
+        greater_than: "musi być większe niż %{count}"
+        greater_than_or_equal_to: "musi być większe lub równe %{count}"
+        less_than: "musi być mniejsze niż %{count}"
+        less_than_or_equal_to: "musi być mniejsze lub równe %{count}"
+        equal_to: "musi być równe %{count}"
+        odd: "musi być liczbą nieparzystą"
+        even: "musi być liczbą parzystą"
+        confirmation: "nie zgadza się z potwierdzeniem"
+        required: "jest wymagane"
+        accepted: "musi zostać zaakceptowane"
+        too_short_for_password: "hasło jest za krótkie (minimum to %{count} znaków)"
+        inclusion: "nie znajduje się na liście dozwolonych wartości"
