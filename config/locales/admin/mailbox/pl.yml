@@ -12,6 +12,7 @@ pl:
           labels:
             template: "Szablon"
             emails: "Dostęp dla adresów email (każda linia to osobny adres)"
+            name: "Nazwa"
           templates:
             taxes: "Podatki"
             insurance: "Ubezpieczenie"

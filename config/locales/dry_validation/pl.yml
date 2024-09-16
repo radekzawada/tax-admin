@@ -1,0 +1,18 @@
+pl:
+  dry_validation:
+    errors:
+      filled?: "nie może być pusty"
+      int?: "musi być liczbą całkowitą"
+      size?: "musi mieć rozmiar {size}"
+      format?: "ma nieprawidłowy format"
+      type?: "musi być typu {type}"
+      included_in?: "musi być jednym z: {values}"
+      excluded?: "nie może być jednym z: {values}"
+      key?: "musi być obecny"
+      max_size?: "nie może być większy niż {max}"
+      min_size?: "musi mieć co najmniej {min}"
+      confirmed?: "potwierdzenie nie pasuje"
+      unique?: "musi być unikalny"
+      between?: "musi być między {min} a {max}"
+      after?: "musi być po {date}"
+      before?: "musi być przed {date}"
