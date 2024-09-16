@@ -7,6 +7,9 @@ require:
   - rubocop-minitest
   - rubocop-rspec
 
+AllCops:
+  TargetRubyVersion: 3.2
+
 Style/SymbolArray:
   Enabled: true
 
