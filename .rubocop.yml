@@ -1,14 +1,18 @@
+inherit_from: .rubocop_todo.yml
+
 # Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+inherit_gem:
+  rubocop-rails-omakase:
+    - rubocop.yml
 
 require:
   - rubocop-performance
   - rubocop-rails
-  - rubocop-minitest
   - rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 3.2
+  NewCops: disable
 
 Style/SymbolArray:
   Enabled: true
@@ -25,3 +29,9 @@ Style/StringLiterals:
     - "lib/**/*"
     - "spec/**/*"
     - "Gemfile"
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: always
+
+RSpec:
+  Enabled: true
