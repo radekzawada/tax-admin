@@ -57,7 +57,7 @@ group :development, :test do
   gem "erb_lint", require: false
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-  gem "rubocop-rspec", require: false
+  gem "rubocop-rspec"
 
   gem "rspec-rails", "~> 7.0.0"
   # Use FactoryBot to create test data
