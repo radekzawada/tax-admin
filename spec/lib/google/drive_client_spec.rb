@@ -23,7 +23,7 @@ RSpec.describe Google::DriveClient do
     let(:type) { described_class::USER_TYPE }
 
     before do
-      allow(drive_client).to receive(:google_drive_service).and_return(google_drive_service)
+      allow(google_drive_service).to receive(:create_permission)
     end
 
     specify do
