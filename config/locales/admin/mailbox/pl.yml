@@ -16,3 +16,14 @@ pl:
           templates:
             taxes: "Podatki"
             insurance: "Ubezpieczenie"
+        table:
+          headers:
+            name: "Nazwa"
+            emails: "Upoważnione adresy email"
+            template: "Szablon"
+            actions: "Akcje"
+          actions:
+            add_access: "Dodaj dostęp"
+        templates:
+          taxes: "Podatki"
+          insurance: "Ubezpieczenie"
