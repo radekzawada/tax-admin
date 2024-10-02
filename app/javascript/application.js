@@ -3,3 +3,10 @@ import "@hotwired/turbo-rails"
 import "popper"
 import "bootstrap"
 import "controllers"
+
+export function toggleLoading() {
+  const loading = document.getElementById("spinner-overlay");
+  if (loading) {
+    loading.classList.toggle("d-none");
+  }
+}
