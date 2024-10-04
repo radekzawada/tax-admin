@@ -18,7 +18,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", ">= 4.0.1"
-
+gem 'data_migrate', '~> 9.1.0'
 # Use SCSS for stylesheets [https://sass-lang.com/documentation/syntax]
 gem "sassc-rails"
 # Use Bootstrap for stylesheets
@@ -74,6 +74,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 6.0"
+  gem "rails-controller-testing"
 end
 
 gem "devise", "~> 4.9"
