@@ -7,5 +7,14 @@ class Admin::MailboxController < ApplicationController
   end
 
   def create_template_file
+    result = Mailbox::CreateTemplateDataContainer.default.call(request.parameters)
+
+    if result.success?
+      render json: { data: result.data }, status: :created
+    elsif result.component == :contract
+      render json: { errors: result.errors }, status: :unprocessable_entity
+    else
+      render json: { errors: result.errors }, status: :bad_request
+    end
   end
 end
