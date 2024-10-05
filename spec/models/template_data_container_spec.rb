@@ -10,5 +10,6 @@ RSpec.describe TemplateDataContainer, type: :model do
     it { is_expected.to validate_uniqueness_of(:external_spreadsheet_id) }
     it { is_expected.to validate_uniqueness_of(:name) }
     it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:url) }
   end
 end
