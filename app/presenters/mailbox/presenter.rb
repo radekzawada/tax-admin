@@ -1,11 +1,12 @@
 class Mailbox::Presenter
-  ContainerData = Struct.new(:name, :template)
+  ContainerData = Struct.new(:name, :template, :url)
 
   def template_data_containers
     @template_data_containers ||= models.map do |container|
       ContainerData.new(
         container.name,
-        I18n.t("admin.mailbox.index.templates.#{container.template_name}")
+        I18n.t("admin.mailbox.index.templates.#{container.template_name}"),
+        container.url
       )
     end
   end

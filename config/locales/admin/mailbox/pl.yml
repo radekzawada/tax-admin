@@ -23,7 +23,7 @@ pl:
             template: "Szablon"
             actions: "Akcje"
           actions:
-            add_access: "Dodaj dostęp"
+            open: "Otwórz plik"
         templates:
           taxes: "Podatki"
           insurance: "Ubezpieczenie"
