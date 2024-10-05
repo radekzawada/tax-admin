@@ -13,10 +13,28 @@
 <% end %>
 
 <% if @presenter.template_data_containers.present? %>
+  <div class="container-fluid">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col"><%= t("admin.mailbox.index.table.headers.name") %></th>
+          <th scope="col"><%= t("admin.mailbox.index.table.headers.template") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @presenter.template_data_containers.each do |template_data_container| %>
+          <tr>
+            <td><%= template_data_container.name %></td>
+            <td><%= template_data_container.template %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% else %>
   <div class="alert alert-info" role="alert">
     <%= t("admin.mailbox.index.no_templates_configured") %>
   </div>
 <% end %>
 
-<%= render partial: "modal_template_file_form", locals: { disabled_templates: @presenter.disabled_templates } %>
+<%= render partial: "modal_template_file_form", locals: { presenter: @presenter } %>
