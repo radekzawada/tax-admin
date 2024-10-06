@@ -3,16 +3,16 @@ require "rails_helper"
 RSpec.describe Mailbox::Presenter do
   let(:presenter) { described_class.new }
 
-  describe "#template_data_containers" do
-    subject(:template_data_containers) { presenter.template_data_containers }
+  describe "#message_templates" do
+    subject(:message_templates) { presenter.message_templates }
 
     before do
-      create(:template_data_container, name: "test1", template_name: "taxes")
-      create(:template_data_container, name: "test2", template_name: "insurance")
+      create(:message_template, name: "test1", template_name: "taxes")
+      create(:message_template, name: "test2", template_name: "insurance")
     end
 
     specify do
-      expect(template_data_containers).to contain_exactly(
+      expect(message_templates).to contain_exactly(
         an_instance_of(Mailbox::Presenter::ContainerData) & have_attributes(name: "test1", template: "Podatki"),
         an_instance_of(Mailbox::Presenter::ContainerData) & have_attributes(name: "test2", template: "Ubezpieczenie")
       )
@@ -23,8 +23,8 @@ RSpec.describe Mailbox::Presenter do
     subject(:disabled_templates) { presenter.disabled_templates }
 
     before do
-      create(:template_data_container, template_name: "taxes")
-      create(:template_data_container, template_name: "insurance")
+      create(:message_template, template_name: "taxes")
+      create(:message_template, template_name: "insurance")
     end
 
     specify do

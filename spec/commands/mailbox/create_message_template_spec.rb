@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Mailbox::CreateTemplateDataContainer do
+RSpec.describe Mailbox::CreateMessageTemplate do
   describe "#call" do
     subject(:call) { command.call(params) }
 
@@ -29,15 +29,15 @@ RSpec.describe Mailbox::CreateTemplateDataContainer do
 
     context "when everything is successful" do
       specify do
-        expect { call }.to change(TemplateDataContainer, :count).by(1)
+        expect { call }.to change(MessageTemplate, :count).by(1)
           .and change(MessagePackage, :count).by(1)
         expect(call).to be_success & be_a(Command::Result) & have_attributes(
           component: :command,
-          data: { container: an_instance_of(TemplateDataContainer), message_package: an_instance_of(MessagePackage) },
+          data: { container: an_instance_of(MessageTemplate), message_package: an_instance_of(MessagePackage) },
           errors: {}
         )
 
-        expect(TemplateDataContainer.last).to have_attributes(
+        expect(MessageTemplate.last).to have_attributes(
           permitted_emails: [ "test@mail.com", "test1@mail.com" ],
           external_spreadsheet_id: "123",
           template_name: "taxes",
@@ -48,7 +48,7 @@ RSpec.describe Mailbox::CreateTemplateDataContainer do
         expect(MessagePackage.last).to have_attributes(
           name: "Sheet name",
           status: "active",
-          message_template: TemplateDataContainer.last
+          message_template: MessageTemplate.last
         )
 
         expect(google_sheet_client).to have_received(:create_spreadsheet).with("Template data container", "Sheet name")
@@ -83,7 +83,7 @@ RSpec.describe Mailbox::CreateTemplateDataContainer do
       end
 
       specify do
-        expect { call }.not_to change(TemplateDataContainer, :count)
+        expect { call }.not_to change(MessageTemplate, :count)
         expect(call).to be_failure & be_a(Command::Result) & have_attributes(
           component: :command,
           data: {},
@@ -99,7 +99,7 @@ RSpec.describe Mailbox::CreateTemplateDataContainer do
       end
 
       specify do
-        expect { call }.not_to change(TemplateDataContainer, :count)
+        expect { call }.not_to change(MessageTemplate, :count)
         expect(call).to be_failure & be_a(Command::Result) & have_attributes(
           component: :command,
           data: {},

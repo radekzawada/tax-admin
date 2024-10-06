@@ -53,10 +53,10 @@ RSpec.describe Admin::MailboxController, type: :controller do
       before { sign_in user }
 
       it "creates a new template data container", :vcr do
-        expect { action }.to change(TemplateDataContainer, :count).by(1)
+        expect { action }.to change(MessageTemplate, :count).by(1)
           .and change(MessagePackage, :count).by(1)
         expect(response).to have_http_status(:created)
-        expect(TemplateDataContainer.last).to have_attributes(
+        expect(MessageTemplate.last).to have_attributes(
           name: "Test",
           template_name: "taxes",
           permitted_emails: [ "test@email.com" ],

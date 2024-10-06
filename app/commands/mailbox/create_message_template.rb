@@ -1,4 +1,4 @@
-class Mailbox::CreateTemplateDataContainer
+class Mailbox::CreateMessageTemplate
   extend Dry::Initializer
   include Dry::Monads[:result]
   include Dry::Monads::Do.for(:call_command, :grant_access)
@@ -24,7 +24,7 @@ class Mailbox::CreateTemplateDataContainer
     end
 
     rule(:name) do
-      key.failure(:unique?) if TemplateDataContainer.exists?(name: value)
+      key.failure(:unique?) if MessageTemplate.exists?(name: value)
     end
   end
 
@@ -76,7 +76,7 @@ class Mailbox::CreateTemplateDataContainer
   end
 
   def create_container(data, container)
-    template_container = TemplateDataContainer.new(
+    template_container = MessageTemplate.new(
       external_spreadsheet_id: container.spreadsheet_id,
       template_name: data[:template],
       permitted_emails: data[:emails],

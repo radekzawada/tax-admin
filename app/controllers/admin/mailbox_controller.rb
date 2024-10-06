@@ -7,7 +7,7 @@ class Admin::MailboxController < ApplicationController
   end
 
   def create_template_file
-    result = Mailbox::CreateTemplateDataContainer.default.call(request.parameters)
+    result = Mailbox::CreateMessageTemplate.default.call(request.parameters)
 
     if result.success?
       render json: { data: result.data }, status: :created

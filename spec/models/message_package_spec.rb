@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe MessagePackage, type: :model do
   describe "associations" do
-    it { is_expected.to belong_to(:message_template).class_name("TemplateDataContainer").required }
+    it { is_expected.to belong_to(:message_template).required }
   end
 
   describe "validations" do

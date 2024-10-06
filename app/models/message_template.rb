@@ -1,4 +1,4 @@
-class TemplateDataContainer < ApplicationRecord
+class MessageTemplate < ApplicationRecord
   TEMPLATES = %w[taxes insurance].freeze
 
   validates :external_spreadsheet_id, uniqueness: true, presence: true
@@ -6,5 +6,5 @@ class TemplateDataContainer < ApplicationRecord
   validates :template_name, presence: true, inclusion: { in: TEMPLATES }
   validates :url, presence: true
 
-  has_many :message_packages, class_name: "MessagePackage", foreign_key: "message_template_id"
+  has_many :message_packages
 end

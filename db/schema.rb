@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_06_123546) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_06_195805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_06_123546) do
     t.index ["message_template_id"], name: "index_message_packages_on_message_template_id"
   end
 
-  create_table "template_data_containers", force: :cascade do |t|
+  create_table "message_templates", force: :cascade do |t|
     t.string "template_name", null: false
     t.string "external_spreadsheet_id", null: false
     t.string "permitted_emails", default: [], null: false, array: true
@@ -31,8 +31,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_06_123546) do
     t.datetime "updated_at", null: false
     t.string "name", null: false
     t.string "url", null: false
-    t.index ["external_spreadsheet_id"], name: "index_template_data_containers_on_external_spreadsheet_id", unique: true
-    t.index ["name"], name: "index_template_data_containers_on_name", unique: true
+    t.index ["external_spreadsheet_id"], name: "index_message_templates_on_external_spreadsheet_id", unique: true
+    t.index ["name"], name: "index_message_templates_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,5 +44,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_06_123546) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "message_packages", "template_data_containers", column: "message_template_id"
+  add_foreign_key "message_packages", "message_templates"
 end

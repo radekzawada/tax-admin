@@ -1,8 +1,8 @@
 class Mailbox::Presenter
   ContainerData = Struct.new(:name, :template, :url)
 
-  def template_data_containers
-    @template_data_containers ||= models.map do |container|
+  def message_templates
+    @message_templates ||= records.map do |container|
       ContainerData.new(
         container.name,
         I18n.t("admin.mailbox.index.templates.#{container.template_name}"),
@@ -12,7 +12,7 @@ class Mailbox::Presenter
   end
 
   def disabled_templates
-    models.pluck(:template_name)
+    records.pluck(:template_name)
   end
 
   def default_sheet_name
@@ -21,7 +21,7 @@ class Mailbox::Presenter
 
   private
 
-  def models
-    @models ||= TemplateDataContainer.all
+  def records
+    @records ||= MessageTemplate.all
   end
 end
