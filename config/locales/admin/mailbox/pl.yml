@@ -13,6 +13,7 @@ pl:
             template: "Szablon"
             emails: "Dostęp dla adresów email (każda linia to osobny adres)"
             name: "Nazwa"
+            sheet_name: "Nazwa arkusza"
           templates:
             taxes: "Podatki"
             insurance: "Ubezpieczenie"
