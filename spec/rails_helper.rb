@@ -70,6 +70,19 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
+  config.include ActiveSupport::Testing::TimeHelpers
+
+  config.around(:each, :freeze_time) do |example|
+    if example.metadata[:freeze_time].is_a?(String)
+      travel_to(Time.zone.parse(example.metadata[:freeze_time])) do
+        example.run
+      end
+    else
+      travel_to(Time.current) do
+        example.run
+      end
+    end
+  end
 end
 
 Shoulda::Matchers.configure do |config|

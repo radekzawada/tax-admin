@@ -16,7 +16,7 @@ class Mailbox::Presenter
   end
 
   def default_sheet_name
-    "#{Time.current.year} #{I18n.t("date.months.names.#{Date::MONTHNAMES[Time.current.month].downcase}")}"
+    "#{I18n.t("date.months.names.#{Date::MONTHNAMES[Time.current.month].downcase}")} #{Time.current.year}"
   end
 
   private

@@ -31,4 +31,10 @@ RSpec.describe Mailbox::Presenter do
       expect(disabled_templates).to contain_exactly("taxes", "insurance")
     end
   end
+
+  describe "#default_sheet_name", freeze_time: "2024-10-10" do
+    subject(:default_sheet_name) { presenter.default_sheet_name }
+
+    it { is_expected.to eq("Październik 2024") }
+  end
 end
