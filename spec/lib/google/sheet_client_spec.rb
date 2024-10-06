@@ -12,11 +12,12 @@ RSpec.describe Google::SheetClient do
   end
 
   describe "#create_spreadsheet" do
-    subject(:create_spreadsheet) { sheet_client.create_spreadsheet(title) }
+    subject(:create_spreadsheet) { sheet_client.create_spreadsheet(title, sheet_title) }
 
     let(:sheet_client) { described_class.new(google_sheet_service:) }
     let(:google_sheet_service) { instance_double(Google::Apis::SheetsV4::SheetsService) }
     let(:title) { "Spreadsheet title" }
+    let(:sheet_title) { "Sheet title" }
     let(:spreadsheet) { instance_double(Google::Apis::SheetsV4::Spreadsheet) }
 
     before do
@@ -28,7 +29,12 @@ RSpec.describe Google::SheetClient do
 
       expect(google_sheet_service).to have_received(:create_spreadsheet).with(
         an_instance_of(Google::Apis::SheetsV4::Spreadsheet) & have_attributes(
-          properties: { title: }
+          properties: an_instance_of(Google::Apis::SheetsV4::SpreadsheetProperties) & have_attributes(title:),
+          sheets: [
+            an_instance_of(Google::Apis::SheetsV4::Sheet) & have_attributes(
+              properties: an_instance_of(Google::Apis::SheetsV4::SheetProperties) & have_attributes(title: sheet_title)
+            )
+          ]
         )
       )
     end

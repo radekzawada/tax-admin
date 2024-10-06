@@ -91,7 +91,7 @@ class Mailbox::CreateTemplateDataContainer
     message_package = MessagePackage.new(
       message_template: container,
       name: data[:sheet_name],
-      status: :initialized
+      status: :active
     )
 
     message_package.save ? Success(message_package:) : Failure(message_package.errors.to_hash)

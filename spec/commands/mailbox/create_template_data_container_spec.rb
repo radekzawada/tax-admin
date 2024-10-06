@@ -47,7 +47,7 @@ RSpec.describe Mailbox::CreateTemplateDataContainer do
 
         expect(MessagePackage.last).to have_attributes(
           name: "Sheet name",
-          status: "initialized",
+          status: "active",
           message_template: TemplateDataContainer.last
         )
 
