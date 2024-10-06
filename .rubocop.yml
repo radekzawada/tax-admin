@@ -44,3 +44,6 @@ RSpec/MultipleExpectations:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 20
+
+Rails/RedundantPresenceValidationOnBelongsTo:
+  Enabled: true
