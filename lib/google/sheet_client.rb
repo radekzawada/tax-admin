@@ -14,13 +14,24 @@ class Google::SheetClient
     end
   end
 
-  def create_spreadsheet(title)
-    spreadsheet = Google::Apis::SheetsV4::Spreadsheet.new(
-      properties: { title: }
-    )
+  def create_spreadsheet(title, sheet_title)
+    spreadsheet = build_spreadsheet(title, sheet_title)
 
     created_spreadsheet = google_sheet_service.create_spreadsheet(spreadsheet)
 
     Success(created_spreadsheet)
+  end
+
+  private
+
+  def build_spreadsheet(title, sheet_title)
+    Google::Apis::SheetsV4::Spreadsheet.new(
+      properties: Google::Apis::SheetsV4::SpreadsheetProperties.new(title:),
+      sheets: [
+        Google::Apis::SheetsV4::Sheet.new(
+          properties: Google::Apis::SheetsV4::SheetProperties.new(title: sheet_title)
+        )
+      ]
+    )
   end
 end

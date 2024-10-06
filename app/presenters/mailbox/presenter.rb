@@ -15,6 +15,10 @@ class Mailbox::Presenter
     models.pluck(:template_name)
   end
 
+  def default_sheet_name
+    "#{Time.current.year} #{I18n.t("date.months.names.#{Date::MONTHNAMES[Time.current.month].downcase}")}"
+  end
+
   private
 
   def models

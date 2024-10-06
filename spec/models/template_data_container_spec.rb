@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe TemplateDataContainer, type: :model do
+  describe "associations" do
+    it { is_expected.to have_many(:message_packages).class_name("MessagePackage") }
+  end
+
   describe "validations" do
     subject(:record) { create(:template_data_container) }
 

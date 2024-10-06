@@ -8,6 +8,7 @@ class Mailbox::CreateTemplateDataContainer
   Contract = Dry::Validation.Contract do
     params do
       required(:name).filled(:string)
+      required(:sheet_name).filled(:string)
       required(:template).filled(:string)
       required(:emails).maybe(:array).each(:string)
 
@@ -54,11 +55,24 @@ class Mailbox::CreateTemplateDataContainer
 
   def call_command(data)
     # TODO later extract external calls to separate commands called async
-    container = yield create_remote_container(**data)
+    remote_container = yield create_remote_container(**data)
 
-    yield grant_access(container.spreadsheet_id, emails: data[:emails]) if data[:emails].present?
+    yield grant_access(remote_container.spreadsheet_id, emails: data[:emails]) if data[:emails].present?
 
-    create_container(data, container)
+    container = (yield create_container(data, remote_container))[:container]
+    message_package = (yield create_message_package(data, container))[:message_package]
+
+    Success(container:, message_package:)
+  end
+
+  def create_remote_container(name:, sheet_name:, **)
+    google_sheet_client.create_spreadsheet(name, sheet_name)
+  end
+
+  def grant_access(google_object_id, emails:)
+    emails.each { |email| yield google_drive_client.grant_permissions(google_object_id, email:) }
+
+    Success()
   end
 
   def create_container(data, container)
@@ -73,14 +87,14 @@ class Mailbox::CreateTemplateDataContainer
     template_container.save ? Success(container: template_container) : Failure(template_container.errors.to_hash)
   end
 
-  def create_remote_container(name:, **)
-    google_sheet_client.create_spreadsheet(name)
-  end
+  def create_message_package(data, container)
+    message_package = MessagePackage.new(
+      message_template: container,
+      name: data[:sheet_name],
+      status: :initialized
+    )
 
-  def grant_access(google_object_id, emails:)
-    emails.each { |email| yield google_drive_client.grant_permissions(google_object_id, email:) }
-
-    Success()
+    message_package.save ? Success(message_package:) : Failure(message_package.errors.to_hash)
   end
 
   def result(monad_result, component:)

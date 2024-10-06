@@ -22,6 +22,10 @@
           <%= text_field_tag :name, nil, class: "form-control", required: true %>
           <div class="invalid-feedback" data-error-for="name"></div>
 
+          <%= label_tag :sheet_name, t("admin.mailbox.index.form.labels.sheet_name"), class: "form-label" %>
+          <%= text_field_tag :sheet_name, presenter.default_sheet_name, class: "form-control", required: true %>
+          <div class="invalid-feedback" data-error-for="name"></div>
+
           <%= label_tag :template, t("admin.mailbox.index.form.labels.template"), class: "form-label" %>
           <%= select_tag :template,
               options_for_select(

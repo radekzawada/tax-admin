@@ -12,6 +12,7 @@ RSpec.describe Mailbox::CreateTemplateDataContainer do
     let(:params) do
       {
         name: "Template data container",
+        sheet_name: "Sheet name",
         template: "taxes",
         emails: "test@mail.com test1@mail.com"
       }
@@ -29,9 +30,10 @@ RSpec.describe Mailbox::CreateTemplateDataContainer do
     context "when everything is successful" do
       specify do
         expect { call }.to change(TemplateDataContainer, :count).by(1)
+          .and change(MessagePackage, :count).by(1)
         expect(call).to be_success & be_a(Command::Result) & have_attributes(
           component: :command,
-          data: { container: an_instance_of(TemplateDataContainer) },
+          data: { container: an_instance_of(TemplateDataContainer), message_package: an_instance_of(MessagePackage) },
           errors: {}
         )
 
@@ -43,7 +45,13 @@ RSpec.describe Mailbox::CreateTemplateDataContainer do
           name: "Template data container"
         )
 
-        expect(google_sheet_client).to have_received(:create_spreadsheet).with("Template data container")
+        expect(MessagePackage.last).to have_attributes(
+          name: "Sheet name",
+          status: "initialized",
+          message_template: TemplateDataContainer.last
+        )
+
+        expect(google_sheet_client).to have_received(:create_spreadsheet).with("Template data container", "Sheet name")
         expect(google_drive_client).to have_received(:grant_permissions).with("123", email: "test@mail.com")
         expect(google_drive_client).to have_received(:grant_permissions).with("123", email: "test1@mail.com")
       end
