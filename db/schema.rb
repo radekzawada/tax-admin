@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_06_123546) do
   enable_extension "plpgsql"
 
   create_table "message_packages", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "name", null: false
     t.bigint "message_template_id", null: false
     t.string "status", null: false
     t.datetime "created_at", null: false
