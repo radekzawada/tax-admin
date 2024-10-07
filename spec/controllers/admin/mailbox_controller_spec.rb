@@ -54,7 +54,7 @@ RSpec.describe Admin::MailboxController, type: :controller do
 
       it "creates a new template data container", :vcr do
         expect { action }.to change(MessageTemplate, :count).by(1)
-          .and change(MessagePackage, :count).by(1)
+          .and change(MessagesPackage, :count).by(1)
         expect(response).to have_http_status(:created)
         expect(MessageTemplate.last).to have_attributes(
           name: "Test",
@@ -63,7 +63,7 @@ RSpec.describe Admin::MailboxController, type: :controller do
           url: start_with("https://docs.google.com/spreadsheets/d/"),
           external_spreadsheet_id: be_present
         )
-        expect(MessagePackage.last).to have_attributes(
+        expect(MessagesPackage.last).to have_attributes(
           status: "active",
           name: "Sheet name"
         )

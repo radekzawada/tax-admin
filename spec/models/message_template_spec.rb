@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe MessageTemplate, type: :model do
   describe "associations" do
-    it { is_expected.to have_many(:message_packages).class_name("MessagePackage") }
+    it { is_expected.to have_many(:messages_packages) }
   end
 
   describe "validations" do

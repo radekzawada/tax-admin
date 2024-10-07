@@ -88,7 +88,7 @@ class Mailbox::CreateMessageTemplate
   end
 
   def create_message_package(data, container)
-    message_package = MessagePackage.new(
+    message_package = MessagesPackage.new(
       message_template: container,
       name: data[:sheet_name],
       status: :active

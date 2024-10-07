@@ -14,15 +14,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_06_195805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "message_packages", force: :cascade do |t|
-    t.string "name", null: false
-    t.bigint "message_template_id", null: false
-    t.string "status", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["message_template_id"], name: "index_message_packages_on_message_template_id"
-  end
-
   create_table "message_templates", force: :cascade do |t|
     t.string "template_name", null: false
     t.string "external_spreadsheet_id", null: false
@@ -35,6 +26,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_06_195805) do
     t.index ["name"], name: "index_message_templates_on_name", unique: true
   end
 
+  create_table "messages_packages", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "message_template_id", null: false
+    t.string "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_template_id"], name: "index_messages_packages_on_message_template_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -43,6 +43,4 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_06_195805) do
     t.string "fullname", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
-
-  add_foreign_key "message_packages", "message_templates"
 end

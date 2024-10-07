@@ -1,4 +1,4 @@
-class MessagePackage < ApplicationRecord
+class MessagesPackage < ApplicationRecord
   STATUSES = %w[initialized active processed].freeze
   belongs_to :message_template
 

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe MessagePackage, type: :model do
+RSpec.describe MessagesPackage, type: :model do
   describe "associations" do
     it { is_expected.to belong_to(:message_template).required }
   end

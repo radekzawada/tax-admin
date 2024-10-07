@@ -30,10 +30,10 @@ RSpec.describe Mailbox::CreateMessageTemplate do
     context "when everything is successful" do
       specify do
         expect { call }.to change(MessageTemplate, :count).by(1)
-          .and change(MessagePackage, :count).by(1)
+          .and change(MessagesPackage, :count).by(1)
         expect(call).to be_success & be_a(Command::Result) & have_attributes(
           component: :command,
-          data: { container: an_instance_of(MessageTemplate), message_package: an_instance_of(MessagePackage) },
+          data: { container: an_instance_of(MessageTemplate), message_package: an_instance_of(MessagesPackage) },
           errors: {}
         )
 
@@ -45,7 +45,7 @@ RSpec.describe Mailbox::CreateMessageTemplate do
           name: "Template data container"
         )
 
-        expect(MessagePackage.last).to have_attributes(
+        expect(MessagesPackage.last).to have_attributes(
           name: "Sheet name",
           status: "active",
           message_template: MessageTemplate.last
