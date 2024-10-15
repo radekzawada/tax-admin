@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Mailbox::Presenter do
-  let(:presenter) { described_class.new }
+  subject(:presenter) { described_class.new }
 
   describe "#message_templates" do
     subject(:message_templates) { presenter.message_templates }
