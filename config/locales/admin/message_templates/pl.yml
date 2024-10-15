@@ -1,0 +1,34 @@
+pl:
+  admin:
+    message_templates:
+      no_active_messages_packages: "Brak aktywnych paczek wiadomości"
+      no_processed_messages_packages: "Brak przetworzonych paczek wiadomości"
+      templates:
+        taxes: "Podatki"
+        insurance: "Ubezpieczenie"
+      title: "Szablon wiadomości: %{name}"
+      template_data:
+        title: "Dane szablonu"
+        name: "Nazwa:"
+        template: "Szablon:"
+        created_at: "Utworzono:"
+        remote_file: "Plik zdalny:"
+        open: "Otwórz plik"
+        access: "Dostęp:"
+      dispatch_data:
+        title: "Wysyłka wiadomości"
+      active_messages_packages:
+        actions:
+          open: "Otwórz"
+        title: "Aktywne paczki wiadomości"
+        headers:
+          name: "Nazwa"
+          remote_sheet: "Arkusz zdalny"
+          messages_count: "Liczba wiadomości"
+          actions: "Akcje"
+      processed_messages_packages:
+        title: "Przetworzone paczki wiadomości"
+        headers:
+          name: "Nazwa"
+          messages_count: "Liczba wiadomości"
+          actions: "Akcje"

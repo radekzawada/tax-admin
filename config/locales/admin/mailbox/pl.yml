@@ -3,6 +3,7 @@ pl:
     mailbox:
       index:
         title: "Poczta"
+        messages_templates: "Szablony wiadomości"
         configure_template: "Skonfiguruj szablon"
         no_templates_configured: "Nie skonfigurowano jeszcze żadnych szablonów"
         form:
@@ -19,6 +20,7 @@ pl:
             insurance: "Ubezpieczenie"
         table:
           headers:
+            file: "Plik"
             name: "Nazwa"
             emails: "Upoważnione adresy email"
             template: "Szablon"
