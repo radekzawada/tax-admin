@@ -1,7 +1,4 @@
-class Admin::MailboxController < ApplicationController
-  layout "admin"
-  before_action :authenticate_user!
-
+class Admin::MailboxController < AdminController
   def index
     @presenter = Mailbox::Presenter.new
   end
