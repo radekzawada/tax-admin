@@ -14,32 +14,37 @@
 
 <% if @presenter.message_templates.present? %>
   <div class="container-fluid">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th class="col-sm-2"></th>
-          <th scope="col"><%= t("admin.mailbox.index.table.headers.name") %></th>
-          <th scope="col"><%= t("admin.mailbox.index.table.headers.template") %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @presenter.message_templates.each do |message_template| %>
+    <div class="card">
+      <div class="card-header">
+        <b><%= t("admin.mailbox.index.messages_templates") %></b>
+      </div>
+      <table class="table table-hover">
+        <thead>
           <tr>
-            <td>
-              <%= link_to(message_template.url, target: "_blank") do %>
-                <%= t("admin.mailbox.index.table.actions.open") %>
-                <i class="fa fa-external-link"></i>
-              <% end %>
-            </td>
-            <td><%= message_template.name %></td>
-            <td><%= message_template.template %></td>
+            <th class="col-sm-2"><%= t("admin.mailbox.index.table.headers.file") %></th>
+            <th scope="col"><%= t("admin.mailbox.index.table.headers.name") %></th>
+            <th scope="col"><%= t("admin.mailbox.index.table.headers.template") %></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @presenter.message_templates.each do |message_template| %>
+            <tr>
+              <td>
+                <%= link_to(message_template.url, target: "_blank") do %>
+                  <%= t("admin.mailbox.index.table.actions.open") %>
+                  <i class="fa fa-external-link"></i>
+                <% end %>
+              </td>
+              <td><%= link_to(message_template.name, admin_message_template_url(message_template.id)) %></td>
+              <td><%= message_template.template %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 <% else %>
-  <div class="alert alert-info" role="alert">
+  <div class="alert alert-primary" role="alert">
     <%= t("admin.mailbox.index.no_templates_configured") %>
   </div>
 <% end %>
