@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get :mailbox, to: "mailbox#index"
     post "mailbox/template_file", to: "mailbox#create_template_file"
+
+    resources :message_templates, only: %i[show]
   end
 
   # Defines the root path route ("/")
