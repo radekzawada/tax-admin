@@ -5,4 +5,7 @@ class MessagesPackage < ApplicationRecord
   validates :name, presence: true
   validates :status, presence: true, inclusion: { in: STATUSES }
   validates :external_sheet_id, presence: true, uniqueness: true
+
+  scope :active, -> { where(status: :active) }
+  scope :processed, -> { where(status: :processed) }
 end
