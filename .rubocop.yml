@@ -47,3 +47,6 @@ RSpec/MultipleMemoizedHelpers:
 
 Rails/RedundantPresenceValidationOnBelongsTo:
   Enabled: true
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: no_space

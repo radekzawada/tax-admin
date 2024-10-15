@@ -19,7 +19,7 @@ RSpec.describe Mailbox::CreateMessageTemplate do
     end
 
     let(:created_container) do
-      instance_double(Google::Apis::SheetsV4::Spreadsheet, spreadsheet_id: "123", sheets: [ sheet ])
+      instance_double(Google::Apis::SheetsV4::Spreadsheet, spreadsheet_id: "123", sheets: [sheet])
     end
     let(:sheet) do
       instance_double(
@@ -45,7 +45,7 @@ RSpec.describe Mailbox::CreateMessageTemplate do
         )
 
         expect(MessageTemplate.last).to have_attributes(
-          permitted_emails: [ "test@mail.com", "test1@mail.com" ],
+          permitted_emails: ["test@mail.com", "test1@mail.com"],
           external_spreadsheet_id: "123",
           template_name: "taxes",
           url: include("https://docs.google.com/spreadsheets/d/"),

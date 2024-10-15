@@ -44,7 +44,7 @@ RSpec.describe Google::SheetClient::RequestsFactory do
             rows: contain_exactly(
               an_instance_of(Google::Apis::SheetsV4::RowData) & have_attributes(
                 values: contain_exactly(
-                  *[ "Imię i nazwisko", "Email", "PIT" ].map do |value|
+                  *["Imię i nazwisko", "Email", "PIT"].map do |value|
                     an_instance_of(Google::Apis::SheetsV4::CellData) & have_attributes(
                       user_entered_format: an_instance_of(Google::Apis::SheetsV4::CellFormat) & have_attributes(
                         horizontal_alignment: "CENTER",

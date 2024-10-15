@@ -59,7 +59,7 @@ RSpec.describe Admin::MailboxController, type: :controller do
         expect(MessageTemplate.last).to have_attributes(
           name: "Test",
           template_name: "taxes",
-          permitted_emails: [ "test@email.com" ],
+          permitted_emails: ["test@email.com"],
           url: start_with("https://docs.google.com/spreadsheets/d/"),
           external_spreadsheet_id: be_present
         )

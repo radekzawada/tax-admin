@@ -5,7 +5,7 @@ class Google::SheetClient::RequestsFactory
     end
 
     def all_requests
-      [ *merge_cells, *populate_cells, *data_validations ]
+      [*merge_cells, *populate_cells, *data_validations]
     end
   end
 
@@ -111,7 +111,7 @@ class Google::SheetClient::RequestsFactory
 
         gaps = Array.new(config.col_span - 1) { Google::SheetClient::GAP }
 
-        [ value_cell, *gaps ]
+        [value_cell, *gaps]
       end.flatten
     )
   end

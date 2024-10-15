@@ -28,7 +28,7 @@ RSpec.describe Google::AuthorizationService, type: :service do
 
       expect(google_auth).to have_received(:make_creds).with(
         json_key_io: credentials_file,
-        scope: [ Google::Apis::SheetsV4::AUTH_SPREADSHEETS, Google::Apis::DriveV3::AUTH_DRIVE ]
+        scope: [Google::Apis::SheetsV4::AUTH_SPREADSHEETS, Google::Apis::DriveV3::AUTH_DRIVE]
       )
     end
   end

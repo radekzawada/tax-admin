@@ -16,7 +16,7 @@ class Google::AuthorizationService
   def generate_authorization
     google_auth.make_creds(
       json_key_io: File.open(ENV["GOOGLE_CREDENTIALS_PATH"]),
-      scope: [ Google::Apis::SheetsV4::AUTH_SPREADSHEETS, Google::Apis::DriveV3::AUTH_DRIVE ]
+      scope: [Google::Apis::SheetsV4::AUTH_SPREADSHEETS, Google::Apis::DriveV3::AUTH_DRIVE]
     )
   end
 end

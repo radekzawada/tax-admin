@@ -115,7 +115,7 @@ class Mailbox::CreateMessageTemplate
   end
 
   def result(monad_result, component:)
-    data, errors = monad_result.success? ? [ monad_result.value!, {} ] : [ {}, monad_result.failure ]
+    data, errors = monad_result.success? ? [monad_result.value!, {}] : [{}, monad_result.failure]
     errors = { base: errors } unless errors.is_a?(Hash)
 
     Command::Result.new(component:, errors:, data:)
