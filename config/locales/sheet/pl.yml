@@ -1,0 +1,13 @@
+pl:
+  sheet:
+    headers:
+      full_name: "Imię i nazwisko"
+      email: "Email"
+      pit: "PIT"
+      vat: "VAT"
+      tax_type: "Rodzaj podatku"
+      period: "Okres"
+      payment_deadline: "Termin płatności"
+      tax_amount: "Kwota podatku"
+      account_number: "Numer konta"
+      dispatch_date: "Data wysyłki"

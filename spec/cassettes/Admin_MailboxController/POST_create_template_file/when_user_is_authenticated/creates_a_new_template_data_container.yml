@@ -5,7 +5,7 @@ http_interactions:
     uri: https://www.googleapis.com/oauth2/v4/token
     body:
       encoding: ASCII-8BIT
-      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzdC1hZG1pbkBxdWlja3N0YXJ0LTE1NjQ1MTExNDc2MjYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9vYXV0aDIvdjQvdG9rZW4iLCJleHAiOjE3MjgxMjMwMzEsImlhdCI6MTcyODEyMjkxMSwic2NvcGUiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL3NwcmVhZHNoZWV0cyBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2RyaXZlIn0.SnGmBTIyaRPtaC2zH2K3N8bgWq48J37640hv-6b_DgKHpY9-YOjjZ3Kik8SI5D9TxH8iXQUM5hyqwrFYzgAp7--65pVS_Y5EiFSKksywOtBYi2s4GywbuWKIgJ8FPRa7arQiuzbO8rQfEZNsx9FZuone4vrf2JlfiAFRoYVBwHSKNkJ4jVraFq5_sJwHkxnMv_wxXGzQUJcnVnZgnPlsaFP0OEzUvidZ9QqdP4CA_G0WxA7NkBDt9_rlfJ4E73zrHOwal5p0PUknwYUqVz0Lj86GnIdpcGwyc7a7V5nBQCIPukGRY0ELqigZcgFEsUvhvu7CW7Pj_HxzBwU1k3P_tg
+      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzdC1hZG1pbkBxdWlja3N0YXJ0LTE1NjQ1MTExNDc2MjYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9vYXV0aDIvdjQvdG9rZW4iLCJleHAiOjE3Mjg5MzYyNDEsImlhdCI6MTcyODkzNjEyMSwic2NvcGUiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL3NwcmVhZHNoZWV0cyBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2RyaXZlIn0.SGoqeJiqoeO9LLN8Nyi047qSQxK03XWK2WhQOJj9lrfX7IsruslzNmzUMLNjQCiJxGlCtAoQP7u62Mcasz4NdZAAJRDbQKhoiiUu8n8R3rMafPnp53NIClMWc2n3mm8xj517HtOR5j0f2JkM8CXdBteFYjV7axMQjr5CwtXoZFURSH6fM4c-TkeiI3SD9L4QxUOzmcPHDva9Ub1swLChe0ZocAhCwgss7sy0s7CHgA2dHKi2dzwfKQWsCZW80q9oBkrnpCIkw-dqiPNA_zkJdmPSBT3lQAkrELu3ElW__LdKPOjiOcWlq3RFGY-_QzoZSxwlLFuhv9Myv8_MmgJoTQ
     headers:
       User-Agent:
       - Faraday v2.11.0
@@ -27,7 +27,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Sat, 05 Oct 2024 10:08:04 GMT
+      - Mon, 14 Oct 2024 20:00:57 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -44,14 +44,15 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"ya29.c.c0ASRK0Gb5r7oE-0KjrT4dBH2tZ3Pa6mJvosOu0kcKLUDL57hvadN4rjbCtA6pUU_pOdPXnjTxD4SVIpCm4qDo3vtyzyRDbxG4KwcidWoCtqWX_0Aqctjgjvda36DIQYP-xTBwUK9WKVzDF3fcJR4s319tDo_rvnIkV3XysSEvvchA659yT0RLAv49Qq_gkcS9cIyteM18vCKT487ruHsGndrEosDjkntM0CcLnXicHn0B6Jz3Ys4Mut-B5nJxRoISR3iKRl0qFEu0p2zBdFQZyVbVlZ76CtsItTWUysRlFpXIFjik_98pyCq8iZchXWJpDTjUvtMM6ES6-8ccWsH2YJk9AoZmYplRcuySWw4RuKtLFAzpLMVN9i4dE385Ktaryx0BZMwXJ4aje0luJYJ8sVMvZ33B8vepq71hUMZFIaFv7Ss1q9a71JFz767v41xQqdruXSkct0kxOYQIFgbRmnMtQJcqIdjMvv5yBz7mB_cu4FM1gVicnj_hiVsbzYovcf-doW0d5BJfodMBW6ujontjeW0WU6vxOlWrSqU0WgOB9F9cwkbX85sk33ueYOUyR_Rqkcp6tg3b5vW395ehlWo_5e-WrJjrqmRac_ztuxSqmeVfqbsodmBd-_rQF3IIkoQczg2Mhz4p5BeZQ85228jJjvj4dW0jar-hxf6y1BrsUmz49fWoayV_Foe2Yys0nOftwl0VeUzSgtIsZfx-Bq5_3lX3RO4y4iuhsxxYIR0dzXFQ_Zuvpgv4y2YO31hSr3ry8-Ulkltev6WUYs53h5l1YbxzJ73xiVasg60jvaww53Ofejzp10dQzXJ1syjgjgaq01ywuZ2oBIxav11i0uelf94w7XMeUMf9v_Wpi6OtssgaeXrazxs7stmjRq1ivf5lY9kxUM7-UztzWef2QS468F57a5MQkdscfB-I694mVBk0ovzjU6tSVMwUm1X2jniW43dUJ2e3RVcIogl64QegijSZslBWXowrxyV8vcuY-tYa6vneyj0","expires_in":3599,"token_type":"Bearer"}'
-  recorded_at: Sat, 05 Oct 2024 10:09:31 GMT
+      string: '{"access_token":"ya29.c.c0ASRK0GYM_zZLlDWFFevf4j-tbvn4IxkxM67y6fSH7cRTH4nZ2hJDt0QxooqwbEoQ8b_T18ttiqpNW_I09NoVYFEIDcIyJY47AEOuru97CgoUtBzCx-EX7qBTNBUAdwqxM3sLUzg9XBiFzCWZWi4dbRVbEmonUOUKDEjSqt4rmLCaVZqM8Ssp-gpJBxMly-te7lqaeqREJmzhyIpOLILkZY6MEbvXkzQGDY1rr_EArGJ_nxCE6tLtozJZEwnfQc6duZmjtyrLWt_tLuuVXqTyQ5QvYPI7B9y5-HFUiY3HPbEy_vXn183ZIDYlLFBUzlyQ-MBXhLjzO_2LplNAuYCc9Sepyn9lldH6SW62BjY7dLybeLgUx6zxeXC3UwG387AlMgfot5YJoZdl_5zos8Scgq20yYhvqMVmVjFB0chs6ZO9hu0ibulh8W9ffiR5Oe2y1hhU4wJ35hzOcwRh2VjwhaaF0rc1nhbuMMIqtYea0_9Icq4sb6heXb649qRw5-fRJajMBJWuVuxZ2Rd8w-ORg4oZqIvJdg4xqfda21W-jacqyxtmBrS6I997-j2eUQ5ndhQpMMn_7m6c8jkqsxla8oyglI0Olfnz_33bUl6kIm6gqJyVnSe69jcR3ZF1uRe388It2XpJcbIZ6ax0pVXvIXQq_50BOYr4ahcr87gcZ7-opWVmvti-XyypkrQRhSgjnMcxQtqqtWZc3xS0OnOfozBc-Yok-Fj1Ucxhtsugn8ZkgpvyYkr7isek99uBf83kZklz7_YFWYof_2temmi2uXliZrMRzsa2p3t-Sn4Vj1XziRzgSpR8vosrmpwabzWrSUlyumiljRrZ8X677JXBFu_xhnmmYI1-puSVbRjJtB-F6-_I3fw9ialXYbWxzYvI69xXnhtbR12dhWmbOp_rOYciuu5q9leUat_t_y4i59oZjVb9U3iMqdWOjxfcpsV1w7XuXezW_U5_BZdMc2azFQ6132YXv0Zo2ZchoxFxRen2WvWXhI8R6Jw","expires_in":3599,"token_type":"Bearer"}'
+  recorded_at: Mon, 14 Oct 2024 20:03:02 GMT
 - request:
     method: post
     uri: https://sheets.googleapis.com/v4/spreadsheets
     body:
       encoding: UTF-8
-      string: '{"properties":{"title":"Test"}}'
+      string: '{"properties":{"title":"Test"},"sheets":[{"properties":{"title":"Sheet
+        name"}}]}'
     headers:
       User-Agent:
       - ST-admin/0.0.0 google-apis-sheets_v4/0.3.0 Mac OS X/12.7.6 (gzip)
@@ -60,13 +61,13 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Sat, 05 Oct 2024 10:09:31 GMT
+      - Mon, 14 Oct 2024 20:03:02 GMT
       X-Goog-Api-Client:
       - gl-ruby/3.2.2 gdcl/1.3.0
       Content-Type:
       - application/json
       Authorization:
-      - Bearer ya29.c.c0ASRK0Gb5r7oE-0KjrT4dBH2tZ3Pa6mJvosOu0kcKLUDL57hvadN4rjbCtA6pUU_pOdPXnjTxD4SVIpCm4qDo3vtyzyRDbxG4KwcidWoCtqWX_0Aqctjgjvda36DIQYP-xTBwUK9WKVzDF3fcJR4s319tDo_rvnIkV3XysSEvvchA659yT0RLAv49Qq_gkcS9cIyteM18vCKT487ruHsGndrEosDjkntM0CcLnXicHn0B6Jz3Ys4Mut-B5nJxRoISR3iKRl0qFEu0p2zBdFQZyVbVlZ76CtsItTWUysRlFpXIFjik_98pyCq8iZchXWJpDTjUvtMM6ES6-8ccWsH2YJk9AoZmYplRcuySWw4RuKtLFAzpLMVN9i4dE385Ktaryx0BZMwXJ4aje0luJYJ8sVMvZ33B8vepq71hUMZFIaFv7Ss1q9a71JFz767v41xQqdruXSkct0kxOYQIFgbRmnMtQJcqIdjMvv5yBz7mB_cu4FM1gVicnj_hiVsbzYovcf-doW0d5BJfodMBW6ujontjeW0WU6vxOlWrSqU0WgOB9F9cwkbX85sk33ueYOUyR_Rqkcp6tg3b5vW395ehlWo_5e-WrJjrqmRac_ztuxSqmeVfqbsodmBd-_rQF3IIkoQczg2Mhz4p5BeZQ85228jJjvj4dW0jar-hxf6y1BrsUmz49fWoayV_Foe2Yys0nOftwl0VeUzSgtIsZfx-Bq5_3lX3RO4y4iuhsxxYIR0dzXFQ_Zuvpgv4y2YO31hSr3ry8-Ulkltev6WUYs53h5l1YbxzJ73xiVasg60jvaww53Ofejzp10dQzXJ1syjgjgaq01ywuZ2oBIxav11i0uelf94w7XMeUMf9v_Wpi6OtssgaeXrazxs7stmjRq1ivf5lY9kxUM7-UztzWef2QS468F57a5MQkdscfB-I694mVBk0ovzjU6tSVMwUm1X2jniW43dUJ2e3RVcIogl64QegijSZslBWXowrxyV8vcuY-tYa6vneyj0
+      - Bearer ya29.c.c0ASRK0GYM_zZLlDWFFevf4j-tbvn4IxkxM67y6fSH7cRTH4nZ2hJDt0QxooqwbEoQ8b_T18ttiqpNW_I09NoVYFEIDcIyJY47AEOuru97CgoUtBzCx-EX7qBTNBUAdwqxM3sLUzg9XBiFzCWZWi4dbRVbEmonUOUKDEjSqt4rmLCaVZqM8Ssp-gpJBxMly-te7lqaeqREJmzhyIpOLILkZY6MEbvXkzQGDY1rr_EArGJ_nxCE6tLtozJZEwnfQc6duZmjtyrLWt_tLuuVXqTyQ5QvYPI7B9y5-HFUiY3HPbEy_vXn183ZIDYlLFBUzlyQ-MBXhLjzO_2LplNAuYCc9Sepyn9lldH6SW62BjY7dLybeLgUx6zxeXC3UwG387AlMgfot5YJoZdl_5zos8Scgq20yYhvqMVmVjFB0chs6ZO9hu0ibulh8W9ffiR5Oe2y1hhU4wJ35hzOcwRh2VjwhaaF0rc1nhbuMMIqtYea0_9Icq4sb6heXb649qRw5-fRJajMBJWuVuxZ2Rd8w-ORg4oZqIvJdg4xqfda21W-jacqyxtmBrS6I997-j2eUQ5ndhQpMMn_7m6c8jkqsxla8oyglI0Olfnz_33bUl6kIm6gqJyVnSe69jcR3ZF1uRe388It2XpJcbIZ6ax0pVXvIXQq_50BOYr4ahcr87gcZ7-opWVmvti-XyypkrQRhSgjnMcxQtqqtWZc3xS0OnOfozBc-Yok-Fj1Ucxhtsugn8ZkgpvyYkr7isek99uBf83kZklz7_YFWYof_2temmi2uXliZrMRzsa2p3t-Sn4Vj1XziRzgSpR8vosrmpwabzWrSUlyumiljRrZ8X677JXBFu_xhnmmYI1-puSVbRjJtB-F6-_I3fw9ialXYbWxzYvI69xXnhtbR12dhWmbOp_rOYciuu5q9leUat_t_y4i59oZjVb9U3iMqdWOjxfcpsV1w7XuXezW_U5_BZdMc2azFQ6132YXv0Zo2ZchoxFxRen2WvWXhI8R6Jw
   response:
     status:
       code: 200
@@ -81,7 +82,7 @@ http_interactions:
       Content-Encoding:
       - gzip
       Date:
-      - Sat, 05 Oct 2024 10:08:06 GMT
+      - Mon, 14 Oct 2024 20:00:59 GMT
       Server:
       - ESF
       Cache-Control:
@@ -102,7 +103,7 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "spreadsheetId": "1zSEUWkJsVmFLx_TWi139jazK-2bqWALaC2i6SrqI_vM",
+          "spreadsheetId": "1rBXK9o7IXtxQ9Qu9XeSTZHwE0gk6J_4xGPP-CrTy7U8",
           "properties": {
             "title": "Test",
             "locale": "en_US",
@@ -237,8 +238,8 @@ http_interactions:
           "sheets": [
             {
               "properties": {
-                "sheetId": 0,
-                "title": "Sheet1",
+                "sheetId": 1132822063,
+                "title": "Sheet name",
                 "index": 0,
                 "sheetType": "GRID",
                 "gridProperties": {
@@ -248,12 +249,87 @@ http_interactions:
               }
             }
           ],
-          "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1zSEUWkJsVmFLx_TWi139jazK-2bqWALaC2i6SrqI_vM/edit"
+          "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1rBXK9o7IXtxQ9Qu9XeSTZHwE0gk6J_4xGPP-CrTy7U8/edit"
         }
-  recorded_at: Sat, 05 Oct 2024 10:09:33 GMT
+  recorded_at: Mon, 14 Oct 2024 20:03:04 GMT
 - request:
     method: post
-    uri: https://www.googleapis.com/drive/v3/files/1zSEUWkJsVmFLx_TWi139jazK-2bqWALaC2i6SrqI_vM/permissions
+    uri: https://sheets.googleapis.com/v4/spreadsheets/1rBXK9o7IXtxQ9Qu9XeSTZHwE0gk6J_4xGPP-CrTy7U8:batchUpdate
+    body:
+      encoding: UTF-8
+      string: '{"requests":[{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":1,"endRowIndex":2,"sheetId":1132822063,"startColumnIndex":0,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":2,"endRowIndex":2,"sheetId":1132822063,"startColumnIndex":1,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":6,"endRowIndex":1,"sheetId":1132822063,"startColumnIndex":2,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":10,"endRowIndex":1,"sheetId":1132822063,"startColumnIndex":6,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":11,"endRowIndex":2,"sheetId":1132822063,"startColumnIndex":10,"startRowIndex":0}}},{"updateCells":{"fields":"userEnteredFormat(horizontalAlignment,backgroundColor,textFormat),userEnteredValue","range":{"endColumnIndex":11,"endRowIndex":2,"sheetId":1132822063,"startColumnIndex":0,"startRowIndex":0},"rows":[{"values":[{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Imię
+        i nazwisko"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Email"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"PIT"}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"VAT"}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Numer
+        konta"}}]},{"values":[{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Rodzaj
+        podatku"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Okres"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Termin
+        płatności"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Kwota
+        podatku"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Rodzaj
+        podatku"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Okres"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Termin
+        płatności"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Kwota
+        podatku"}}]}]}}]}'
+    headers:
+      User-Agent:
+      - ST-admin/0.0.0 google-apis-sheets_v4/0.3.0 Mac OS X/12.7.6 (gzip)
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Mon, 14 Oct 2024 20:03:04 GMT
+      X-Goog-Api-Client:
+      - gl-ruby/3.2.2 gdcl/1.3.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer ya29.c.c0ASRK0GYM_zZLlDWFFevf4j-tbvn4IxkxM67y6fSH7cRTH4nZ2hJDt0QxooqwbEoQ8b_T18ttiqpNW_I09NoVYFEIDcIyJY47AEOuru97CgoUtBzCx-EX7qBTNBUAdwqxM3sLUzg9XBiFzCWZWi4dbRVbEmonUOUKDEjSqt4rmLCaVZqM8Ssp-gpJBxMly-te7lqaeqREJmzhyIpOLILkZY6MEbvXkzQGDY1rr_EArGJ_nxCE6tLtozJZEwnfQc6duZmjtyrLWt_tLuuVXqTyQ5QvYPI7B9y5-HFUiY3HPbEy_vXn183ZIDYlLFBUzlyQ-MBXhLjzO_2LplNAuYCc9Sepyn9lldH6SW62BjY7dLybeLgUx6zxeXC3UwG387AlMgfot5YJoZdl_5zos8Scgq20yYhvqMVmVjFB0chs6ZO9hu0ibulh8W9ffiR5Oe2y1hhU4wJ35hzOcwRh2VjwhaaF0rc1nhbuMMIqtYea0_9Icq4sb6heXb649qRw5-fRJajMBJWuVuxZ2Rd8w-ORg4oZqIvJdg4xqfda21W-jacqyxtmBrS6I997-j2eUQ5ndhQpMMn_7m6c8jkqsxla8oyglI0Olfnz_33bUl6kIm6gqJyVnSe69jcR3ZF1uRe388It2XpJcbIZ6ax0pVXvIXQq_50BOYr4ahcr87gcZ7-opWVmvti-XyypkrQRhSgjnMcxQtqqtWZc3xS0OnOfozBc-Yok-Fj1Ucxhtsugn8ZkgpvyYkr7isek99uBf83kZklz7_YFWYof_2temmi2uXliZrMRzsa2p3t-Sn4Vj1XziRzgSpR8vosrmpwabzWrSUlyumiljRrZ8X677JXBFu_xhnmmYI1-puSVbRjJtB-F6-_I3fw9ialXYbWxzYvI69xXnhtbR12dhWmbOp_rOYciuu5q9leUat_t_y4i59oZjVb9U3iMqdWOjxfcpsV1w7XuXezW_U5_BZdMc2azFQ6132YXv0Zo2ZchoxFxRen2WvWXhI8R6Jw
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Encoding:
+      - gzip
+      Date:
+      - Mon, 14 Oct 2024 20:01:01 GMT
+      Server:
+      - ESF
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      X-L2-Request-Path:
+      - l2-managed-6
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "spreadsheetId": "1rBXK9o7IXtxQ9Qu9XeSTZHwE0gk6J_4xGPP-CrTy7U8",
+          "replies": [
+            {},
+            {},
+            {},
+            {},
+            {},
+            {}
+          ]
+        }
+  recorded_at: Mon, 14 Oct 2024 20:03:05 GMT
+- request:
+    method: post
+    uri: https://www.googleapis.com/drive/v3/files/1rBXK9o7IXtxQ9Qu9XeSTZHwE0gk6J_4xGPP-CrTy7U8/permissions
     body:
       encoding: UTF-8
       string: '{"emailAddress":"test@email.com","role":"writer","type":"user"}'
@@ -265,28 +341,28 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Sat, 05 Oct 2024 10:09:33 GMT
+      - Mon, 14 Oct 2024 20:03:05 GMT
       X-Goog-Api-Client:
       - gl-ruby/3.2.2 gdcl/1.55.0
       Content-Type:
       - application/json
       Authorization:
-      - Bearer ya29.c.c0ASRK0Gb5r7oE-0KjrT4dBH2tZ3Pa6mJvosOu0kcKLUDL57hvadN4rjbCtA6pUU_pOdPXnjTxD4SVIpCm4qDo3vtyzyRDbxG4KwcidWoCtqWX_0Aqctjgjvda36DIQYP-xTBwUK9WKVzDF3fcJR4s319tDo_rvnIkV3XysSEvvchA659yT0RLAv49Qq_gkcS9cIyteM18vCKT487ruHsGndrEosDjkntM0CcLnXicHn0B6Jz3Ys4Mut-B5nJxRoISR3iKRl0qFEu0p2zBdFQZyVbVlZ76CtsItTWUysRlFpXIFjik_98pyCq8iZchXWJpDTjUvtMM6ES6-8ccWsH2YJk9AoZmYplRcuySWw4RuKtLFAzpLMVN9i4dE385Ktaryx0BZMwXJ4aje0luJYJ8sVMvZ33B8vepq71hUMZFIaFv7Ss1q9a71JFz767v41xQqdruXSkct0kxOYQIFgbRmnMtQJcqIdjMvv5yBz7mB_cu4FM1gVicnj_hiVsbzYovcf-doW0d5BJfodMBW6ujontjeW0WU6vxOlWrSqU0WgOB9F9cwkbX85sk33ueYOUyR_Rqkcp6tg3b5vW395ehlWo_5e-WrJjrqmRac_ztuxSqmeVfqbsodmBd-_rQF3IIkoQczg2Mhz4p5BeZQ85228jJjvj4dW0jar-hxf6y1BrsUmz49fWoayV_Foe2Yys0nOftwl0VeUzSgtIsZfx-Bq5_3lX3RO4y4iuhsxxYIR0dzXFQ_Zuvpgv4y2YO31hSr3ry8-Ulkltev6WUYs53h5l1YbxzJ73xiVasg60jvaww53Ofejzp10dQzXJ1syjgjgaq01ywuZ2oBIxav11i0uelf94w7XMeUMf9v_Wpi6OtssgaeXrazxs7stmjRq1ivf5lY9kxUM7-UztzWef2QS468F57a5MQkdscfB-I694mVBk0ovzjU6tSVMwUm1X2jniW43dUJ2e3RVcIogl64QegijSZslBWXowrxyV8vcuY-tYa6vneyj0
+      - Bearer ya29.c.c0ASRK0GYM_zZLlDWFFevf4j-tbvn4IxkxM67y6fSH7cRTH4nZ2hJDt0QxooqwbEoQ8b_T18ttiqpNW_I09NoVYFEIDcIyJY47AEOuru97CgoUtBzCx-EX7qBTNBUAdwqxM3sLUzg9XBiFzCWZWi4dbRVbEmonUOUKDEjSqt4rmLCaVZqM8Ssp-gpJBxMly-te7lqaeqREJmzhyIpOLILkZY6MEbvXkzQGDY1rr_EArGJ_nxCE6tLtozJZEwnfQc6duZmjtyrLWt_tLuuVXqTyQ5QvYPI7B9y5-HFUiY3HPbEy_vXn183ZIDYlLFBUzlyQ-MBXhLjzO_2LplNAuYCc9Sepyn9lldH6SW62BjY7dLybeLgUx6zxeXC3UwG387AlMgfot5YJoZdl_5zos8Scgq20yYhvqMVmVjFB0chs6ZO9hu0ibulh8W9ffiR5Oe2y1hhU4wJ35hzOcwRh2VjwhaaF0rc1nhbuMMIqtYea0_9Icq4sb6heXb649qRw5-fRJajMBJWuVuxZ2Rd8w-ORg4oZqIvJdg4xqfda21W-jacqyxtmBrS6I997-j2eUQ5ndhQpMMn_7m6c8jkqsxla8oyglI0Olfnz_33bUl6kIm6gqJyVnSe69jcR3ZF1uRe388It2XpJcbIZ6ax0pVXvIXQq_50BOYr4ahcr87gcZ7-opWVmvti-XyypkrQRhSgjnMcxQtqqtWZc3xS0OnOfozBc-Yok-Fj1Ucxhtsugn8ZkgpvyYkr7isek99uBf83kZklz7_YFWYof_2temmi2uXliZrMRzsa2p3t-Sn4Vj1XziRzgSpR8vosrmpwabzWrSUlyumiljRrZ8X677JXBFu_xhnmmYI1-puSVbRjJtB-F6-_I3fw9ialXYbWxzYvI69xXnhtbR12dhWmbOp_rOYciuu5q9leUat_t_y4i59oZjVb9U3iMqdWOjxfcpsV1w7XuXezW_U5_BZdMc2azFQ6132YXv0Zo2ZchoxFxRen2WvWXhI8R6Jw
   response:
     status:
       code: 200
       message: OK
     headers:
-      Vary:
-      - Origin, X-Origin
-      Expires:
-      - Mon, 01 Jan 1990 00:00:00 GMT
+      Date:
+      - Mon, 14 Oct 2024 20:01:03 GMT
       Pragma:
       - no-cache
+      Expires:
+      - Mon, 01 Jan 1990 00:00:00 GMT
       Cache-Control:
       - no-cache, no-store, max-age=0, must-revalidate
-      Date:
-      - Sat, 05 Oct 2024 10:08:08 GMT
+      Vary:
+      - Origin, X-Origin
       Content-Type:
       - application/json; charset=UTF-8
       Content-Encoding:
@@ -312,5 +388,5 @@ http_interactions:
           "type": "user",
           "role": "writer"
         }
-  recorded_at: Sat, 05 Oct 2024 10:09:35 GMT
+  recorded_at: Mon, 14 Oct 2024 20:03:07 GMT
 recorded_with: VCR 6.3.1

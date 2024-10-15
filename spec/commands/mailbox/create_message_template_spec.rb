@@ -19,11 +19,18 @@ RSpec.describe Mailbox::CreateMessageTemplate do
     end
 
     let(:created_container) do
-      instance_double(Google::Apis::SheetsV4::Spreadsheet, spreadsheet_id: "123")
+      instance_double(Google::Apis::SheetsV4::Spreadsheet, spreadsheet_id: "123", sheets: [ sheet ])
+    end
+    let(:sheet) do
+      instance_double(
+        Google::Apis::SheetsV4::Sheet,
+        properties: instance_double(Google::Apis::SheetsV4::SheetProperties, sheet_id: "1")
+      )
     end
 
     before do
       allow(google_sheet_client).to receive(:create_spreadsheet).and_return(Dry::Monads::Success(created_container))
+      allow(google_sheet_client).to receive(:configure_sheet).and_return(Dry::Monads::Success(created_container))
       allow(google_drive_client).to receive(:grant_permissions).and_return(Dry::Monads::Success({}))
     end
 
@@ -48,10 +55,14 @@ RSpec.describe Mailbox::CreateMessageTemplate do
         expect(MessagesPackage.last).to have_attributes(
           name: "Sheet name",
           status: "active",
-          message_template: MessageTemplate.last
+          message_template: MessageTemplate.last,
+          external_sheet_id: "1"
         )
 
-        expect(google_sheet_client).to have_received(:create_spreadsheet).with("Template data container", "Sheet name")
+        expect(google_sheet_client).to have_received(:create_spreadsheet)
+          .with("Template data container", "Sheet name")
+        expect(google_sheet_client).to have_received(:configure_sheet)
+          .with(created_container, sheet, MessageTemplate::TEMPLATES_CONFIGURATION[:taxes])
         expect(google_drive_client).to have_received(:grant_permissions).with("123", email: "test@mail.com")
         expect(google_drive_client).to have_received(:grant_permissions).with("123", email: "test1@mail.com")
       end
@@ -79,6 +90,23 @@ RSpec.describe Mailbox::CreateMessageTemplate do
       before do
         allow(google_sheet_client)
           .to receive(:create_spreadsheet)
+          .and_return(Dry::Monads::Failure("something went wrong"))
+      end
+
+      specify do
+        expect { call }.not_to change(MessageTemplate, :count)
+        expect(call).to be_failure & be_a(Command::Result) & have_attributes(
+          component: :command,
+          data: {},
+          errors: { base: "something went wrong" }
+        )
+      end
+    end
+
+    context "when configuring sheet fails" do
+      before do
+        allow(google_sheet_client)
+          .to receive(:configure_sheet)
           .and_return(Dry::Monads::Failure("something went wrong"))
       end
 

@@ -12,7 +12,7 @@
   <% end %>
 <% end %>
 
-<% if @presenter.template_data_containers.present? %>
+<% if @presenter.message_templates.present? %>
   <div class="container-fluid">
     <table class="table table-hover">
       <thead>
@@ -23,16 +23,16 @@
         </tr>
       </thead>
       <tbody>
-        <% @presenter.template_data_containers.each do |template_data_container| %>
+        <% @presenter.message_templates.each do |message_template| %>
           <tr>
             <td>
-              <%= link_to(template_data_container.url, target: "_blank") do %>
+              <%= link_to(message_template.url, target: "_blank") do %>
                 <%= t("admin.mailbox.index.table.actions.open") %>
                 <i class="fa fa-external-link"></i>
               <% end %>
             </td>
-            <td><%= template_data_container.name %></td>
-            <td><%= template_data_container.template %></td>
+            <td><%= message_template.name %></td>
+            <td><%= message_template.template %></td>
           </tr>
         <% end %>
       </tbody>

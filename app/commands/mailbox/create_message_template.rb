@@ -1,3 +1,11 @@
+# TODO:
+# Right now it works inline but ultimate solution should be to split it into separate operations that will handle
+# creating a new message template with initial message package asynchronously. Correct workflow should be:
+#   1. Create a new message template with message package with status requested and package records with status requested
+#   2. Create external spreadsheet and assign external_spreadsheet_id to the message template
+#   3. Configure sheet with template data
+#   5. Grant access to the spreadsheet for permitted_emails
+#   5. Update message and package records with status active
 class Mailbox::CreateMessageTemplate
   extend Dry::Initializer
   include Dry::Monads[:result]
@@ -9,7 +17,7 @@ class Mailbox::CreateMessageTemplate
     params do
       required(:name).filled(:string)
       required(:sheet_name).filled(:string)
-      required(:template).filled(:string)
+      required(:template).filled(:symbol)
       required(:emails).maybe(:array).each(:string)
 
       before(:value_coercer) do |result|
@@ -56,11 +64,13 @@ class Mailbox::CreateMessageTemplate
   def call_command(data)
     # TODO later extract external calls to separate commands called async
     remote_container = yield create_remote_container(**data)
+    remote_sheet = remote_container.sheets.first
+    yield configure_sheet(remote_container, remote_sheet, **data)
 
-    yield grant_access(remote_container.spreadsheet_id, emails: data[:emails]) if data[:emails].present?
+    yield grant_access(remote_container, emails: data[:emails]) if data[:emails].present?
 
     container = (yield create_container(data, remote_container))[:container]
-    message_package = (yield create_message_package(data, container))[:message_package]
+    message_package = (yield create_message_package(data, container, remote_sheet))[:message_package]
 
     Success(container:, message_package:)
   end
@@ -69,8 +79,14 @@ class Mailbox::CreateMessageTemplate
     google_sheet_client.create_spreadsheet(name, sheet_name)
   end
 
-  def grant_access(google_object_id, emails:)
-    emails.each { |email| yield google_drive_client.grant_permissions(google_object_id, email:) }
+  def configure_sheet(remote_spreadsheet, sheet, template:, **)
+    template_config = MessageTemplate::TEMPLATES_CONFIGURATION[template]
+
+    google_sheet_client.configure_sheet(remote_spreadsheet, sheet, template_config)
+  end
+
+  def grant_access(remote_container, emails:)
+    emails.each { |email| yield google_drive_client.grant_permissions(remote_container.spreadsheet_id, email:) }
 
     Success()
   end
@@ -87,11 +103,12 @@ class Mailbox::CreateMessageTemplate
     template_container.save ? Success(container: template_container) : Failure(template_container.errors.to_hash)
   end
 
-  def create_message_package(data, container)
+  def create_message_package(data, container, remote_sheet)
     message_package = MessagesPackage.new(
       message_template: container,
       name: data[:sheet_name],
-      status: :active
+      status: :active,
+      external_sheet_id: remote_sheet.properties.sheet_id
     )
 
     message_package.save ? Success(message_package:) : Failure(message_package.errors.to_hash)
