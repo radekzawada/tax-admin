@@ -1,0 +1,108 @@
+<% content_for(:page_header) do %>
+  <%= t("admin.message_templates.title", name: @presenter.name) %>
+<% end %>
+
+<div class="container-fluid">
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">
+          <b><%= t("admin.message_templates.template_data.title") %></b>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%= t("admin.message_templates.template_data.name") %>
+            <span><%= @presenter.name %></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%= t("admin.message_templates.template_data.template") %>
+            <span><%= t("admin.message_templates.templates.#{@presenter.template_name}") %></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%= t("admin.message_templates.template_data.created_at") %>
+            <span><%= @presenter.created_at %></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%= t("admin.message_templates.template_data.remote_file") %>
+            <span>
+              <%= link_to(@presenter.url, target: "_blank") do %>
+                <%= t("admin.message_templates.template_data.open") %>
+                <i class="fa fa-external-link"></i>
+              <% end %>
+            </span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%= t("admin.message_templates.template_data.access") %>
+            <span class="text-end"><%= @presenter.permitted_emails.join(" ") %></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <b><%= t("admin.message_templates.active_messages_packages.title") %></b>
+        </div>
+        <% if @presenter.active_messages_packages.present? %>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t("admin.message_templates.active_messages_packages.headers.name") %></th>
+                <th><%= t("admin.message_templates.active_messages_packages.headers.remote_sheet") %></th>
+                <th><%= t("admin.message_templates.active_messages_packages.headers.messages_count") %></th>
+                <th><%= t("admin.message_templates.active_messages_packages.headers.actions") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @presenter.active_messages_packages.each do |package| %>
+                <tr>
+                  <td><%= package.name %></td>
+                  <td>
+                    <%= link_to(package.url, target: "_blank") do %>
+                      <%= t("admin.message_templates.active_messages_packages.actions.open") %>
+                      <i class="fa fa-external-link"></i>
+                    <% end %>
+                  </td>
+                  <td><%= package.messages_count %></td>
+                  <td>
+
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <div class="alert alert-primary rounded-0" role="alert">
+            <%= t("admin.message_templates.no_active_messages_packages") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <b><%= t("admin.message_templates.processed_messages_packages.title") %></b>
+        </div>
+        <% if @presenter.processed_messages_packages.present? %>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t("admin.message_templates.processed_messages_packages.headers.name") %></th>
+                <th><%= t("admin.message_templates.processed_messages_packages.headers.messages_count") %></th>
+                <th><%= t("admin.message_templates.processed_messages_packages.headers.actions") %></th>
+              </tr>
+            </thead>
+          </table>
+        <% else %>
+          <div class="alert alert-primary rounded-0" role="alert">
+            <%= t("admin.message_templates.no_processed_messages_packages") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

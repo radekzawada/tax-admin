@@ -13,8 +13,8 @@ RSpec.describe Mailbox::Presenter do
 
     specify do
       expect(message_templates).to contain_exactly(
-        an_instance_of(Mailbox::Presenter::ContainerData) & have_attributes(name: "test1", template: "Podatki"),
-        an_instance_of(Mailbox::Presenter::ContainerData) & have_attributes(name: "test2", template: "Ubezpieczenie")
+        an_instance_of(Mailbox::Presenter::TemplateData) & have_attributes(name: "test1", template: "Podatki"),
+        an_instance_of(Mailbox::Presenter::TemplateData) & have_attributes(name: "test2", template: "Ubezpieczenie")
       )
     end
   end
