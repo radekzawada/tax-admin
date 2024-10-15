@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_06_195805) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_15_085943) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_06_195805) do
     t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "external_sheet_id"
     t.index ["message_template_id"], name: "index_messages_packages_on_message_template_id"
   end
 
