@@ -12,10 +12,12 @@
  *
  *= require_self
  */
+ @import "custom";
  @import "bootstrap";
 
  body {
   background-color: #f0f0f0;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .sidebar {

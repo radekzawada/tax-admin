@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .sidebar {
@@ -16,4 +17,12 @@ body {
 
 .sidebar .nav-item:hover {
   background-color: #e9ecef; /* Lighter background for sidebar items */
+}
+
+nav.navbar {
+  border-bottom: 1px solid #dee2e6; /* Light border for navbar */
+}
+
+nav.sidebar {
+  border-right: 1px solid #dee2e6; /* Light border for sidebar */
 }
