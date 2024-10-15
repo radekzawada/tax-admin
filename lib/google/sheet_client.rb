@@ -2,7 +2,18 @@ class Google::SheetClient
   extend Dry::Initializer
   include Dry::Monads[:result]
 
+  GAP = Google::Apis::SheetsV4::CellData.new(
+    user_entered_value: Google::Apis::SheetsV4::ExtendedValue.new(string_value: nil)
+  )
+  HEADER_CELL_FORMAT = Google::Apis::SheetsV4::CellFormat.new(
+    horizontal_alignment: "CENTER",
+    text_format: Google::Apis::SheetsV4::TextFormat.new(bold: true)
+  )
+  UPDATE_FORMAT_AND_VALUE_FIELDS = "userEnteredFormat(horizontalAlignment,backgroundColor,textFormat),userEnteredValue"
+  MERGE_ALL_TYPE = "MERGE_ALL"
+
   option :google_sheet_service
+  option :requests_factory, default: proc { Google::SheetClient::RequestsFactory.new }
 
   def self.default
     @default ||= begin
@@ -20,6 +31,15 @@ class Google::SheetClient
     created_spreadsheet = google_sheet_service.create_spreadsheet(spreadsheet)
 
     Success(created_spreadsheet)
+  end
+
+  def configure_sheet(spreadsheet, sheet, configuration)
+    requests = requests_factory.from_template_configuration(sheet, configuration)
+    batch_request = Google::Apis::SheetsV4::BatchUpdateSpreadsheetRequest.new(requests:)
+
+    google_sheet_service.batch_update_spreadsheet(spreadsheet.spreadsheet_id, batch_request)
+
+    Success()
   end
 
   private

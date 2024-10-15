@@ -39,4 +39,32 @@ RSpec.describe Google::SheetClient do
       )
     end
   end
+
+  describe "#configure_sheet" do
+    subject(:configure_sheet) { sheet_client.configure_sheet(spreadsheet, sheet, configuration) }
+
+    let(:sheet_client) { described_class.new(google_sheet_service:, requests_factory:) }
+    let(:google_sheet_service) { instance_double(Google::Apis::SheetsV4::SheetsService) }
+    let(:requests_factory) { instance_double(Google::SheetClient::RequestsFactory) }
+
+    let(:spreadsheet) { instance_double(Google::Apis::SheetsV4::Spreadsheet, spreadsheet_id: "spreadsheet_id") }
+    let(:sheet) { instance_double(Google::Apis::SheetsV4::Sheet) }
+    let(:configuration) { instance_double(MessageTemplate::Configuration) }
+    let(:requests) { [instance_double(Google::Apis::SheetsV4::Request)] }
+
+    before do
+      allow(requests_factory).to receive(:from_template_configuration).and_return(requests)
+      allow(google_sheet_service).to receive(:batch_update_spreadsheet)
+    end
+
+    it "configures a sheet" do
+      expect(configure_sheet).to be_success
+
+      expect(requests_factory).to have_received(:from_template_configuration).with(sheet, configuration)
+      expect(google_sheet_service).to have_received(:batch_update_spreadsheet).with(
+        "spreadsheet_id",
+        an_instance_of(Google::Apis::SheetsV4::BatchUpdateSpreadsheetRequest) & have_attributes(requests:)
+      )
+    end
+  end
 end
