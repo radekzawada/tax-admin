@@ -146,4 +146,18 @@ RSpec.describe Google::SheetClient::RequestsFactory do
       )
     end
   end
+
+  describe "#new_sheet_request" do
+    subject(:new_sheet_request) { described_class.new.new_sheet_request(sheet_title) }
+
+    let(:sheet_title) { "Sheet title" }
+
+    it "builds new sheet request" do
+      expect(new_sheet_request).to be_an_instance_of(Google::Apis::SheetsV4::Request) & have_attributes(
+        add_sheet: an_instance_of(Google::Apis::SheetsV4::AddSheetRequest) & have_attributes(
+          properties: an_instance_of(Google::Apis::SheetsV4::SheetProperties) & have_attributes(title: sheet_title)
+        )
+      )
+    end
+  end
 end

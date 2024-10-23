@@ -1,22 +1,18 @@
 class Google::SheetClient::RequestsFactory
-  RequestsContainer = Struct.new(:merge_cells, :populate_cells, :data_validations) do
-    def initialize
-      super([], [], [])
-    end
-
-    def all_requests
-      [*merge_cells, *populate_cells, *data_validations]
-    end
+  def from_template_configuration(sheet, configuration)
+    [
+      *build_merge_cells_requests(sheet, configuration),
+      build_populate_headers_request(sheet, configuration),
+      *build_data_validation_requests(sheet, configuration)
+    ]
   end
 
-  def from_template_configuration(sheet, configuration)
-    container = RequestsContainer.new
-
-    container.merge_cells += build_merge_cells_requests(sheet, configuration)
-    container.populate_cells << build_populate_headers_request(sheet, configuration)
-    container.data_validations += build_data_validation_requests(sheet, configuration)
-
-    container.all_requests
+  def new_sheet_request(sheet_title)
+    Google::Apis::SheetsV4::Request.new(
+      add_sheet: Google::Apis::SheetsV4::AddSheetRequest.new(
+        properties: Google::Apis::SheetsV4::SheetProperties.new(title: sheet_title)
+      )
+    )
   end
 
   private
