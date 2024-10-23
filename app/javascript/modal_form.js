@@ -1,19 +1,24 @@
-import { Controller } from "@hotwired/stimulus"
 import { toggleLoading } from "application";
 
-// Connects to data-controller="admin-mailbox-configure-template"
-export default class extends Controller {
-  connect() {
-    document.querySelector("#addFileTemplateModal").addEventListener('show.bs.modal', this.resetForm.bind(this));
+// app/javascript/modal_form.js
+export default class ModalForm {
+  constructor(document, modalSelector) {
+    this.document = document;
+    this.modalSelector = modalSelector;
   }
 
-  submit(event) {
+  connect() {
+    this.document.querySelector(this.modalSelector)
+      .addEventListener('show.bs.modal', this.resetForm.bind(this));
+  }
+
+  sendRequest(event) {
     event.preventDefault()
     const form = event.target
     const formData = new FormData(form)
     const url = form.action
     const method = form.method
-    const token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+    const token = this.document.querySelector('meta[name="csrf-token"]').getAttribute("content");
     const body = JSON.stringify(Object.fromEntries(formData.entries()));
     const headers = {
       "Content-Type": "application/json",
@@ -43,7 +48,7 @@ export default class extends Controller {
   resetForm(event) {
     event.target.querySelector("form").reset();
 
-    document.querySelectorAll('.is-invalid').forEach(element => {
+    this.document.querySelectorAll('.is-invalid').forEach(element => {
       element.classList.remove('is-invalid');
     });
   }
