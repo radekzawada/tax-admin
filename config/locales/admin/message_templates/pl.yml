@@ -32,3 +32,10 @@ pl:
           name: "Nazwa"
           messages_count: "Liczba wiadomości"
           actions: "Akcje"
+      new_package:
+        title: "Nowa paczka wiadomości"
+        action_button: "Dodaj paczkę wiadomości"
+        labels:
+          name: "Nazwa"
+        close: "Zamknij"
+        submit: "Zapisz"

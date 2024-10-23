@@ -1,0 +1,7 @@
+<%= render(
+      "admin/shared/modal_form",
+      title: t("admin.message_templates.new_package.title"),
+      modal_id: "new_package_modal"
+    ) do %>
+  <%= render("new_package_form", presenter:) %>
+<% end %>
