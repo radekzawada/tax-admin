@@ -1,0 +1,17 @@
+<div class="modal fade" id="<%= modal_id %>" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <%= title %>
+        </h1>
+        <%= button_tag "", type: "button", class: "btn-close", data: { bs_dismiss: "modal" },
+            aria: { label: "Close" } %>
+      </div>
+      <div class="alert alert-danger d-none" role="alert" data-error-for="form">
+      </div>
+      <%= yield %>
+    </div>
+  </div>
+</div>
+

@@ -1,6 +1,15 @@
 <% content_for(:page_header) do %>
   <%= t("admin.message_templates.title", name: @presenter.name) %>
 <% end %>
+<% content_for(:page_actions) do %>
+  <%= button_tag type: "button",
+    class: "btn btn-action",
+    data: { bs_toggle: "modal", bs_target: "#new_package_modal" } do %>
+
+    <i class="fa fa-plus"></i>
+    <%= t("admin.message_templates.new_package.action_button") %>
+  <% end %>
+<% end %>
 
 <div class="container-fluid">
   <div class="row mb-3">
@@ -106,3 +115,4 @@
     </div>
   </div>
 </div>
+<%= render "new_package_modal", presenter: @presenter %>
