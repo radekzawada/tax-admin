@@ -52,7 +52,7 @@ RSpec.describe Admin::MailboxController, type: :controller do
 
       before { sign_in user }
 
-      it "creates a new template data container", :vcr do
+      it "creates new message template", :vcr do
         expect { action }.to change(MessageTemplate, :count).by(1)
           .and change(MessagesPackage, :count).by(1)
         expect(response).to have_http_status(:created)

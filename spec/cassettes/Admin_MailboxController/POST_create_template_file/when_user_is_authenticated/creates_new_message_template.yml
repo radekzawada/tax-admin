@@ -1,0 +1,396 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.googleapis.com/oauth2/v4/token
+    body:
+      encoding: ASCII-8BIT
+      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzdC1hZG1pbkBxdWlja3N0YXJ0LTE1NjQ1MTExNDc2MjYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9vYXV0aDIvdjQvdG9rZW4iLCJleHAiOjE3Mjk2OTcxODEsImlhdCI6MTcyOTY5NzA2MSwic2NvcGUiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL3NwcmVhZHNoZWV0cyBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2RyaXZlIn0.Q3kKezTjRa970xTjclG5-bLV8FcJEBCSI9NzGOyRhvLYdf9xG33TPwafJRkyr9VMMy0_Wx2obyZ1ZOXITVPvuoxIw97EASzzhSAGTfBh7gZgjUrSGxooiuxP2aCUBb_tgumhT3cmzXfXvxRWXYk7vR1dfLzMq0Cs_9g-yrNI097msM0mAwjGzuo1JyzEcSGYaNfiUFo6NbqRBGWatUX3ymoMdYdE83z5QCNYHOaOm_2aRrftMyjaez-c8UGmRsiMwKRpw0H56OhDqTXTtRC1D66f3McHjtBJpeK0KLO_S5o4fDbUK6GldjEQR1U_jJsCTDcTHurXGTyP9TeDvvdpDA
+    headers:
+      User-Agent:
+      - Faraday v2.11.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Wed, 23 Oct 2024 15:22:46 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"ya29.c.c0ASRK0GbrNuJGi-6K6G6_1jDpVo5j_dS1NT6Yxk3LB_yDc-1KvAR9G6mYfYPcWsSIRk5GHz7i9maScJiBvVOi5qJ6mNeUf5jIVDOnOI7zgcI9XFm__MMfDVbl97YKSu_79nEPwnvYG7WWWfmL-I7L0C4LGT8rmHvriFzUBFOg12w-DGsIG-HU1WYvaljBxRDGIxbq8fmGI7zsddO3yxduMK2X0Egu3ZtqOnCzWDscF4p2k7kSAsgQ5jtnu0_PrG_bse_mcmfKjxBueOWFumaH8Bo6JJnhu3W8WnvBssXSYqQliKx-hekdS5dTT3PUQ41K1KjEwKAV5GybX_mUKtxTexZFRgEcW7MIQN5LZWdptyCtX8lMSy71n2I3NAT387COu4ypb9B0ysQM0e7qvjQfrBn_a-Bi6cqa44YsZSZaSqY2u9zlMrwydh1itrIvuFOFIo08ivJ-m7o0c4qQ8yJ_mdkJju7rd0vQhqbqtcltnuqUZIajw-4Wqw8hneFvgF2kt-nh2iW1kgd6OO0elyIaRJUW1v4g3dQB1RhackWnQOfqiQ1yl3O60xBs7BdymzkbUUqBqmxtZFgz6jxOxw7RvxRwcF50rlf_nmOijqwW7j0Juoo3hkW_va7Rwt5ub3qmsokpZlOsmYqwuwdW15ral-1izmU5eV4dU58h3OSjRRQt79guvotJIn2hQ_fdnO06zxjbVlFQcjmyYujp06xzmtIjjqt97-52IiWxbOBO0Bgpg9z7FlRWwSXWVI0kFQyQj2Y0FkVOQ4FIBrreBX7bgrtVzXWajJg1FqXxk2_BZOkeVBqWf3f-5_6S4oUubf5alefwI3gBh04cpd8OmBgk_0SvJ37Oz3XpXetOc9iqqF9wbZjRZoza1xjFq58oqQ6kp98dv0fznY_le00eJ2q2v2_rdbX3kOZylUUc6ob9hzuv-cJcatwMQVbfSMRBaZw6UmU4RJ51eozys9Iqx2pmr16s9r9isl__htJo_rRVve20QwtM0ZwrI7U","expires_in":3599,"token_type":"Bearer"}'
+  recorded_at: Wed, 23 Oct 2024 15:25:21 GMT
+- request:
+    method: post
+    uri: https://sheets.googleapis.com/v4/spreadsheets
+    body:
+      encoding: UTF-8
+      string: '{"properties":{"title":"Test"},"sheets":[{"properties":{"title":"Sheet
+        name"}}]}'
+    headers:
+      User-Agent:
+      - ST-admin/0.0.0 google-apis-sheets_v4/0.3.0 Mac OS X/12.7.6 (gzip)
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Wed, 23 Oct 2024 15:25:21 GMT
+      X-Goog-Api-Client:
+      - gl-ruby/3.2.2 gdcl/1.3.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer ya29.c.c0ASRK0GbrNuJGi-6K6G6_1jDpVo5j_dS1NT6Yxk3LB_yDc-1KvAR9G6mYfYPcWsSIRk5GHz7i9maScJiBvVOi5qJ6mNeUf5jIVDOnOI7zgcI9XFm__MMfDVbl97YKSu_79nEPwnvYG7WWWfmL-I7L0C4LGT8rmHvriFzUBFOg12w-DGsIG-HU1WYvaljBxRDGIxbq8fmGI7zsddO3yxduMK2X0Egu3ZtqOnCzWDscF4p2k7kSAsgQ5jtnu0_PrG_bse_mcmfKjxBueOWFumaH8Bo6JJnhu3W8WnvBssXSYqQliKx-hekdS5dTT3PUQ41K1KjEwKAV5GybX_mUKtxTexZFRgEcW7MIQN5LZWdptyCtX8lMSy71n2I3NAT387COu4ypb9B0ysQM0e7qvjQfrBn_a-Bi6cqa44YsZSZaSqY2u9zlMrwydh1itrIvuFOFIo08ivJ-m7o0c4qQ8yJ_mdkJju7rd0vQhqbqtcltnuqUZIajw-4Wqw8hneFvgF2kt-nh2iW1kgd6OO0elyIaRJUW1v4g3dQB1RhackWnQOfqiQ1yl3O60xBs7BdymzkbUUqBqmxtZFgz6jxOxw7RvxRwcF50rlf_nmOijqwW7j0Juoo3hkW_va7Rwt5ub3qmsokpZlOsmYqwuwdW15ral-1izmU5eV4dU58h3OSjRRQt79guvotJIn2hQ_fdnO06zxjbVlFQcjmyYujp06xzmtIjjqt97-52IiWxbOBO0Bgpg9z7FlRWwSXWVI0kFQyQj2Y0FkVOQ4FIBrreBX7bgrtVzXWajJg1FqXxk2_BZOkeVBqWf3f-5_6S4oUubf5alefwI3gBh04cpd8OmBgk_0SvJ37Oz3XpXetOc9iqqF9wbZjRZoza1xjFq58oqQ6kp98dv0fznY_le00eJ2q2v2_rdbX3kOZylUUc6ob9hzuv-cJcatwMQVbfSMRBaZw6UmU4RJ51eozys9Iqx2pmr16s9r9isl__htJo_rRVve20QwtM0ZwrI7U
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Encoding:
+      - gzip
+      Date:
+      - Wed, 23 Oct 2024 15:22:48 GMT
+      Server:
+      - ESF
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      X-L2-Request-Path:
+      - l2-managed-6
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "spreadsheetId": "1RLwwT7x-JhQDWTYQBaAsvhXOs2hBA_oS3uJqyBwpTIw",
+          "properties": {
+            "title": "Test",
+            "locale": "en_US",
+            "autoRecalc": "ON_CHANGE",
+            "timeZone": "Etc/GMT",
+            "defaultFormat": {
+              "backgroundColor": {
+                "red": 1,
+                "green": 1,
+                "blue": 1
+              },
+              "padding": {
+                "top": 2,
+                "right": 3,
+                "bottom": 2,
+                "left": 3
+              },
+              "verticalAlignment": "BOTTOM",
+              "wrapStrategy": "OVERFLOW_CELL",
+              "textFormat": {
+                "foregroundColor": {},
+                "fontFamily": "arial,sans,sans-serif",
+                "fontSize": 10,
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "foregroundColorStyle": {
+                  "rgbColor": {}
+                }
+              },
+              "backgroundColorStyle": {
+                "rgbColor": {
+                  "red": 1,
+                  "green": 1,
+                  "blue": 1
+                }
+              }
+            },
+            "spreadsheetTheme": {
+              "primaryFontFamily": "Arial",
+              "themeColors": [
+                {
+                  "colorType": "TEXT",
+                  "color": {
+                    "rgbColor": {}
+                  }
+                },
+                {
+                  "colorType": "BACKGROUND",
+                  "color": {
+                    "rgbColor": {
+                      "red": 1,
+                      "green": 1,
+                      "blue": 1
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT1",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.25882354,
+                      "green": 0.52156866,
+                      "blue": 0.95686275
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT2",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.91764706,
+                      "green": 0.2627451,
+                      "blue": 0.20784314
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT3",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.9843137,
+                      "green": 0.7372549,
+                      "blue": 0.015686275
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT4",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.20392157,
+                      "green": 0.65882355,
+                      "blue": 0.3254902
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT5",
+                  "color": {
+                    "rgbColor": {
+                      "red": 1,
+                      "green": 0.42745098,
+                      "blue": 0.003921569
+                    }
+                  }
+                },
+                {
+                  "colorType": "ACCENT6",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.27450982,
+                      "green": 0.7411765,
+                      "blue": 0.7764706
+                    }
+                  }
+                },
+                {
+                  "colorType": "LINK",
+                  "color": {
+                    "rgbColor": {
+                      "red": 0.06666667,
+                      "green": 0.33333334,
+                      "blue": 0.8
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "sheets": [
+            {
+              "properties": {
+                "sheetId": 1473075066,
+                "title": "Sheet name",
+                "index": 0,
+                "sheetType": "GRID",
+                "gridProperties": {
+                  "rowCount": 1000,
+                  "columnCount": 26
+                }
+              }
+            }
+          ],
+          "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1RLwwT7x-JhQDWTYQBaAsvhXOs2hBA_oS3uJqyBwpTIw/edit"
+        }
+  recorded_at: Wed, 23 Oct 2024 15:25:23 GMT
+- request:
+    method: post
+    uri: https://sheets.googleapis.com/v4/spreadsheets/1RLwwT7x-JhQDWTYQBaAsvhXOs2hBA_oS3uJqyBwpTIw:batchUpdate
+    body:
+      encoding: UTF-8
+      string: '{"requests":[{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":1,"endRowIndex":2,"sheetId":1473075066,"startColumnIndex":0,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":2,"endRowIndex":2,"sheetId":1473075066,"startColumnIndex":1,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":6,"endRowIndex":1,"sheetId":1473075066,"startColumnIndex":2,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":10,"endRowIndex":1,"sheetId":1473075066,"startColumnIndex":6,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":11,"endRowIndex":2,"sheetId":1473075066,"startColumnIndex":10,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":12,"endRowIndex":2,"sheetId":1473075066,"startColumnIndex":11,"startRowIndex":0}}},{"updateCells":{"fields":"userEnteredFormat(horizontalAlignment,backgroundColor,textFormat),userEnteredValue","range":{"endColumnIndex":12,"endRowIndex":2,"sheetId":1473075066,"startColumnIndex":0,"startRowIndex":0},"rows":[{"values":[{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Imię
+        i nazwisko"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Email"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"PIT"}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"VAT"}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Numer
+        konta"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Data
+        wysyłki"}}]},{"values":[{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Rodzaj
+        podatku"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Okres"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Termin
+        płatności"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Kwota
+        podatku"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Rodzaj
+        podatku"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Okres"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Termin
+        płatności"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Kwota
+        podatku"}}]}]}},{"setDataValidation":{"range":{"endColumnIndex":3,"endRowIndex":1000,"sheetId":1473075066,"startColumnIndex":2,"startRowIndex":2},"rule":{"condition":{"type":"ONE_OF_LIST","values":[{"userEnteredValue":"PIT-36L"},{"userEnteredValue":"PIT-36"},{"userEnteredValue":"PIT-28"}]},"showCustomUi":true,"strict":true}}},{"setDataValidation":{"range":{"endColumnIndex":7,"endRowIndex":1000,"sheetId":1473075066,"startColumnIndex":6,"startRowIndex":2},"rule":{"condition":{"type":"ONE_OF_LIST","values":[{"userEnteredValue":"VAT-7"},{"userEnteredValue":"VAT-7K"}]},"showCustomUi":true,"strict":true}}}]}'
+    headers:
+      User-Agent:
+      - ST-admin/0.0.0 google-apis-sheets_v4/0.3.0 Mac OS X/12.7.6 (gzip)
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Wed, 23 Oct 2024 15:25:23 GMT
+      X-Goog-Api-Client:
+      - gl-ruby/3.2.2 gdcl/1.3.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer ya29.c.c0ASRK0GbrNuJGi-6K6G6_1jDpVo5j_dS1NT6Yxk3LB_yDc-1KvAR9G6mYfYPcWsSIRk5GHz7i9maScJiBvVOi5qJ6mNeUf5jIVDOnOI7zgcI9XFm__MMfDVbl97YKSu_79nEPwnvYG7WWWfmL-I7L0C4LGT8rmHvriFzUBFOg12w-DGsIG-HU1WYvaljBxRDGIxbq8fmGI7zsddO3yxduMK2X0Egu3ZtqOnCzWDscF4p2k7kSAsgQ5jtnu0_PrG_bse_mcmfKjxBueOWFumaH8Bo6JJnhu3W8WnvBssXSYqQliKx-hekdS5dTT3PUQ41K1KjEwKAV5GybX_mUKtxTexZFRgEcW7MIQN5LZWdptyCtX8lMSy71n2I3NAT387COu4ypb9B0ysQM0e7qvjQfrBn_a-Bi6cqa44YsZSZaSqY2u9zlMrwydh1itrIvuFOFIo08ivJ-m7o0c4qQ8yJ_mdkJju7rd0vQhqbqtcltnuqUZIajw-4Wqw8hneFvgF2kt-nh2iW1kgd6OO0elyIaRJUW1v4g3dQB1RhackWnQOfqiQ1yl3O60xBs7BdymzkbUUqBqmxtZFgz6jxOxw7RvxRwcF50rlf_nmOijqwW7j0Juoo3hkW_va7Rwt5ub3qmsokpZlOsmYqwuwdW15ral-1izmU5eV4dU58h3OSjRRQt79guvotJIn2hQ_fdnO06zxjbVlFQcjmyYujp06xzmtIjjqt97-52IiWxbOBO0Bgpg9z7FlRWwSXWVI0kFQyQj2Y0FkVOQ4FIBrreBX7bgrtVzXWajJg1FqXxk2_BZOkeVBqWf3f-5_6S4oUubf5alefwI3gBh04cpd8OmBgk_0SvJ37Oz3XpXetOc9iqqF9wbZjRZoza1xjFq58oqQ6kp98dv0fznY_le00eJ2q2v2_rdbX3kOZylUUc6ob9hzuv-cJcatwMQVbfSMRBaZw6UmU4RJ51eozys9Iqx2pmr16s9r9isl__htJo_rRVve20QwtM0ZwrI7U
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Encoding:
+      - gzip
+      Date:
+      - Wed, 23 Oct 2024 15:22:49 GMT
+      Server:
+      - ESF
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      X-L2-Request-Path:
+      - l2-managed-6
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "spreadsheetId": "1RLwwT7x-JhQDWTYQBaAsvhXOs2hBA_oS3uJqyBwpTIw",
+          "replies": [
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {}
+          ]
+        }
+  recorded_at: Wed, 23 Oct 2024 15:25:24 GMT
+- request:
+    method: post
+    uri: https://www.googleapis.com/drive/v3/files/1RLwwT7x-JhQDWTYQBaAsvhXOs2hBA_oS3uJqyBwpTIw/permissions
+    body:
+      encoding: UTF-8
+      string: '{"emailAddress":"test@email.com","role":"writer","type":"user"}'
+    headers:
+      User-Agent:
+      - ST-admin/0.0.0 google-apis-drive_v3/0.55.0 Mac OS X/12.7.6 (gzip)
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Wed, 23 Oct 2024 15:25:24 GMT
+      X-Goog-Api-Client:
+      - gl-ruby/3.2.2 gdcl/1.55.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer ya29.c.c0ASRK0GbrNuJGi-6K6G6_1jDpVo5j_dS1NT6Yxk3LB_yDc-1KvAR9G6mYfYPcWsSIRk5GHz7i9maScJiBvVOi5qJ6mNeUf5jIVDOnOI7zgcI9XFm__MMfDVbl97YKSu_79nEPwnvYG7WWWfmL-I7L0C4LGT8rmHvriFzUBFOg12w-DGsIG-HU1WYvaljBxRDGIxbq8fmGI7zsddO3yxduMK2X0Egu3ZtqOnCzWDscF4p2k7kSAsgQ5jtnu0_PrG_bse_mcmfKjxBueOWFumaH8Bo6JJnhu3W8WnvBssXSYqQliKx-hekdS5dTT3PUQ41K1KjEwKAV5GybX_mUKtxTexZFRgEcW7MIQN5LZWdptyCtX8lMSy71n2I3NAT387COu4ypb9B0ysQM0e7qvjQfrBn_a-Bi6cqa44YsZSZaSqY2u9zlMrwydh1itrIvuFOFIo08ivJ-m7o0c4qQ8yJ_mdkJju7rd0vQhqbqtcltnuqUZIajw-4Wqw8hneFvgF2kt-nh2iW1kgd6OO0elyIaRJUW1v4g3dQB1RhackWnQOfqiQ1yl3O60xBs7BdymzkbUUqBqmxtZFgz6jxOxw7RvxRwcF50rlf_nmOijqwW7j0Juoo3hkW_va7Rwt5ub3qmsokpZlOsmYqwuwdW15ral-1izmU5eV4dU58h3OSjRRQt79guvotJIn2hQ_fdnO06zxjbVlFQcjmyYujp06xzmtIjjqt97-52IiWxbOBO0Bgpg9z7FlRWwSXWVI0kFQyQj2Y0FkVOQ4FIBrreBX7bgrtVzXWajJg1FqXxk2_BZOkeVBqWf3f-5_6S4oUubf5alefwI3gBh04cpd8OmBgk_0SvJ37Oz3XpXetOc9iqqF9wbZjRZoza1xjFq58oqQ6kp98dv0fznY_le00eJ2q2v2_rdbX3kOZylUUc6ob9hzuv-cJcatwMQVbfSMRBaZw6UmU4RJ51eozys9Iqx2pmr16s9r9isl__htJo_rRVve20QwtM0ZwrI7U
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Pragma:
+      - no-cache
+      Vary:
+      - Origin, X-Origin
+      Expires:
+      - Mon, 01 Jan 1990 00:00:00 GMT
+      Date:
+      - Wed, 23 Oct 2024 15:22:52 GMT
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Encoding:
+      - gzip
+      Server:
+      - ESF
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "kind": "drive#permission",
+          "id": "15706666104034902784",
+          "type": "user",
+          "role": "writer"
+        }
+  recorded_at: Wed, 23 Oct 2024 15:25:27 GMT
+recorded_with: VCR 6.3.1

@@ -1,0 +1,203 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.googleapis.com/oauth2/v4/token
+    body:
+      encoding: ASCII-8BIT
+      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzdC1hZG1pbkBxdWlja3N0YXJ0LTE1NjQ1MTExNDc2MjYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9vYXV0aDIvdjQvdG9rZW4iLCJleHAiOjE3Mjk2OTY5NTEsImlhdCI6MTcyOTY5NjgzMSwic2NvcGUiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL3NwcmVhZHNoZWV0cyBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2RyaXZlIn0.fekpIcYj8_K6K5N5ntnOiPzB4WMvSizCBwp0R8uDbToEed7ShxxzcfIQpot5ruOTVmMvxSSmRJsvr1k_eCByXv5HOCU44f9zS_OU0naKOcGXpsvHRgvmB2-2DDQzF7YOa0gQ_KTLVYAcbh4IAKmAcMp7oQuhakWE-Wtgos6BBcQT0XVBZ71464hDXXbyz4Wr59lFBmEoCkK5rxdM1dtYfaKPrg96F75ePru3kpDYY4CTUea9YxjAoFK7m5eucJjYorTMjhJAZot2B91pxi52S0uZCzzsPi3HGAH-hah3cb6qoLCH7P3My768ONz79qbNd71QgKzClRJuKvWOn6Xktw
+    headers:
+      User-Agent:
+      - Faraday v2.11.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Wed, 23 Oct 2024 15:18:57 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"ya29.c.c0ASRK0GbkAbUX8AxeCl1HAmqFWVRBaK5OxJ6xhxRMTL6u0Q64TZyF020yV0MxvXDsIV4nx1IYpQNj-Zk6IRN9fc-MhVjDEDmYm1zUNt6OmVtKnkMbSJcGk9ZtkbrzY1fUZwg2TmPhn8ZfaEJ7ipweVaLXgtPgcDzkQp-lYzzBnP2Ulmb-kdDGkaVi4Mye37SAUQU7mhw91c5GXVdrW6qVN9yP7I9KQxZBwWTgN19UgdIJsubEsw5GFHqntzr4I6oe_TwdkKf3FccU3TMFm2i4NDoYu_ZHWdM3s1iBd8owRScJxb7WmW70_MHZqsiI0DXmz48oCthw1XatbKZznVvqcMetqwMaTgBmQd01K8mCi28zWmFPxpuvNDrvqx0T388A6WghXSlwv9d76v-szM-mVts554WfrXkIddjo-cVk7iS-b3iF8V4pzUx410me1pbn710pQjtghFbhltJZM0spU3tZ3X2myrsxk7yrReMZbnXIuBbl23u_p3z5kzOsfFdJM2j0vppO8rooVOZxaBqecOn8ljvJ3-USvv41cojX18OfM9-_1YiZz9nii0rUOZBtrX81ke7oR14y7axsIU34jjm23ZgOmdyM2ZpRiU12RzyUIg3dtMkzpRm5XhsdIQQkWvSJuIj671qZdQ9qOf03Uvyv6jsw2-Rh7QVpS_RWuJgOIMYrsQ7vuh0RbX6lxOz4zvR0ad1u-wQd7SY3Mugwmksd4rpUayuvOnBe_3IfzUo6WrngOezy3ku89Wf9O19oJ57UhhWfwepO4wI2lRscSslddorUigkQaSVdR1xdn_ybFh4hxm0r3w1StW9dZjjvwu9ROrae_iyjYinFMf807onVxWru8BOrUSckIWYa5ZcQ2n23bb239Ul_1i41JpjbSWllBV71dy-ptR6kzr5s6nxWSmVF3z6RayWYJ4khOIVSoUcBs5itad3eS2g7r10k3Rt3ps-bZU36Uu7hj5l7h5ujdnmw_UoUpsk_WawdjXrz7jroOefOvmd","expires_in":3599,"token_type":"Bearer"}'
+  recorded_at: Wed, 23 Oct 2024 15:21:31 GMT
+- request:
+    method: post
+    uri: https://sheets.googleapis.com/v4/spreadsheets/1HwTHd84ImjKoPVi5l7o1q0uveL-CSxVB5LraHhRZmCE:batchUpdate
+    body:
+      encoding: UTF-8
+      string: '{"requests":[{"addSheet":{"properties":{"title":"sheet"}}}]}'
+    headers:
+      User-Agent:
+      - ST-admin/0.0.0 google-apis-sheets_v4/0.3.0 Mac OS X/12.7.6 (gzip)
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Wed, 23 Oct 2024 15:21:31 GMT
+      X-Goog-Api-Client:
+      - gl-ruby/3.2.2 gdcl/1.3.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer ya29.c.c0ASRK0GbkAbUX8AxeCl1HAmqFWVRBaK5OxJ6xhxRMTL6u0Q64TZyF020yV0MxvXDsIV4nx1IYpQNj-Zk6IRN9fc-MhVjDEDmYm1zUNt6OmVtKnkMbSJcGk9ZtkbrzY1fUZwg2TmPhn8ZfaEJ7ipweVaLXgtPgcDzkQp-lYzzBnP2Ulmb-kdDGkaVi4Mye37SAUQU7mhw91c5GXVdrW6qVN9yP7I9KQxZBwWTgN19UgdIJsubEsw5GFHqntzr4I6oe_TwdkKf3FccU3TMFm2i4NDoYu_ZHWdM3s1iBd8owRScJxb7WmW70_MHZqsiI0DXmz48oCthw1XatbKZznVvqcMetqwMaTgBmQd01K8mCi28zWmFPxpuvNDrvqx0T388A6WghXSlwv9d76v-szM-mVts554WfrXkIddjo-cVk7iS-b3iF8V4pzUx410me1pbn710pQjtghFbhltJZM0spU3tZ3X2myrsxk7yrReMZbnXIuBbl23u_p3z5kzOsfFdJM2j0vppO8rooVOZxaBqecOn8ljvJ3-USvv41cojX18OfM9-_1YiZz9nii0rUOZBtrX81ke7oR14y7axsIU34jjm23ZgOmdyM2ZpRiU12RzyUIg3dtMkzpRm5XhsdIQQkWvSJuIj671qZdQ9qOf03Uvyv6jsw2-Rh7QVpS_RWuJgOIMYrsQ7vuh0RbX6lxOz4zvR0ad1u-wQd7SY3Mugwmksd4rpUayuvOnBe_3IfzUo6WrngOezy3ku89Wf9O19oJ57UhhWfwepO4wI2lRscSslddorUigkQaSVdR1xdn_ybFh4hxm0r3w1StW9dZjjvwu9ROrae_iyjYinFMf807onVxWru8BOrUSckIWYa5ZcQ2n23bb239Ul_1i41JpjbSWllBV71dy-ptR6kzr5s6nxWSmVF3z6RayWYJ4khOIVSoUcBs5itad3eS2g7r10k3Rt3ps-bZU36Uu7hj5l7h5ujdnmw_UoUpsk_WawdjXrz7jroOefOvmd
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Encoding:
+      - gzip
+      Date:
+      - Wed, 23 Oct 2024 15:18:58 GMT
+      Server:
+      - ESF
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      X-L2-Request-Path:
+      - l2-managed-6
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "spreadsheetId": "1HwTHd84ImjKoPVi5l7o1q0uveL-CSxVB5LraHhRZmCE",
+          "replies": [
+            {
+              "addSheet": {
+                "properties": {
+                  "sheetId": 36295253,
+                  "title": "sheet",
+                  "index": 3,
+                  "sheetType": "GRID",
+                  "gridProperties": {
+                    "rowCount": 1000,
+                    "columnCount": 26
+                  }
+                }
+              }
+            }
+          ]
+        }
+  recorded_at: Wed, 23 Oct 2024 15:21:33 GMT
+- request:
+    method: post
+    uri: https://sheets.googleapis.com/v4/spreadsheets/1HwTHd84ImjKoPVi5l7o1q0uveL-CSxVB5LraHhRZmCE:batchUpdate
+    body:
+      encoding: UTF-8
+      string: '{"requests":[{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":1,"endRowIndex":2,"sheetId":36295253,"startColumnIndex":0,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":2,"endRowIndex":2,"sheetId":36295253,"startColumnIndex":1,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":6,"endRowIndex":1,"sheetId":36295253,"startColumnIndex":2,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":10,"endRowIndex":1,"sheetId":36295253,"startColumnIndex":6,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":11,"endRowIndex":2,"sheetId":36295253,"startColumnIndex":10,"startRowIndex":0}}},{"mergeCells":{"mergeType":"MERGE_ALL","range":{"endColumnIndex":12,"endRowIndex":2,"sheetId":36295253,"startColumnIndex":11,"startRowIndex":0}}},{"updateCells":{"fields":"userEnteredFormat(horizontalAlignment,backgroundColor,textFormat),userEnteredValue","range":{"endColumnIndex":12,"endRowIndex":2,"sheetId":36295253,"startColumnIndex":0,"startRowIndex":0},"rows":[{"values":[{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Imię
+        i nazwisko"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Email"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"PIT"}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"VAT"}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Numer
+        konta"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Data
+        wysyłki"}}]},{"values":[{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":null}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Rodzaj
+        podatku"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Okres"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Termin
+        płatności"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Kwota
+        podatku"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Rodzaj
+        podatku"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Okres"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Termin
+        płatności"}},{"userEnteredFormat":{"horizontalAlignment":"CENTER","textFormat":{"bold":true}},"userEnteredValue":{"stringValue":"Kwota
+        podatku"}}]}]}},{"setDataValidation":{"range":{"endColumnIndex":3,"endRowIndex":1000,"sheetId":36295253,"startColumnIndex":2,"startRowIndex":2},"rule":{"condition":{"type":"ONE_OF_LIST","values":[{"userEnteredValue":"PIT-36L"},{"userEnteredValue":"PIT-36"},{"userEnteredValue":"PIT-28"}]},"showCustomUi":true,"strict":true}}},{"setDataValidation":{"range":{"endColumnIndex":7,"endRowIndex":1000,"sheetId":36295253,"startColumnIndex":6,"startRowIndex":2},"rule":{"condition":{"type":"ONE_OF_LIST","values":[{"userEnteredValue":"VAT-7"},{"userEnteredValue":"VAT-7K"}]},"showCustomUi":true,"strict":true}}}]}'
+    headers:
+      User-Agent:
+      - ST-admin/0.0.0 google-apis-sheets_v4/0.3.0 Mac OS X/12.7.6 (gzip)
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Wed, 23 Oct 2024 15:21:33 GMT
+      X-Goog-Api-Client:
+      - gl-ruby/3.2.2 gdcl/1.3.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer ya29.c.c0ASRK0GbkAbUX8AxeCl1HAmqFWVRBaK5OxJ6xhxRMTL6u0Q64TZyF020yV0MxvXDsIV4nx1IYpQNj-Zk6IRN9fc-MhVjDEDmYm1zUNt6OmVtKnkMbSJcGk9ZtkbrzY1fUZwg2TmPhn8ZfaEJ7ipweVaLXgtPgcDzkQp-lYzzBnP2Ulmb-kdDGkaVi4Mye37SAUQU7mhw91c5GXVdrW6qVN9yP7I9KQxZBwWTgN19UgdIJsubEsw5GFHqntzr4I6oe_TwdkKf3FccU3TMFm2i4NDoYu_ZHWdM3s1iBd8owRScJxb7WmW70_MHZqsiI0DXmz48oCthw1XatbKZznVvqcMetqwMaTgBmQd01K8mCi28zWmFPxpuvNDrvqx0T388A6WghXSlwv9d76v-szM-mVts554WfrXkIddjo-cVk7iS-b3iF8V4pzUx410me1pbn710pQjtghFbhltJZM0spU3tZ3X2myrsxk7yrReMZbnXIuBbl23u_p3z5kzOsfFdJM2j0vppO8rooVOZxaBqecOn8ljvJ3-USvv41cojX18OfM9-_1YiZz9nii0rUOZBtrX81ke7oR14y7axsIU34jjm23ZgOmdyM2ZpRiU12RzyUIg3dtMkzpRm5XhsdIQQkWvSJuIj671qZdQ9qOf03Uvyv6jsw2-Rh7QVpS_RWuJgOIMYrsQ7vuh0RbX6lxOz4zvR0ad1u-wQd7SY3Mugwmksd4rpUayuvOnBe_3IfzUo6WrngOezy3ku89Wf9O19oJ57UhhWfwepO4wI2lRscSslddorUigkQaSVdR1xdn_ybFh4hxm0r3w1StW9dZjjvwu9ROrae_iyjYinFMf807onVxWru8BOrUSckIWYa5ZcQ2n23bb239Ul_1i41JpjbSWllBV71dy-ptR6kzr5s6nxWSmVF3z6RayWYJ4khOIVSoUcBs5itad3eS2g7r10k3Rt3ps-bZU36Uu7hj5l7h5ujdnmw_UoUpsk_WawdjXrz7jroOefOvmd
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Encoding:
+      - gzip
+      Date:
+      - Wed, 23 Oct 2024 15:18:59 GMT
+      Server:
+      - ESF
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      X-L2-Request-Path:
+      - l2-managed-6
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "spreadsheetId": "1HwTHd84ImjKoPVi5l7o1q0uveL-CSxVB5LraHhRZmCE",
+          "replies": [
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {}
+          ]
+        }
+  recorded_at: Wed, 23 Oct 2024 15:21:34 GMT
+recorded_with: VCR 6.3.1
