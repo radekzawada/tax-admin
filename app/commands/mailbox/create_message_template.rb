@@ -34,6 +34,10 @@ class Mailbox::CreateMessageTemplate
     rule(:name) do
       key.failure(:unique?) if MessageTemplate.exists?(name: value)
     end
+
+    rule(:sheet_name) do
+      key.failure(:unique?) if MessagesPackage.exists?(name: value)
+    end
   end
 
   option :google_sheet_client, default: proc { Google::SheetClient.default }
@@ -82,7 +86,7 @@ class Mailbox::CreateMessageTemplate
   def configure_sheet(remote_spreadsheet, sheet, template:, **)
     template_config = MessageTemplate::TEMPLATES_CONFIGURATION[template]
 
-    google_sheet_client.configure_sheet(remote_spreadsheet, sheet, template_config)
+    google_sheet_client.configure_sheet(remote_spreadsheet.spreadsheet_id, sheet, template_config)
   end
 
   def grant_access(remote_container, emails:)

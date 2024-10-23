@@ -62,7 +62,7 @@ RSpec.describe Mailbox::CreateMessageTemplate do
         expect(google_sheet_client).to have_received(:create_spreadsheet)
           .with("Template data container", "Sheet name")
         expect(google_sheet_client).to have_received(:configure_sheet)
-          .with(created_container, sheet, MessageTemplate::TEMPLATES_CONFIGURATION[:taxes])
+          .with("123", sheet, MessageTemplate::TEMPLATES_CONFIGURATION[:taxes])
         expect(google_drive_client).to have_received(:grant_permissions).with("123", email: "test@mail.com")
         expect(google_drive_client).to have_received(:grant_permissions).with("123", email: "test1@mail.com")
       end
