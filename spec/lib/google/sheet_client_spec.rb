@@ -40,14 +40,51 @@ RSpec.describe Google::SheetClient do
     end
   end
 
-  describe "#configure_sheet" do
-    subject(:configure_sheet) { sheet_client.configure_sheet(spreadsheet, sheet, configuration) }
+  describe "#create_sheet" do
+    subject(:create_sheet) { sheet_client.create_sheet(spreadsheet_id, sheet_title) }
 
     let(:sheet_client) { described_class.new(google_sheet_service:, requests_factory:) }
     let(:google_sheet_service) { instance_double(Google::Apis::SheetsV4::SheetsService) }
     let(:requests_factory) { instance_double(Google::SheetClient::RequestsFactory) }
 
-    let(:spreadsheet) { instance_double(Google::Apis::SheetsV4::Spreadsheet, spreadsheet_id: "spreadsheet_id") }
+    let(:spreadsheet_id) { "spreadsheet_id" }
+    let(:sheet_title) { "Sheet title" }
+
+    let(:new_sheet_request) { instance_double(Google::Apis::SheetsV4::Request) }
+    let(:create_sheet_response) do
+      instance_double(
+        Google::Apis::SheetsV4::BatchUpdateSpreadsheetResponse,
+        replies: [instance_double(Google::Apis::SheetsV4::Response, add_sheet: new_sheet)]
+      )
+    end
+    let(:new_sheet) { instance_double(Google::Apis::SheetsV4::Sheet) }
+
+    before do
+      allow(requests_factory).to receive(:new_sheet_request).and_return(new_sheet_request)
+      allow(google_sheet_service).to receive(:batch_update_spreadsheet).and_return(create_sheet_response)
+    end
+
+    it "creates remote sheet" do
+      expect(create_sheet).to be_success & have_attributes(value!: new_sheet)
+
+      expect(requests_factory).to have_received(:new_sheet_request).with(sheet_title)
+      expect(google_sheet_service).to have_received(:batch_update_spreadsheet).with(
+        spreadsheet_id,
+        an_instance_of(Google::Apis::SheetsV4::BatchUpdateSpreadsheetRequest) & have_attributes(
+          requests: [new_sheet_request]
+        )
+      )
+    end
+  end
+
+  describe "#configure_sheet" do
+    subject(:configure_sheet) { sheet_client.configure_sheet(spreadsheet_id, sheet, configuration) }
+
+    let(:sheet_client) { described_class.new(google_sheet_service:, requests_factory:) }
+    let(:google_sheet_service) { instance_double(Google::Apis::SheetsV4::SheetsService) }
+    let(:requests_factory) { instance_double(Google::SheetClient::RequestsFactory) }
+
+    let(:spreadsheet_id) { "spreadsheet_id" }
     let(:sheet) { instance_double(Google::Apis::SheetsV4::Sheet) }
     let(:configuration) { instance_double(MessageTemplate::Configuration) }
     let(:requests) { [instance_double(Google::Apis::SheetsV4::Request)] }

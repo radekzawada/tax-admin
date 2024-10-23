@@ -33,11 +33,20 @@ class Google::SheetClient
     Success(created_spreadsheet)
   end
 
-  def configure_sheet(spreadsheet, sheet, configuration)
+  def create_sheet(spreadsheet_id, sheet_title)
+    request = requests_factory.new_sheet_request(sheet_title)
+    batch_request = Google::Apis::SheetsV4::BatchUpdateSpreadsheetRequest.new(requests: [request])
+
+    response = google_sheet_service.batch_update_spreadsheet(spreadsheet_id, batch_request)
+
+    Success(response.replies.first.add_sheet)
+  end
+
+  def configure_sheet(spreadsheet_id, sheet, configuration)
     requests = requests_factory.from_template_configuration(sheet, configuration)
     batch_request = Google::Apis::SheetsV4::BatchUpdateSpreadsheetRequest.new(requests:)
 
-    google_sheet_service.batch_update_spreadsheet(spreadsheet.spreadsheet_id, batch_request)
+    google_sheet_service.batch_update_spreadsheet(spreadsheet_id, batch_request)
 
     Success()
   end
