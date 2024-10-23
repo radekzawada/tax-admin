@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     post "mailbox/template_file", to: "mailbox#create_template_file"
 
     resources :message_templates, only: %i[show]
+    resources :messages_packages, only: %i[create]
   end
 
   # Defines the root path route ("/")
