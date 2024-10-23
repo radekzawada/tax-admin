@@ -50,3 +50,6 @@ Rails/RedundantPresenceValidationOnBelongsTo:
 
 Layout/SpaceInsideArrayLiteralBrackets:
   EnforcedStyle: no_space
+
+RSpec/NestedGroups:
+  Max: 6

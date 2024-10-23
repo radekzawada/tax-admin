@@ -1,6 +1,88 @@
 require "rails_helper"
 
 RSpec.describe Mailbox::CreateMessageTemplate do
+  describe "Contract" do
+    subject(:contract) { described_class::Contract }
+
+    describe ".call" do
+      subject(:call) { contract.call(params) }
+
+      let(:params) do
+        {
+          name: "Template data container",
+          sheet_name: "Sheet name",
+          template: "taxes",
+          emails: "test@email.com"
+        }
+      end
+
+      specify do
+        expect(call).to be_success & have_attributes(
+          to_h: {
+            emails: ["test@email.com"],
+            name: "Template data container",
+            sheet_name: "Sheet name",
+            template: :taxes
+          }
+        )
+      end
+
+      context "with empty params" do
+        let(:params) { {} }
+
+        specify do
+          expect(call).to be_failure & have_attributes(
+            errors: have_attributes(
+              to_h: {
+                name: ["pole musi być obecne"],
+                sheet_name: ["pole musi być obecne"],
+                template: ["pole musi być obecne"],
+                emails: ["pole musi być obecne"]
+              }
+            )
+          )
+        end
+      end
+
+      context "with invalid email format" do
+        let(:params) { { emails: "test" } }
+
+        it "validates email format" do
+          expect(call).to be_failure
+          expect(call.errors.to_h[:emails]).to eq(["wartość ma nieprawidłowy format"])
+        end
+      end
+
+      context "when name is not uniq" do
+        let(:params) { { name: "Test" } }
+
+        before { create(:message_template, name: "Test") }
+
+        it "validates name uniqueness" do
+          expect(call).to be_failure
+          expect(call.errors.to_h[:name]).to eq(["wartość musi być unikalna"])
+        end
+      end
+
+      context "when sheet_name is not uniq" do
+        let(:params) { { sheet_name: "Test" } }
+
+        before { create(:messages_package, name: "Test") }
+
+        it "validates sheet_name uniqueness" do
+          expect(call).to be_failure
+          expect(call.errors.to_h[:sheet_name]).to eq(["wartość musi być unikalna"])
+        end
+      end
+    end
+  end
+
+  describe ".default" do
+    subject(:default) { described_class.default }
+
+    it { is_expected.to be_a(described_class) }
+  end
+
   describe "#call" do
     subject(:call) { command.call(params) }
 
