@@ -94,8 +94,10 @@ RSpec.describe MessagesPackages::Create do
     end
 
     before do
-      allow(google_sheet_client).to receive(:create_sheet).and_return(Dry::Monads::Success(created_sheet))
-      allow(google_sheet_client).to receive(:configure_sheet).and_return(Dry::Monads::Success())
+      allow(google_sheet_client).to receive_messages(
+        create_sheet: Dry::Monads::Success(created_sheet),
+        configure_sheet: Dry::Monads::Success()
+      )
     end
 
     it "creates messages package" do
