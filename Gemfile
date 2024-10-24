@@ -23,7 +23,7 @@ gem "sassc-rails"
 # Use Bootstrap for stylesheets
 gem "bootstrap", "~> 5.3.3"
 # Use Google Sheets API for accessing Google Sheets
-gem "google-apis-sheets_v4", "~> 0.3"
+gem "google-apis-sheets_v4", "~> 0.37"
 # Use Google Drive API for accessing Google Drive
 gem "google-apis-drive_v3", "~> 0.58"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
