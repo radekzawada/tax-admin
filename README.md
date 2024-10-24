@@ -1,25 +1,62 @@
 # README
+# ST Admin
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ST Admin is a Rails application designed to manage Accounting offices.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+These instructions will help you set up and run the project on your local machine for development and testing purposes.
 
-* System dependencies
+### Prerequisites
 
-* Configuration
+- Docker
+- Docker Compose
+- Rails ~ 7.0
+- ruby ~ 3.2
 
-* Database creation
+### Setup
 
-* Database initialization
+1. Clone the repository:
+  ```sh
+  git clone https://github.com/radekzawada/tax-admin
+  cd tax-admin
+  ```
 
-* How to run the test suite
+2. Build and start the Docker containers:
+  ```sh
+  docker-compose up --build
+  ```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Setup the database:
+  ```sh
+  rake db:create
+  rake db:migrate
+  rake db:seed
+  ```
 
-* Deployment instructions
+### Running the Application
 
-* ...
-trello: https://trello.com/b/3TCK8IDF/st-admin
+To start the Rails server, run:
+```sh
+docker-compose up -d && rails s
+```
+The application will be available at `http://localhost:3000`.
+
+### Running Tests
+
+To run the test suite, use:
+```sh
+rspec spec
+```
+
+### Additional Information
+
+* **Ruby version**: Check the `.ruby-version` file.
+* **System dependencies**: Listed in the `Gemfile`.
+* **Configuration**: Environment variables are managed using `dotenv`.
+* **Database creation**: See the setup section above.
+* **Database initialization**: See the setup section above.
+* **Services**: The application uses PostgreSQL as the database.
+* **Deployment instructions**: TBD
+
+Project management: [Trello board](https://trello.com/b/3TCK8IDF/tax-admin).
