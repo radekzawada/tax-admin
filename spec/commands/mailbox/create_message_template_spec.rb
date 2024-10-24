@@ -111,8 +111,10 @@ RSpec.describe Mailbox::CreateMessageTemplate do
     end
 
     before do
-      allow(google_sheet_client).to receive(:create_spreadsheet).and_return(Dry::Monads::Success(created_container))
-      allow(google_sheet_client).to receive(:configure_sheet).and_return(Dry::Monads::Success(created_container))
+      allow(google_sheet_client).to receive_messages(
+        create_spreadsheet: Dry::Monads::Success(created_container),
+        configure_sheet: Dry::Monads::Success(created_container)
+      )
       allow(google_drive_client).to receive(:grant_permissions).and_return(Dry::Monads::Success({}))
     end
 

@@ -85,9 +85,7 @@ RSpec.describe Google::SheetClient::RequestsFactory do
                 )
               ),
               an_instance_of(Google::Apis::SheetsV4::RowData) & have_attributes(
-                values: contain_exactly(
-                  *2.times.map { empty_cell },
-                  *[
+                values: match_array(2.times.map { empty_cell } + [
                     "Rodzaj podatku", "Okres", "Termin płatności", "Kwota podatku",
                     "Rodzaj podatku", "Okres", "Termin płatności", "Kwota podatku"
                   ].map do |value|
@@ -100,8 +98,7 @@ RSpec.describe Google::SheetClient::RequestsFactory do
                         string_value: value
                       )
                     )
-                  end
-                )
+                  end)
               )
             )
           )
