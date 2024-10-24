@@ -51,7 +51,10 @@ jobs:
           bundler-cache: true
 
       - name: Lint code for consistent style
-        run: bin/rubocop -f github
+        run: bin/rubocop
+
+      - name: Lint html files
+        run: bundle exec erblint --lint-all
 
   test:
     runs-on: ubuntu-latest
