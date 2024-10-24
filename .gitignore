@@ -35,4 +35,4 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/google_credentials.json
+/config/credentials/google_credentials.json
