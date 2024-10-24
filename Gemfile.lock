@@ -184,8 +184,9 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
-    faraday (2.11.0)
+    faraday (2.12.0)
       faraday-net_http (>= 2.0, < 3.4)
+      json
       logger
     faraday-net_http (3.3.0)
       net-http
@@ -201,13 +202,13 @@ GEM
       mutex_m
       representable (~> 3.0)
       retriable (>= 2.0, < 4.a)
-    google-apis-drive_v3 (0.55.0)
+    google-apis-drive_v3 (0.58.0)
       google-apis-core (>= 0.15.0, < 2.a)
     google-apis-sheets_v4 (0.3.0)
       google-apis-core (~> 0.1)
-    google-cloud-env (2.2.0)
+    google-cloud-env (2.2.1)
       faraday (>= 1.0, < 3.a)
-    googleauth (1.11.0)
+    googleauth (1.11.2)
       faraday (>= 1.0, < 3.a)
       google-cloud-env (~> 2.1)
       jwt (>= 1.4, < 3.0)
@@ -231,7 +232,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.7.2)
-    jwt (2.8.2)
+    jwt (2.9.3)
       base64
     language_server-protocol (3.17.0.3)
     logger (1.6.1)
@@ -489,7 +490,7 @@ DEPENDENCIES
   dry-validation (~> 1)
   erb_lint
   factory_bot_rails
-  google-apis-drive_v3 (~> 0.5)
+  google-apis-drive_v3 (~> 0.58)
   google-apis-sheets_v4 (~> 0.3)
   importmap-rails
   jbuilder
