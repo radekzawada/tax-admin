@@ -51,7 +51,10 @@ jobs:
           bundler-cache: true
 
       - name: Lint code for consistent style
-        run: bin/rubocop -f github
+        run: bin/rubocop
+
+      - name: Lint html files
+        run: bundle exec erblint --lint-all
 
   test:
     runs-on: ubuntu-latest
@@ -85,12 +88,21 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Run tests
+      - name: Set up database
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
-          # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test test:system
+        run: bin/rails db:create db:schema:load
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Run RSpec tests
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432
+          GOOGLE_CREDENTIALS_PATH: config/credentials/google_credentials.test.json
+        run: bundle exec rspec
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
