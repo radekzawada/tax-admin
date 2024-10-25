@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_15_085943) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_25_135902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,20 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_15_085943) do
     t.string "url", null: false
     t.index ["external_spreadsheet_id"], name: "index_message_templates_on_external_spreadsheet_id", unique: true
     t.index ["name"], name: "index_message_templates_on_name", unique: true
+  end
+
+  create_table "messages_package_dispatches", force: :cascade do |t|
+    t.bigint "messages_package_id", null: false
+    t.string "status", null: false
+    t.datetime "data_loaded_at"
+    t.bigint "data_loaded_by_id"
+    t.datetime "dispatched_at"
+    t.bigint "dispatched_by_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["data_loaded_by_id"], name: "index_messages_package_dispatches_on_data_loaded_by_id"
+    t.index ["dispatched_by_id"], name: "index_messages_package_dispatches_on_dispatched_by_id"
+    t.index ["messages_package_id"], name: "index_messages_package_dispatches_on_messages_package_id"
   end
 
   create_table "messages_packages", force: :cascade do |t|
@@ -44,4 +58,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_15_085943) do
     t.string "fullname", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
+
+  add_foreign_key "messages_package_dispatches", "messages_packages"
+  add_foreign_key "messages_package_dispatches", "users", column: "data_loaded_by_id"
+  add_foreign_key "messages_package_dispatches", "users", column: "dispatched_by_id"
 end
