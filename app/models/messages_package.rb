@@ -2,6 +2,7 @@ class MessagesPackage < ApplicationRecord
   STATUSES = %w[initialized active processed].freeze
 
   belongs_to :message_template
+  has_many :messages_package_dispatches, dependent: :destroy
 
   validates :name, presence: true
   validates :name, uniqueness: { scope: :message_template_id }

@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe MessagesPackage, type: :model do
   describe "associations" do
     it { is_expected.to belong_to(:message_template).required }
+    it { is_expected.to have_many(:messages_package_dispatches).dependent(:destroy) }
   end
 
   describe "validations" do
