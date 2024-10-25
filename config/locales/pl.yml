@@ -1,5 +1,5 @@
 pl:
-  app_name: ST Admin
+  app_name: Tax Admin
   navbar:
     logout: "Wyloguj"
   sidebar:
