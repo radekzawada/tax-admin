@@ -206,7 +206,7 @@ GEM
       mutex_m
       representable (~> 3.0)
       retriable (>= 2.0, < 4.a)
-    google-apis-drive_v3 (0.58.0)
+    google-apis-drive_v3 (0.59.0)
       google-apis-core (>= 0.15.0, < 2.a)
     google-apis-sheets_v4 (0.37.0)
       google-apis-core (>= 0.15.0, < 2.a)
@@ -235,7 +235,7 @@ GEM
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.7.3)
+    json (2.7.4)
     jwt (2.9.3)
       base64
     language_server-protocol (3.17.0.3)
@@ -486,7 +486,7 @@ DEPENDENCIES
   dry-validation (~> 1)
   erb_lint
   factory_bot_rails
-  google-apis-drive_v3 (~> 0.58)
+  google-apis-drive_v3 (~> 0.59)
   google-apis-sheets_v4 (~> 0.37)
   importmap-rails
   jbuilder
