@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_25_135902) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_25_205200) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,17 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_25_135902) do
     t.string "url", null: false
     t.index ["external_spreadsheet_id"], name: "index_message_templates_on_external_spreadsheet_id", unique: true
     t.index ["name"], name: "index_message_templates_on_name", unique: true
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "messages_package_dispatch_id", null: false
+    t.string "recipient_email", null: false
+    t.text "preview", null: false
+    t.jsonb "variables", null: false
+    t.datetime "sent_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["messages_package_dispatch_id"], name: "index_messages_on_messages_package_dispatch_id"
   end
 
   create_table "messages_package_dispatches", force: :cascade do |t|
@@ -59,6 +70,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_25_135902) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "messages", "messages_package_dispatches"
   add_foreign_key "messages_package_dispatches", "messages_packages"
   add_foreign_key "messages_package_dispatches", "users", column: "data_loaded_by_id"
   add_foreign_key "messages_package_dispatches", "users", column: "dispatched_by_id"
