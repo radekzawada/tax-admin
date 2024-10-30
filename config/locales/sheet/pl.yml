@@ -11,3 +11,5 @@ pl:
       tax_amount: "Kwota podatku"
       account_number: "Numer konta"
       dispatch_date: "Data wysyłki"
+      documents_provided_at: "Data dostarczenia dokumentów"
+      comment: "Komentarz"
