@@ -20,12 +20,13 @@ RSpec.describe Google::SheetClient::RequestsFactory do
         { start_row_index: 0, end_row_index: 1, start_column_index: 2, end_column_index: 6, sheet_id: 1 },
         { start_row_index: 0, end_row_index: 1, start_column_index: 6, end_column_index: 10, sheet_id: 1 },
         { start_row_index: 0, end_row_index: 2, start_column_index: 10, end_column_index: 11, sheet_id: 1 },
-        { start_row_index: 0, end_row_index: 2, start_column_index: 11, end_column_index: 12, sheet_id: 1 }
+        { start_row_index: 0, end_row_index: 2, start_column_index: 11, end_column_index: 12, sheet_id: 1 },
+        { start_row_index: 0, end_row_index: 2, start_column_index: 12, end_column_index: 13, sheet_id: 1 },
+        { start_row_index: 0, end_row_index: 2, start_column_index: 13, end_column_index: 14, sheet_id: 1 }
       ]
     end
 
     it "builds requests that configure the sheet" do
-      # binding.pry
       expect(from_template_configuration).to include(
         *merged_cells_config.map do |config|
           an_instance_of(Google::Apis::SheetsV4::Request) & have_attributes(
@@ -39,7 +40,7 @@ RSpec.describe Google::SheetClient::RequestsFactory do
           update_cells: an_instance_of(Google::Apis::SheetsV4::UpdateCellsRequest) & have_attributes(
             fields: "userEnteredFormat(horizontalAlignment,backgroundColor,textFormat),userEnteredValue",
             range: an_instance_of(Google::Apis::SheetsV4::GridRange) & have_attributes(
-              start_row_index: 0, end_row_index: 2, start_column_index: 0, end_column_index: 12, sheet_id: 1
+              start_row_index: 0, end_row_index: 2, start_column_index: 0, end_column_index: 14, sheet_id: 1
             ),
             rows: contain_exactly(
               an_instance_of(Google::Apis::SheetsV4::RowData) & have_attributes(
@@ -81,6 +82,24 @@ RSpec.describe Google::SheetClient::RequestsFactory do
                     user_entered_value: an_instance_of(Google::Apis::SheetsV4::ExtendedValue) & have_attributes(
                       string_value: "Data wysyłki"
                     )
+                  ),
+                  an_instance_of(Google::Apis::SheetsV4::CellData) & have_attributes(
+                    user_entered_format: an_instance_of(Google::Apis::SheetsV4::CellFormat) & have_attributes(
+                      horizontal_alignment: "CENTER",
+                      text_format: an_instance_of(Google::Apis::SheetsV4::TextFormat) & have_attributes(bold: true)
+                    ),
+                    user_entered_value: an_instance_of(Google::Apis::SheetsV4::ExtendedValue) & have_attributes(
+                      string_value: "Data dostarczenia dokumentów"
+                    ),
+                  ),
+                  an_instance_of(Google::Apis::SheetsV4::CellData) & have_attributes(
+                    user_entered_format: an_instance_of(Google::Apis::SheetsV4::CellFormat) & have_attributes(
+                      horizontal_alignment: "CENTER",
+                      text_format: an_instance_of(Google::Apis::SheetsV4::TextFormat) & have_attributes(bold: true)
+                    ),
+                    user_entered_value: an_instance_of(Google::Apis::SheetsV4::ExtendedValue) & have_attributes(
+                      string_value: "Komentarz"
+                    ),
                   )
                 )
               ),

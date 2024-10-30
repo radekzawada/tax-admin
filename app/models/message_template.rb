@@ -6,11 +6,13 @@ class MessageTemplate < ApplicationRecord
       rows: [
         [
           { label: :full_name, row_span: 2, variable: :full_name },
-          { label: :email, row_span: 2, variable: :email },
+          { label: :email, row_span: 2, variable: :email }, # Template should require it
           { label: :pit, col_span: 4 },
           { label: :vat, col_span: 4 },
           { label: :account_number, variable: :account_number, row_span: 2 },
-          { label: :dispatch_date, variable: :dispatch_date, row_span: 2 }
+          { label: :dispatch_date, variable: :dispatch_date, row_span: 2 }, # Template should require it
+          { label: :documents_provided_at, row_span: 2 },
+          { label: :comment, row_span: 2 }
         ],
         [
           { gap: true },

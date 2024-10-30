@@ -77,6 +77,7 @@ group :test do
   gem "rails-controller-testing"
   gem "vcr"
   gem "webmock"
+  gem "database_cleaner-active_record"
 end
 
 gem "devise", "~> 4.9"
