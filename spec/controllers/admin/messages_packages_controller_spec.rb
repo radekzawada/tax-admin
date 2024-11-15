@@ -5,11 +5,17 @@ RSpec.describe Admin::MessagesPackagesController, type: :controller do
     subject(:action) { post :create, params: }
 
     let(:user) { create(:user) }
-    let(:params) { {} }
+    let(:params) { { message_template_id: 1 } }
 
     context "when user is authenticated" do
-      let(:params) { { name: "sheet", template_id: template.id } }
-      let(:template) { create(:message_template, template_name: "taxes", external_spreadsheet_id: "1HwTHd84ImjKoPVi5l7o1q0uveL-CSxVB5LraHhRZmCE") }
+      let(:params) { { name: "sheet", message_template_id: template.id } }
+      let(:template) do
+         create(
+          :message_template,
+          template_name: "taxes",
+          external_spreadsheet_id: "1HwTHd84ImjKoPVi5l7o1q0uveL-CSxVB5LraHhRZmCE"
+        )
+      end
 
       before { sign_in user }
 

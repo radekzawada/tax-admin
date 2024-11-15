@@ -6,14 +6,14 @@ class MessagesPackages::Create
   Contract = Dry::Validation.Contract do
     params do
       required(:name).filled(:string)
-      required(:template_id).filled(:integer)
+      required(:message_template_id).filled(:integer)
     end
 
     rule(:name) do
       key.failure(:unique?) if MessagesPackage.exists?(name: value)
     end
 
-    rule(:template_id) do |context:|
+    rule(:message_template_id) do |context:|
       context[:message_template] = MessageTemplate.find_by(id: value)
 
       key.failure(:not_found?) if context[:message_template].nil?

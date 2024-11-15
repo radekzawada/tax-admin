@@ -10,7 +10,7 @@ RSpec.describe MessagesPackages::Create do
       let(:params) do
         {
           name: "sheet",
-          template_id: template.id
+          message_template_id: template.id
         }
       end
       let(:template) { create(:message_template) }
@@ -19,7 +19,7 @@ RSpec.describe MessagesPackages::Create do
         expect(call).to be_success & have_attributes(
           to_h: {
             name: "sheet",
-            template_id: template.id
+            message_template_id: template.id
           }
         )
       end
@@ -32,7 +32,7 @@ RSpec.describe MessagesPackages::Create do
             errors: have_attributes(
               to_h: {
                 name: ["pole musi być obecne"],
-                template_id: ["pole musi być obecne"]
+                message_template_id: ["pole musi być obecne"]
               }
             )
           )
@@ -54,13 +54,13 @@ RSpec.describe MessagesPackages::Create do
         let(:params) do
           {
             name: "sheet",
-            template_id: 0
+            message_template_id: 0
           }
         end
 
         it "validates sheet_name uniqueness" do
           expect(call).to be_failure
-          expect(call.errors.to_h[:template_id]).to eq(["obiect nie został znaleziony"])
+          expect(call.errors.to_h[:message_template_id]).to eq(["obiect nie został znaleziony"])
         end
       end
     end
@@ -80,7 +80,7 @@ RSpec.describe MessagesPackages::Create do
 
     let(:params) do
       {
-        template_id: template.id,
+        message_template_id: template.id,
         name: "sheet"
       }
     end
