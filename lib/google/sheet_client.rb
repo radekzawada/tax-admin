@@ -25,6 +25,12 @@ class Google::SheetClient
     end
   end
 
+  def read_data(spreadsheet_id, range)
+    result = google_sheet_service.get_spreadsheet_values(spreadsheet_id, range)
+
+    Success(result)
+  end
+
   def create_spreadsheet(title, sheet_title)
     spreadsheet = build_spreadsheet(title, sheet_title)
 
