@@ -60,7 +60,7 @@ RSpec.describe MessagesPackages::Create do
 
         it "validates sheet_name uniqueness" do
           expect(call).to be_failure
-          expect(call.errors.to_h[:message_template_id]).to eq(["obiect nie został znaleziony"])
+          expect(call.errors.to_h[:message_template_id]).to eq(["nie istnieje"])
         end
       end
     end
