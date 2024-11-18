@@ -46,4 +46,13 @@ RSpec.describe MessagesPackage, type: :model do
       it { is_expected.to contain_exactly(processed_package_1, processed_package_2) }
     end
   end
+
+  describe "#range" do
+    subject(:range) { messages_package.range }
+
+    let(:messages_package) { create(:messages_package, name: "sheet", message_template:) }
+    let(:message_template) { create(:message_template, template_name: "taxes") }
+
+    it { is_expected.to eq("'sheet'!3:1000") }
+  end
 end
