@@ -1,5 +1,6 @@
 class MessageTemplates::ShowPresenter
   extend Dry::Initializer
+  include MessagesPackageHelper
 
   ActiveMessagePackage = Struct.new(:id, :name, :messages_count, :url)
 
@@ -11,18 +12,18 @@ class MessageTemplates::ShowPresenter
   delegate :id, to: :template, prefix: true
 
   def created_at
-    @template.created_at.strftime("%Y-%m-%d %H:%M")
+    template.created_at.strftime("%Y-%m-%d %H:%M")
   end
 
   def active_messages_packages
-    @active_messages_packages ||= @template.messages_packages.active.map do |package|
-      url = @template.url + format(PACKAGE_URL_SUFFIX, id: package.external_sheet_id)
+    @active_messages_packages ||= template.messages_packages.active.map do |package|
+      url = external_url(template, package)
       ActiveMessagePackage.new(package.id, package.name, 1, url)
     end
   end
 
   def processed_messages_packages
-    @processed_messages_packages ||= @template.messages_packages.processed
+    @processed_messages_packages ||= template.messages_packages.processed
   end
 
   def default_new_package_name
