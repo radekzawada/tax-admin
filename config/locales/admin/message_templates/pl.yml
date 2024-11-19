@@ -20,6 +20,7 @@ pl:
       active_messages_packages:
         actions:
           open: "Otwórz"
+          read_data: "Wczytaj dane"
         title: "Aktywne paczki wiadomości"
         headers:
           name: "Nazwa"
