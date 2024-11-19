@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="header">
+    <%= t("mailers.mailbox.tax_information_message.body.welcome") %>
+  </div>
+
+  <p><%= t("mailers.mailbox.tax_information_message.body.intro") %></p>
+
+  <div class="section">
+    <table class="table">
+      <tr>
+        <% t("mailers.mailbox.tax_information_message.body.table_headers").each do |header| %>
+          <th><%= header %></th>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%= @draft_message.variables[:income_tax_type] %></td>
+        <td><%= @draft_message.variables[:income_tax_period] %></td>
+        <td><%= @draft_message.variables[:income_tax_payment_deadline] %></td>
+        <td><%= @draft_message.variables[:income_tax_amount] %></td>
+      </tr>
+      <% if @draft_message.variables[:value_added_tax_type].present? %>
+        <tr>
+          <td><%= @draft_message.variables[:value_added_tax_type] %></td>
+          <td><%= @draft_message.variables[:value_added_tax_period] %></td>
+          <td><%= @draft_message.variables[:value_added_tax_payment_deadline] %></td>
+          <td><%= @draft_message.variables[:value_added_tax_amount] %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="section">
+    <p><%= t("mailers.mailbox.tax_information_message.body.account_number") %></p>
+    <p><strong><%= @draft_message.variables[:account_number] %></strong></p>
+  </div>
+
+  <div class="footer">
+    <%= raw t("mailers.mailbox.tax_information_message.body.footer") %>
+  </div>
+</div>
