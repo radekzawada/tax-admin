@@ -1,6 +1,6 @@
 class Mailbox::Factories::MessagesPackageDraftsFactory
   extend Dry::Initializer
-  include MessagePackageHelper
+  include MessagesPackageHelper
 
   option :draft_messages_factory, default: proc { Mailbox::Factories::DraftMessagesFactory.default }
 
