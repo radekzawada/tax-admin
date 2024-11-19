@@ -27,4 +27,17 @@ end
 
 module Types
   include Dry.Types()
+
+  TemplateVariable = Types::Hash.schema(
+    name: Types::Symbol,
+    type: Types::Symbol.default(:income).enum(:income, :outcome)
+  )
+  Coercible::TemplateVariable = TemplateVariable.constructor do |v|
+    v = [v].flatten
+    { name: v[0].to_sym, type: v[1]&.to_sym }.compact
+
+    TemplateVariable.call(**{ name: v[0], type: v[1] }.compact)
+  end
+  Email = Types::String.constrained(format: /\A[^@\s]+@[^@\s]+\z/)
+  UUID = Types::String.constrained(format: /\A\h{8}-\h{4}-\h{4}-\h{4}-\h{12}\z/)
 end
