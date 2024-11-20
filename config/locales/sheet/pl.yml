@@ -10,6 +10,7 @@ pl:
       payment_deadline: "Termin płatności"
       tax_amount: "Kwota podatku"
       account_number: "Numer konta"
+      amount: "Kwota"
       dispatch_date: "Data wysyłki"
       documents_provided_at: "Data dostarczenia dokumentów"
       comment: "Komentarz"

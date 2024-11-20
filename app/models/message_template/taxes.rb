@@ -31,7 +31,7 @@ class MessageTemplate::Taxes
     rows: [
       [
         { label: :full_name, row_span: 2, variable: :full_name },
-        { label: :email, row_span: 2, variable: :email }, # Template should require it
+        { label: :email, row_span: 2, variable: :email },
         { label: :pit, col_span: 4 },
         { label: :vat, col_span: 4 },
         { label: :account_number, variable: :account_number, row_span: 2 },
