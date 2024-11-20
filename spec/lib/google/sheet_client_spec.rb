@@ -104,4 +104,24 @@ RSpec.describe Google::SheetClient do
       )
     end
   end
+
+  describe "#read_data" do
+    subject(:read_data) { sheet_client.read_data(spreadsheet_id, range) }
+
+    let(:sheet_client) { described_class.new(google_sheet_service:) }
+    let(:google_sheet_service) { instance_double(Google::Apis::SheetsV4::SheetsService) }
+
+    let(:spreadsheet_id) { "spreadsheet_id" }
+    let(:range) { "A1:B2" }
+
+    before do
+      allow(google_sheet_service).to receive(:get_spreadsheet_values).and_return("data")
+    end
+
+    it "reads data from a sheet" do
+      expect(read_data).to be_success & have_attributes(value!: "data")
+
+      expect(google_sheet_service).to have_received(:get_spreadsheet_values).with(spreadsheet_id, range)
+    end
+  end
 end

@@ -1,0 +1,9 @@
+<%= render(
+      "admin/shared/modal_window",
+      title: t("admin.mailbox.messages_packages.drafts.preview"),
+      modal_id: "draftMessagePreviewModal_#{message.id}"
+    ) do %>
+  <div class="row">
+    <iframe srcdoc="<%= message.preview %>" class="iframe"></iframe>
+  </div>
+<% end %>

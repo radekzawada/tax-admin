@@ -1,0 +1,19 @@
+pl:
+  mailers:
+    mailbox:
+      tax_information_message:
+        subject: "Informacje podatkowe"
+        body:
+          welcome: "Dzień dobry,"
+          intro: "Podatki za wskazany okres wyglądają następująco:"
+          table_headers:
+            - "Rodzaj podatku"
+            - "Okres"
+            - "Termin płatności"
+            - "Kwota podatku"
+          bank_account: "Numer konta do wpłaty (dla wszystkich podatków):"
+          footer: |
+            W razie pytań prosimy o kontakt.
+            <br><br>
+            Z poważaniem,
+            <br>Soft-Tax

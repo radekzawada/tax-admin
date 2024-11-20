@@ -61,7 +61,7 @@
                 <th><%= t("admin.message_templates.active_messages_packages.headers.name") %></th>
                 <th><%= t("admin.message_templates.active_messages_packages.headers.remote_sheet") %></th>
                 <th><%= t("admin.message_templates.active_messages_packages.headers.messages_count") %></th>
-                <th><%= t("admin.message_templates.active_messages_packages.headers.actions") %></th>
+                <th class="col-sm-2"><%= t("admin.message_templates.active_messages_packages.headers.actions") %></th>
               </tr>
             </thead>
             <tbody>
@@ -76,7 +76,16 @@
                   </td>
                   <td><%= package.messages_count %></td>
                   <td>
-
+                    <%= link_to(
+                          draft_messages_admin_message_template_messages_package_url(
+                            @presenter.template_id,
+                            package.id
+                          ),
+                          target: "_blank"
+                        ) do %>
+                      <i class="fa fa-circle-down"></i>
+                      <%= t("admin.message_templates.active_messages_packages.actions.read_data") %>
+                    <% end %>
                   </td>
                 </tr>
               <% end %>

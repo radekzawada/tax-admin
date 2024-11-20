@@ -1,0 +1,135 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.googleapis.com/oauth2/v4/token
+    body:
+      encoding: ASCII-8BIT
+      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzdC1hZG1pbkBxdWlja3N0YXJ0LTE1NjQ1MTExNDc2MjYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9vYXV0aDIvdjQvdG9rZW4iLCJleHAiOjE3MzIxMTY0MDUsImlhdCI6MTczMjExNjI4NSwic2NvcGUiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL3NwcmVhZHNoZWV0cyBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2RyaXZlIn0.YcEZ9iUrzeSvqxTsBw-coEJ5vXO5ZqkfIm0j7rT9YPCEfJrLGqFitmWxr1m7epXOhc1dbA1pDNWdNa9F4k5UwKnVCR-irI3afXnmkvB2BzWaAxctNFUatX_ImtnsXduUvTr4h25LetM1Cz7YiViaaKIRjwxrLR-EBI0ZsL2Z3LJKEJU1fvKJG0mYnDztWo3HDHdo2o93IsfI-KKRqjl_SrG4scdqFDg1l0chkZS2yJb4Ex2s8bA2ZnmcTCZEeThCisd0yuDH8NW_4_iAMec0XtW5IUSoGi9Qg2gncEpgd0TWa8IjLEWqC5yf22XUmt3k6wBfIDjWDjwgG-mDVa5sWg
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Wed, 20 Nov 2024 15:21:33 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"ya29.c.c0ASRK0GaOrCMvKEeZz2PuURqMMPSsWANe7FDeoGI8DafdMV79VzyyNFzCD2_Zl85eZu__uzs6sZ7ZgScgfC8GCKOploU98caVH-JlyvbKyr1WQIIToSUyvj2Sc2pOYrwUo1iEO0H-dNxAqtBg088rcVt4lFaqtwmwH69YWv1F3WqdiEEe0p5QDBZWEdZhlz6eRbItwKNuj77ClgbfIPqDhFNql7s95V6DQzCmz-lGSdmG8ytBJXINIZv07N2rM810D8A2oMgEObXqaZ1ijmkL8pewPkO0iQWV_wn5T5l5UsiyXIGP7ajsFgtSyU4ud7mF1WRbAZYOfkGs6v3r9_LvjhF9phgqSuM9s8aCvEn467YYzTEJ40fC9ucecAH387Ab0Rhz0lZftdh2gZIBY6vyngbJ4zh-gz0Bhw52ISiZkabOMbI_lrWnlM-WFo4tx4IWQ88U2uzyf2gfpbV3m8enj5YlQ2k0IrtJZVtQI62UX8osunRBUluemuz8eORiyhd3agF_VqO4eviZr17SsodjM_Xotxi55cmZUQF2Qq4XyX9esQ_MglvuuBwSXFku-h0z6Yf1ncp2_WS6FF4hd3FYccOdpS5WVxWRSO9MWpwmY2dk8sxIi_xuvv-MVMnuxyi_SBVoool55ZU3a0Ibzj7k4zxmyi5WmovzRl278pRr-ry6M1ro5zS2s7szuOZqiwYUtMyX8O8ddkpa4g0-YyM-FfijMI8oun5_ljjB453v0xbZ4rurqBiqw_mwpOg73-qpeQ-yJu7yzfYB3dQ-3rna7wO9Ix84oiBBJMucsYYIll-l8dj_rwslrrSz76pzpcin0yIuvnV37clq23R-nygMfJ86ein91h-m0gI2d0wS-UWekBwpVipqQSXx8Y_dy94SIqkMbdMQwtWjm_laszerUg1WBl4jwS7c6FzQpg4SIZ3aiBRzyt5OFt8w821dps251asVyB3IgbFpg_M8rg64vj0WuVUljfMojpha_Xe80p01kSX-Jdb7e6M","expires_in":3599,"token_type":"Bearer"}'
+  recorded_at: Wed, 20 Nov 2024 15:25:45 GMT
+- request:
+    method: get
+    uri: https://sheets.googleapis.com/v4/spreadsheets/1W-O7jpHkLmrijuYA0K4xgzwjcYttIx1zZIKkS0b_080/values/'Pa%C5%BAdziernik%202024'!3:1000
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - ST-admin/0.0.0 google-apis-sheets_v4/0.37.0 Mac OS X/12.7.6 (gzip)
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Wed, 20 Nov 2024 15:25:45 GMT
+      X-Goog-Api-Client:
+      - gl-ruby/3.2.2 gdcl/1.37.0
+      Authorization:
+      - Bearer ya29.c.c0ASRK0GaOrCMvKEeZz2PuURqMMPSsWANe7FDeoGI8DafdMV79VzyyNFzCD2_Zl85eZu__uzs6sZ7ZgScgfC8GCKOploU98caVH-JlyvbKyr1WQIIToSUyvj2Sc2pOYrwUo1iEO0H-dNxAqtBg088rcVt4lFaqtwmwH69YWv1F3WqdiEEe0p5QDBZWEdZhlz6eRbItwKNuj77ClgbfIPqDhFNql7s95V6DQzCmz-lGSdmG8ytBJXINIZv07N2rM810D8A2oMgEObXqaZ1ijmkL8pewPkO0iQWV_wn5T5l5UsiyXIGP7ajsFgtSyU4ud7mF1WRbAZYOfkGs6v3r9_LvjhF9phgqSuM9s8aCvEn467YYzTEJ40fC9ucecAH387Ab0Rhz0lZftdh2gZIBY6vyngbJ4zh-gz0Bhw52ISiZkabOMbI_lrWnlM-WFo4tx4IWQ88U2uzyf2gfpbV3m8enj5YlQ2k0IrtJZVtQI62UX8osunRBUluemuz8eORiyhd3agF_VqO4eviZr17SsodjM_Xotxi55cmZUQF2Qq4XyX9esQ_MglvuuBwSXFku-h0z6Yf1ncp2_WS6FF4hd3FYccOdpS5WVxWRSO9MWpwmY2dk8sxIi_xuvv-MVMnuxyi_SBVoool55ZU3a0Ibzj7k4zxmyi5WmovzRl278pRr-ry6M1ro5zS2s7szuOZqiwYUtMyX8O8ddkpa4g0-YyM-FfijMI8oun5_ljjB453v0xbZ4rurqBiqw_mwpOg73-qpeQ-yJu7yzfYB3dQ-3rna7wO9Ix84oiBBJMucsYYIll-l8dj_rwslrrSz76pzpcin0yIuvnV37clq23R-nygMfJ86ein91h-m0gI2d0wS-UWekBwpVipqQSXx8Y_dy94SIqkMbdMQwtWjm_laszerUg1WBl4jwS7c6FzQpg4SIZ3aiBRzyt5OFt8w821dps251asVyB3IgbFpg_M8rg64vj0WuVUljfMojpha_Xe80p01kSX-Jdb7e6M
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Encoding:
+      - gzip
+      Date:
+      - Wed, 20 Nov 2024 15:21:34 GMT
+      Server:
+      - ESF
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      X-L2-Request-Path:
+      - l2-managed-6
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "range": "'Październik 2024'!A3:Z1000",
+          "majorDimension": "ROWS",
+          "values": [
+            [
+              "Radek Zawada",
+              "radek_zawada@op.pl",
+              "PIT-36",
+              "październik 2024",
+              "2024-11-11",
+              "1000,00 zł",
+              "VAT-7",
+              "październik 2024",
+              "2024-11-11",
+              "2000,00 zł",
+              "111111111"
+            ],
+            [
+              "Radek Zawada",
+              "aaradek_zawada@op.pl",
+              "PIT-36",
+              "październik 2024",
+              "2024-11-11",
+              "1000,00 zł",
+              "VAT-7",
+              "październik 2024",
+              "październik 2024"
+            ]
+          ]
+        }
+  recorded_at: Wed, 20 Nov 2024 15:25:46 GMT
+recorded_with: VCR 6.3.1

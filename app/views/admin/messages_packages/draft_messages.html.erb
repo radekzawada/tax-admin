@@ -1,0 +1,105 @@
+<% content_for(:page_header) do %>
+  <%= link_to(@presenter.template_name, admin_message_template_url(@presenter.template_id)) %> /
+  <%= link_to @presenter.external_url, target: "_blank" do %>
+    <%= t("admin.mailbox.messages_packages.drafts.title", package_name: @presenter.package_name) %>
+    <i class="fa fa-external-link fa-xs"></i>
+  <% end %>
+<% end %>
+
+<% content_for(:page_actions) do %>
+  <%= link_to(url_for(reload_data: true), class: "btn btn-action") do %>
+    <i class="fa-solid fa-arrows-rotate"></i>
+    <%= t("admin.mailbox.messages_packages.drafts.actions.refresh") %>
+  <% end %>
+<% end %>
+
+<div class="container-fluid">
+  <% if @presenter.invalid_drafts.present? %>
+    <div class="card mb-3">
+      <div class="card-header bg-error">
+        <b><%= t("admin.mailbox.messages_packages.drafts.invalid.title") %></b>
+      </div>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.row") %></th>
+            <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.email") %></th>
+            <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.full_name") %></th>
+            <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.errors") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @presenter.invalid_drafts.each do |draft_message| %>
+            <tr class="align-middle small">
+              <td><%= draft_message.index %></td>
+              <td><%= draft_message.email %></td>
+              <td><%= draft_message.full_name %></td>
+              <td>
+                <% draft_message.errors.each do |error| %>
+                  <%= error %><br>
+                <% end %>
+              </td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+  <% if @presenter.valid_drafts.present? %>
+    <div class="card mb-3">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-sm-9 d-flex align-items-center">
+            <b><%= t("admin.mailbox.messages_packages.drafts.valid.title") %></b>
+          </div>
+          <div class="col-sm-3 d-flex justify-content-end">
+            <%= link_to(url_for(reload_data: true), class: "btn btn-action") do %>
+              <i class="fa-solid fa-paper-plane"></i>
+              <%= t("admin.mailbox.messages_packages.drafts.actions.send") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.full_name") %></th>
+            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.email") %></th>
+            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.income_tax") %></th>
+            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.vat") %></th>
+            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.actions") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @presenter.valid_drafts.each do |draft_message| %>
+            <tr class="align-middle small">
+              <td><%= draft_message.full_name %></td>
+              <td><%= draft_message.email %></td>
+              <td><%= draft_message.income_tax_data %></td>
+              <td><%= draft_message.value_added_tax_data %></td>
+              <td>
+                <%= button_tag(
+                      type: "button",
+                      class: "btn btn-action",
+                      data: { bs_toggle: "modal", bs_target: "#draftMessagePreviewModal_#{draft_message.id}" }
+                    ) do %>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <%= t("admin.mailbox.messages_packages.drafts.actions.preview") %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  <% end %>
+</div>
+
+<% @presenter.valid_drafts.each do |draft_message| %>
+  <%= render partial: "message_preview", locals: { message: draft_message } %>
+<% end %>

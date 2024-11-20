@@ -10,8 +10,10 @@
     <%= yield :head %>
 
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
     <%= favicon_link_tag "favicon.ico" %>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap">
@@ -34,16 +36,12 @@
 
     <%= render partial: "admin/navbar" %>
 
-    <div class="flash">
-      <% if notice.present? %><div class="alert alert-success" role="alert"><%= notice %></div><% end %>
-      <% if alert.present? %><div class="alert alert-danger" role="alert"><%= alert %></div><% end %>
-    </div>
     <div class="d-flex full-height">
-
       <%= render partial: "admin/sidebar" %>
 
       <main class="p-1 container-fluid">
         <%= render partial: "admin/header" %>
+
         <%= yield %>
       </main>
     </div>

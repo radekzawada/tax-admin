@@ -1,0 +1,31 @@
+pl:
+  admin:
+    mailbox:
+      messages_packages:
+        errors:
+          not_found: "Nie znaleziono paczki wiadomości"
+        drafts:
+          preview: "Podgląd wiadomości"
+          errors:
+            not_found: "Nie znaleziono wiadomości"
+          actions:
+            refresh: "Przeładuj dane"
+            preview: "Podgląd"
+            send: "Wyślij"
+          title: "Szkice wiadomości %{package_name}"
+          valid:
+            title: "Poprawne Szkice wiadomości"
+            headers:
+              full_name: "Imię i nazwisko"
+              email: "Email"
+              income_tax: "Podatek dochodowy"
+              vat: "VAT"
+              actions: "Akcje"
+          invalid:
+            title: "Szkice wiadomości z błędami"
+            headers:
+              row: "Wiersz"
+              full_name: "Imię i nazwisko"
+              email: "Email"
+              actions: "Akcje"
+              errors: "Błędy"

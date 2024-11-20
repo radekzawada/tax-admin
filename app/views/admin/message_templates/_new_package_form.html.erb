@@ -1,12 +1,12 @@
 <%= form_with(
-      url: admin_messages_packages_url,
+      url: admin_message_template_messages_packages_url(presenter.template_id),
       data: {
         controller: "admin--messages-packages--create",
         action: "submit->admin--messages-packages--create#submit"
       }
     ) do %>
 
-  <%= hidden_field_tag("template_id", presenter.template_id) %>
+  <%= hidden_field_tag("message_template_id", presenter.template_id) %>
   <div class="modal-body">
     <%= label_tag :name, t("admin.message_templates.new_package.labels.name"), class: "form-label" %>
     <%= text_field_tag :name, presenter.default_new_package_name, class: "form-control", required: true %>

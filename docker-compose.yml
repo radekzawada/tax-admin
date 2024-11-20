@@ -13,5 +13,13 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: st_admin_development
 
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
 volumes:
   postgres_data:
+  redis_data:

@@ -3,11 +3,74 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
-      /* Email styles need to be inline */
+      /* Inline Bootstrap-like styles */
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        background-color: #ffffff; /* White background for the main content */
+        border-radius: 8px; /* Slight rounding on corners */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      }
+
+      .body-background {
+        background-color: #f3f4f6; /* Light grey background for the entire email */
+        padding: 40px 0; /* Padding around the container */
+      }
+
+      .header {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333333; /* Darker text color for contrast */
+      }
+
+      .section {
+        margin-bottom: 15px;
+      }
+
+      .section p {
+        margin: 5px 0;
+        font-size: 16px; /* Larger font for readability */
+        color: #555555; /* Medium grey for text */
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px; /* Space before the table */
+      }
+
+      .table th, .table td {
+        border: 1px solid #ddd;
+        padding: 10px; /* Increased padding for readability */
+        font-size: 15px;
+      }
+
+      .table th {
+        background-color: #e9ecef; /* Light grey background for header */
+        text-align: left;
+        font-weight: bold;
+        color: #333333; /* Darker text color for header */
+      }
+
+      .table td {
+        background-color: #fafafa; /* Slightly lighter background for table rows */
+      }
+
+      .footer {
+        font-size: 14px;
+        color: #6c757d;
+        margin-top: 20px;
+        text-align: left; /* Center-aligned footer text */
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+      }
     </style>
   </head>
 
-  <body>
+  <body class="body-background">
     <%= yield %>
   </body>
 </html>
