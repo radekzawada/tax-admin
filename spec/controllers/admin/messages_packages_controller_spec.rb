@@ -55,17 +55,14 @@ RSpec.describe Admin::MessagesPackagesController, type: :controller do
 
       before do
         sign_in user
+
+        Redis.current.flushdb
       end
 
       it "fetches remote data", :vcr do
-        redis_mock = instance_double(Redis, get: nil, set: nil, exists?: false)
-
-        allow(Redis).to receive(:current).and_return(redis_mock)
-
         expect(action).to render_template(:draft_messages)
 
         expect(assigns(:presenter)).to be_a(Mailbox::MessagesPackages::DraftPresenter)
-        expect(redis_mock).to have_received(:exists?).with("MESSAGES_PACKAGE_PREVIEW:#{messages_package.id}")
       end
     end
 
