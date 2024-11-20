@@ -14,8 +14,11 @@ Rails.application.routes.draw do
     get :mailbox, to: "mailbox#index"
     post "mailbox/template_file", to: "mailbox#create_template_file"
 
-    resources :message_templates, only: %i[show]
-    resources :messages_packages, only: %i[create]
+    resources :message_templates, only: %i[show] do
+      resources :messages_packages, only: %i[create] do
+        get :draft_messages, on: :member
+      end
+    end
   end
 
   # Defines the root path route ("/")
