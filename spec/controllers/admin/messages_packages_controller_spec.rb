@@ -37,4 +37,42 @@ RSpec.describe Admin::MessagesPackagesController, type: :controller do
       end
     end
   end
+
+  describe "GET #draft_messages" do
+    subject(:action) { get :draft_messages, params: }
+
+    let(:user) { create(:user) }
+    let(:params) { { id: 1, message_template_id: 1 } }
+
+    context "when user is authenticated" do
+      let(:params) { { id: messages_package.id, message_template_id: messages_package.message_template.id, fresh: } }
+      let(:fresh) { false }
+
+      let(:messages_package) { create(:messages_package, message_template:, name: "Październik 2024") }
+      let(:message_template) do
+        create(:message_template, external_spreadsheet_id: "1W-O7jpHkLmrijuYA0K4xgzwjcYttIx1zZIKkS0b_080")
+      end
+
+      before do
+        sign_in user
+      end
+
+      it "fetches remote data", :vcr do
+        redis_mock = instance_double(Redis, get: nil, set: nil, exists?: false)
+
+        allow(Redis).to receive(:current).and_return(redis_mock)
+
+        expect(action).to render_template(:draft_messages)
+
+        expect(assigns(:presenter)).to be_a(Mailbox::MessagesPackages::DraftPresenter)
+        expect(redis_mock).to have_received(:exists?).with("MESSAGES_PACKAGE_PREVIEW:#{messages_package.id}")
+      end
+    end
+
+    context "when user is not authenticated" do
+      it "requires user to be authenticated" do
+        expect(action).to redirect_to(new_user_session_path)
+      end
+    end
+  end
 end

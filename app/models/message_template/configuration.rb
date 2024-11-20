@@ -53,7 +53,7 @@ class MessageTemplate::Configuration < Dry::Struct
   end
 
   def columns_count
-    @income_variables ||= rows.map { |row| row.sum(&:col_span) }.max
+    @columns_count ||= rows.map { |row| row.sum(&:col_span) }.max
   end
 
   def income_variables
