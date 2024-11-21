@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="header">
+    <%= t("mailers.mailbox.insurance_information_message.body.welcome") %>
+  </div>
+
+  <p><%= t("mailers.mailbox.insurance_information_message.body.intro") %></p>
+
+  <div class="section">
+    <table class="table">
+      <tr>
+        <% t("mailers.mailbox.insurance_information_message.body.table_headers").each do |header| %>
+          <th><%= header %></th>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%= @draft_message.variables[:period] %></td>
+        <td><%= @draft_message.variables[:payment_deadline] %></td>
+        <td><%= @draft_message.variables[:amount] %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <p><%= t("mailers.mailbox.insurance_information_message.body.account_number") %></p>
+    <p><strong><%= @draft_message.variables[:account_number] %></strong></p>
+  </div>
+
+  <div class="footer">
+    <%= sanitize(t("mailers.mailbox.insurance_information_message.body.footer")) %>
+  </div>
+</div>

@@ -32,7 +32,9 @@ RSpec.describe Repositories::MessagesPackageDraftsRepository do
           template_name: "message template name",
           template_id: 2,
           draft_messages: [],
-          external_url: "www.example.com#gid=sheet_id"
+          external_url: "www.example.com#gid=sheet_id",
+          variables: %w[first_name last_name],
+          mailer_message: :mailer_message
         }
       end
 

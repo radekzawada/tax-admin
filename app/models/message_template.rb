@@ -2,7 +2,8 @@ class MessageTemplate < ApplicationRecord
   TEMPLATES = %w[taxes insurance].freeze
 
   TEMPLATES_CONFIGURATION = {
-    taxes: MessageTemplate::Taxes::CONFIGURATION
+    taxes: MessageTemplate::Taxes::CONFIGURATION,
+    insurance: MessageTemplate::Insurance::CONFIGURATION
   }
 
   validates :external_spreadsheet_id, uniqueness: true, presence: true
@@ -13,8 +14,6 @@ class MessageTemplate < ApplicationRecord
   has_many :messages_packages
 
   delegate :income_variables, :data_start_row, :validations, to: :template_configuration
-
-  private
 
   def template_configuration
     TEMPLATES_CONFIGURATION[template_name.to_sym]

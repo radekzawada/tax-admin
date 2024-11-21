@@ -69,8 +69,7 @@
           <tr>
             <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.full_name") %></th>
             <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.email") %></th>
-            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.income_tax") %></th>
-            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.vat") %></th>
+            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.variables") %></th>
             <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.actions") %></th>
           </tr>
         </thead>
@@ -79,8 +78,7 @@
             <tr class="align-middle small">
               <td><%= draft_message.full_name %></td>
               <td><%= draft_message.email %></td>
-              <td><%= draft_message.income_tax_data %></td>
-              <td><%= draft_message.value_added_tax_data %></td>
+              <td><%= draft_message.variables %></td>
               <td>
                 <%= button_tag(
                       type: "button",

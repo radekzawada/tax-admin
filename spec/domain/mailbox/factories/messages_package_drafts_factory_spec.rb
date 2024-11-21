@@ -28,8 +28,17 @@ RSpec.describe Mailbox::Factories::MessagesPackageDraftsFactory do
       )
     end
     let(:message_template) do
-      instance_double(MessageTemplate, id: 2, name: "message template name", url: "www.example.com")
+      instance_double(
+        MessageTemplate,
+        id: 2,
+        name: "message template name",
+        url: "www.example.com",
+        income_variables:,
+        template_configuration:
+      )
     end
+    let(:template_configuration) { instance_double(MessageTemplate::Configuration, mailer_message: :mailer_message) }
+    let(:income_variables) { { 0 => "first_name", 1 => "last_name" } }
 
     let(:draft_messages) do
       [
@@ -49,7 +58,9 @@ RSpec.describe Mailbox::Factories::MessagesPackageDraftsFactory do
         template_name: "message template name",
         template_id: 2,
         draft_messages:,
-        external_url: "www.example.com#gid=sheet_id"
+        external_url: "www.example.com#gid=sheet_id",
+        variables: %i[first_name last_name],
+        mailer_message: :mailer_message
       )
     end
   end

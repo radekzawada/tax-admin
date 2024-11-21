@@ -42,6 +42,7 @@ class MessageTemplate::Configuration < Dry::Struct
   attribute :rows, Types::Array.of(Types::Array.of(Types::Instance(Header) | Types::Instance(Gap)))
   attribute :data_start_row, Types::Integer
   attribute :validations, Types::Interface(:call)
+  attribute :mailer_message, Types::Symbol
 
   def self.from_hash(rows:, **data)
     new(

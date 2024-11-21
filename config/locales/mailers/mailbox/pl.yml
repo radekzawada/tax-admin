@@ -17,3 +17,18 @@ pl:
             <br><br>
             Z poważaniem,
             <br>Soft-Tax
+      insurance_information_message:
+        subject: "Składka ubezpieczeniowa"
+        body:
+          welcome: "Dzień dobry,"
+          intro: "Składka Ubezpieczeniowa za wskazany okres wyglądaja następująco:"
+          table_headers:
+            - "Okres"
+            - "Termin płatności"
+            - "Kwota składki"
+          account_number: "Numer konta do wpłaty:"
+          footer: |
+            W razie pytań prosimy o kontakt.
+            <br><br>
+            Z poważaniem,
+            <br>Soft-Tax
