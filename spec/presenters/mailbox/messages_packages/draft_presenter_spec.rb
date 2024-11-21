@@ -3,7 +3,14 @@ require "rails_helper"
 RSpec.describe Mailbox::MessagesPackages::DraftPresenter do
   subject(:presenter) { described_class.new(draft_package, mailbox_mailer:) }
 
-  let(:draft_package) { instance_double(Mailbox::MessagesPackageDraft, draft_messages:, is_a?: true) }
+  let(:draft_package) do
+    instance_double(
+      Mailbox::MessagesPackageDraft,
+      draft_messages:,
+      is_a?: true,
+      mailer_message: :tax_information_message
+    )
+  end
   let(:mailbox_mailer) { class_double(MailboxMailer, tax_information_message: message) }
   let(:message) { instance_double(Mail::Message, body: "mail body to render") }
   let(:draft_messages) { [draft_message1, draft_message2, draft_message3, draft_message4] }
@@ -79,8 +86,7 @@ RSpec.describe Mailbox::MessagesPackages::DraftPresenter do
           id: 1,
           email: "test1@email.com",
           full_name: "John Doe",
-          income_tax_data: "1000 zł/PIT-36/2021/2021-05-31",
-          value_added_tax_data: "-/-/-/-",
+          variables: "1000 zł/PIT-36/2021/2021-05-31",
           account_number: "1234567890",
           preview: "mail body to render"
         ),
@@ -88,8 +94,7 @@ RSpec.describe Mailbox::MessagesPackages::DraftPresenter do
           id: 2,
           email: "test2@email.com",
           full_name: "John Doe",
-          income_tax_data: "1000 zł/PIT-36/2021/2021-05-31",
-          value_added_tax_data: "1000 zł/VAT-7/2021/2021-05-31",
+          variables: "1000 zł/PIT-36/2021/2021-05-31/1000 zł/VAT-7/2021/2021-05-31",
           account_number: "1234567890",
           preview: "mail body to render"
         )
