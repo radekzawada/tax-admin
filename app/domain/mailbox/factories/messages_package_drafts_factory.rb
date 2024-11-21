@@ -12,6 +12,8 @@ class Mailbox::Factories::MessagesPackageDraftsFactory
     messages = draft_messages_factory.from_remote_data(remote_data, message_package)
 
     Mailbox::MessagesPackageDraft.new(
+      variables: message_package.message_template.income_variables.values,
+      mailer_message: message_package.message_template.template_configuration.mailer_message,
       package_id: message_package.id,
       package_name: message_package.name,
       template_name: message_package.message_template.name,
