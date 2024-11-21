@@ -54,6 +54,7 @@ class MessageTemplate::Taxes
       ]
     ],
     data_start_row: 2,
-    validations: DataSchema
+    validations: DataSchema,
+    mailer_message: :tax_information_message
   )
 end

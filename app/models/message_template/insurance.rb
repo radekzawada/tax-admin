@@ -8,7 +8,6 @@ class MessageTemplate::Insurance
       required(:period).filled(:string)
       required(:payment_deadline).filled(:string)
       required(:amount).filled(:string)
-      required(:dispatch_date).filled(:string)
     end
   end
 
@@ -25,7 +24,8 @@ class MessageTemplate::Insurance
         { label: :comment }
       ]
     ],
-    data_start_row: 2,
-    validations: DataSchema
+    data_start_row: 1,
+    validations: DataSchema,
+    mailer_message: :insurance_information_message
   )
 end

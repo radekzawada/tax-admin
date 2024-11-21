@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe MessageTemplate::Configuration, type: :model do
   describe ".from_hash" do
-    subject(:from_hash) { described_class.from_hash(rows:, data_start_row:, validations:) }
+    subject(:from_hash) { described_class.from_hash(rows:, data_start_row:, validations:, mailer_message:) }
 
     let(:rows) do
       [
@@ -30,6 +30,7 @@ RSpec.describe MessageTemplate::Configuration, type: :model do
     end
     let(:data_start_row) { 2 }
     let(:validations) { Proc.new { } }
+    let(:mailer_message) { :taxes }
 
     it "creates a new Configuration instance from a hash" do
       expect(from_hash).to be_a(described_class) && have_attributes(
@@ -87,7 +88,8 @@ RSpec.describe MessageTemplate::Configuration, type: :model do
           )
         ),
         data_start_row: 2,
-        validations:
+        validations:,
+        mailer_message: :taxes
       )
     end
   end

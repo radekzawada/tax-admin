@@ -15,8 +15,6 @@ class MessageTemplate < ApplicationRecord
 
   delegate :income_variables, :data_start_row, :validations, to: :template_configuration
 
-  private
-
   def template_configuration
     TEMPLATES_CONFIGURATION[template_name.to_sym]
   end
