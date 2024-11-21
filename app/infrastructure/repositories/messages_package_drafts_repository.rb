@@ -22,6 +22,8 @@ class Repositories::MessagesPackageDraftsRepository
     return Failure(:not_found) if messages_package.nil?
 
     remote_data = yield(fetch_remote_data(messages_package)).values
+    return Failure(:no_data) if remote_data.blank?
+
     draft = package_drafts_factory.from_remote_data(remote_data, messages_package)
     redis_client.set(storage_key, draft.to_json, ex: 1.day.in_seconds)
 
