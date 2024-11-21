@@ -8,6 +8,7 @@ pl:
           preview: "Podgląd wiadomości"
           errors:
             not_found: "Nie znaleziono wiadomości"
+            no_data: "Brak wpisów"
           actions:
             refresh: "Przeładuj dane"
             preview: "Podgląd"
@@ -18,8 +19,7 @@ pl:
             headers:
               full_name: "Imię i nazwisko"
               email: "Email"
-              income_tax: "Podatek dochodowy"
-              vat: "VAT"
+              variables: "Zmienne"
               actions: "Akcje"
           invalid:
             title: "Szkice wiadomości z błędami"
