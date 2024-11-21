@@ -33,17 +33,27 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
+    <div class="container-fluid g-0">
+      <div class="row g-0">
+        <div class="col-sm-12">
+          <%= render partial: "admin/navbar" %>
+        </div>
+      </div>
+      <div class="row g-0">
+        <div class="col-sm-2">
+          <%= render partial: "admin/sidebar" %>
+        </div>
+        <div class="col-sm-10">
 
-    <%= render partial: "admin/navbar" %>
+          <div class="d-flex full-height">
+            <main class="p-1 container-fluid">
+              <%= render partial: "admin/header" %>
 
-    <div class="d-flex full-height">
-      <%= render partial: "admin/sidebar" %>
-
-      <main class="p-1 container-fluid">
-        <%= render partial: "admin/header" %>
-
-        <%= yield %>
-      </main>
+              <%= yield %>
+            </main>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

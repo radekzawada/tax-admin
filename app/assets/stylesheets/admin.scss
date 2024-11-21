@@ -8,7 +8,8 @@ body {
   position: sticky;
   top: 0;
   background-color: #f8f9fa; /* Light background for sidebar */
-  height: 100%;
+  height: 100vh;
+  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
 }
 
 .nav-item {
@@ -33,4 +34,10 @@ nav.sidebar {
 
 .iframe {
   min-height: 500px;
+}
+
+.navbar-brand {
+  img {
+    height: 28px;
+  }
 }
