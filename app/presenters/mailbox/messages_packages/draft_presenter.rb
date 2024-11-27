@@ -2,7 +2,8 @@ class Mailbox::MessagesPackages::DraftPresenter
   extend Dry::Initializer
 
   ValidMessage = Struct.new(:id, :email, :full_name, :variables, :account_number, :preview)
-  InvalidMessage = Struct.new(:index, :email, :full_name, :errors)
+  InvalidMessage = Struct.new(:id, :index, :email, :full_name, :errors, :variables)
+  Variable = Struct.new(:name, :value)
 
   attr_reader :valid_messages, :invalid_messages
 
@@ -25,9 +26,7 @@ class Mailbox::MessagesPackages::DraftPresenter
         message.id,
         message.variables[:email],
         message.variables[:full_name],
-        message.variables.except(:email, :full_name, :account_number)
-          .values
-          .map { |v| v.blank? ? "-" : v }.join("/"),
+        message.variables.map { |k, v| Variable.new(I18n.t("sheet.headers.#{k}"), v) },
         message.variables[:account_number],
         preview
       )
@@ -37,11 +36,17 @@ class Mailbox::MessagesPackages::DraftPresenter
   def invalid_drafts
     @invalid_drafts ||= invalid_messages.map do |message|
       InvalidMessage.new(
+        message.id,
         message.index,
         message.variables[:email],
         message.variables[:full_name],
-        message.errors.map { |k, v|[I18n.t("sheet.headers.#{k}"), v].join(" - ") }
+        message.errors.map { |k, v|[I18n.t("sheet.headers.#{k}"), v].join(" - ") },
+        message.variables.map { |k, v| Variable.new(I18n.t("sheet.headers.#{k}"), v) },
       )
     end
+  end
+
+  def all_drafts
+    valid_drafts + invalid_drafts
   end
 end
