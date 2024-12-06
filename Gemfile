@@ -25,7 +25,7 @@ gem "bootstrap", "~> 5.3.3"
 # Use Google Sheets API for accessing Google Sheets
 gem "google-apis-sheets_v4", "~> 0.38"
 # Use Google Drive API for accessing Google Drive
-gem "google-apis-drive_v3", "~> 0.59"
+gem "google-apis-drive_v3", "~> 0.60"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 gem "dry-struct"
