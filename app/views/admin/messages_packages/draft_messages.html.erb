@@ -108,15 +108,17 @@
     <div class="col-sm-3 small">
       <% @presenter.all_drafts.each do |draft| %>
         <div id="draft_variables_<%= draft.id %>"
-          class="d-none draft-variables"
+          class="d-none draft-variables card"
           data-admin--messages-packages--drafts-target="variable"
           >
-          <% draft.variables.each do |var| %>
-            <div class="d-flex justify-content-between">
-              <span><b><%= var.name %>:</b></span>
-              <span><%= var.value %></span>
-            </div>
-          <% end %>
+          <ul class="list-group list-group-flush">
+            <% draft.variables.each do |var| %>
+              <li class="list-group-item d-flex justify-content-between">
+                <strong><%= var.name %>:</strong>
+                <span><%= var.value %></span>
+              </li>
+            <% end %>
+          </ul>
         </div>
       <% end %>
     </div>
