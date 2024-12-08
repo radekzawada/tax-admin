@@ -17,7 +17,7 @@ pl:
       income_tax_type: "PIT Rodzaj podatku"
       income_tax_period: "PIT Okres"
       income_tax_payment_deadline: "PIT Termin płatności"
-      income_tax_tax_amount: "PIT Kwota podatku"
+      income_tax_amount: "PIT Kwota podatku"
       value_added_tax_type: "VAT Rodzaj podatku"
       value_added_tax_period: "VAT Okres"
       value_added_tax_payment_deadline: "VAT Termin płatności"

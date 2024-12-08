@@ -15,14 +15,14 @@ pl:
             send: "Wyślij"
           title: "Szkice wiadomości %{package_name}"
           valid:
-            title: "Poprawne Szkice wiadomości"
+            title: "Gotowe do wysyłki"
             headers:
               full_name: "Imię i nazwisko"
               email: "Email"
               variables: "Zmienne"
               actions: "Akcje"
           invalid:
-            title: "Szkice wiadomości z błędami"
+            title: "Błędne wpisy"
             headers:
               row: "Wiersz"
               full_name: "Imię i nazwisko"

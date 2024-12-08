@@ -13,89 +13,114 @@
   <% end %>
 <% end %>
 
-<div class="container-fluid">
-  <% if @presenter.invalid_drafts.present? %>
-    <div class="card mb-3">
-      <div class="card-header bg-error">
-        <b><%= t("admin.mailbox.messages_packages.drafts.invalid.title") %></b>
-      </div>
-
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.row") %></th>
-            <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.email") %></th>
-            <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.full_name") %></th>
-            <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.errors") %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @presenter.invalid_drafts.each do |draft_message| %>
-            <tr class="align-middle small">
-              <td><%= draft_message.index %></td>
-              <td><%= draft_message.email %></td>
-              <td><%= draft_message.full_name %></td>
-              <td>
-                <% draft_message.errors.each do |error| %>
-                  <%= error %><br>
-                <% end %>
-              </td>
-              <td></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  <% end %>
-
-  <% if @presenter.valid_drafts.present? %>
-    <div class="card mb-3">
-      <div class="card-header">
-        <div class="row">
-          <div class="col-sm-9 d-flex align-items-center">
-            <b><%= t("admin.mailbox.messages_packages.drafts.valid.title") %></b>
+<div class="container-fluid" data-controller="admin--messages-packages--drafts">
+  <div class="row">
+    <div class="col-sm-9 right-divider full-height">
+      <% if @presenter.invalid_drafts.present? %>
+        <div class="card mb-3">
+          <div class="card-header bg-error">
+            <b><%= t("admin.mailbox.messages_packages.drafts.invalid.title") %></b>
           </div>
-          <div class="col-sm-3 d-flex justify-content-end">
-            <%= link_to(url_for(reload_data: true), class: "btn btn-action") do %>
-              <i class="fa-solid fa-paper-plane"></i>
-              <%= t("admin.mailbox.messages_packages.drafts.actions.send") %>
-            <% end %>
-          </div>
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.row") %></th>
+                <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.email") %></th>
+                <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.full_name") %></th>
+                <th><%= t("admin.mailbox.messages_packages.drafts.invalid.headers.errors") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @presenter.invalid_drafts.each do |draft_message| %>
+                <tr class="align-middle small actionable-cursor draft-row"
+                  id="draft_<%= draft_message.id %>"
+                  data-action="click->admin--messages-packages--drafts#toggle">
+
+                  <%= hidden_field_tag("message_id", draft_message.id, id: "message_#{draft_message.id}") %>
+                  <td><%= draft_message.index %></td>
+                  <td><%= draft_message.email %></td>
+                  <td><%= draft_message.full_name %></td>
+                  <td>
+                    <% draft_message.errors.each do |error| %>
+                      <%= error %><br>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
-      </div>
+      <% end %>
 
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.full_name") %></th>
-            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.email") %></th>
-            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.variables") %></th>
-            <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.actions") %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @presenter.valid_drafts.each do |draft_message| %>
-            <tr class="align-middle small">
-              <td><%= draft_message.full_name %></td>
-              <td><%= draft_message.email %></td>
-              <td><%= draft_message.variables %></td>
-              <td>
-                <%= button_tag(
-                      type: "button",
-                      class: "btn btn-action",
-                      data: { bs_toggle: "modal", bs_target: "#draftMessagePreviewModal_#{draft_message.id}" }
-                    ) do %>
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                  <%= t("admin.mailbox.messages_packages.drafts.actions.preview") %>
+      <% if @presenter.valid_drafts.present? %>
+        <div class="card mb-3">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-sm-9 d-flex align-items-center">
+                <b><%= t("admin.mailbox.messages_packages.drafts.valid.title") %></b>
+              </div>
+              <div class="col-sm-3 d-flex justify-content-end">
+                <%= link_to(url_for(reload_data: true), class: "btn btn-action") do %>
+                  <i class="fa-solid fa-paper-plane"></i>
+                  <%= t("admin.mailbox.messages_packages.drafts.actions.send") %>
                 <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+              </div>
+            </div>
+          </div>
 
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.email") %></th>
+                <th><%= t("admin.mailbox.messages_packages.drafts.valid.headers.full_name") %></th>
+                <th class="text-center"><%= t("admin.mailbox.messages_packages.drafts.valid.headers.actions") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @presenter.valid_drafts.each do |draft_message| %>
+                <tr class="align-middle small actionable-cursor draft-row"
+                  id="draft_<%= draft_message.id %>"
+                  data-action="click->admin--messages-packages--drafts#toggle">
+                  <%= hidden_field_tag("message_id", draft_message.id, id: "message_#{draft_message.id}") %>
+
+                  <td><%= draft_message.email %></td>
+                  <td><%= draft_message.full_name %></td>
+                  <td class="text-center">
+                    <%= button_tag(
+                          type: "button",
+                          class: "btn btn-action",
+                          data: { bs_toggle: "modal", bs_target: "#draftMessagePreviewModal_#{draft_message.id}" }
+                        ) do %>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <%= t("admin.mailbox.messages_packages.drafts.actions.preview") %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+        </div>
+      <% end %>
     </div>
-  <% end %>
+    <div class="col-sm-3 small">
+      <% @presenter.all_drafts.each do |draft| %>
+        <div id="draft_variables_<%= draft.id %>"
+          class="d-none draft-variables card"
+          data-admin--messages-packages--drafts-target="variable">
+          <ul class="list-group list-group-flush">
+            <% draft.variables.each do |var| %>
+              <li class="list-group-item d-flex justify-content-between">
+                <strong><%= var.name %>:</strong>
+                <span><%= var.value %></span>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <% @presenter.valid_drafts.each do |draft_message| %>
