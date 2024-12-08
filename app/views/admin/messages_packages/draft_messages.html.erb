@@ -35,8 +35,7 @@
               <% @presenter.invalid_drafts.each do |draft_message| %>
                 <tr class="align-middle small actionable-cursor draft-row"
                   id="draft_<%= draft_message.id %>"
-                  data-action="click->admin--messages-packages--drafts#toggle"
-                  >
+                  data-action="click->admin--messages-packages--drafts#toggle">
 
                   <%= hidden_field_tag("message_id", draft_message.id, id: "message_#{draft_message.id}") %>
                   <td><%= draft_message.index %></td>
@@ -109,8 +108,7 @@
       <% @presenter.all_drafts.each do |draft| %>
         <div id="draft_variables_<%= draft.id %>"
           class="d-none draft-variables card"
-          data-admin--messages-packages--drafts-target="variable"
-          >
+          data-admin--messages-packages--drafts-target="variable">
           <ul class="list-group list-group-flush">
             <% draft.variables.each do |var| %>
               <li class="list-group-item d-flex justify-content-between">
