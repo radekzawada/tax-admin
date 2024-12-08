@@ -86,7 +86,15 @@ RSpec.describe Mailbox::MessagesPackages::DraftPresenter do
           id: 1,
           email: "test1@email.com",
           full_name: "John Doe",
-          variables: "1000 zł/PIT-36/2021/2021-05-31",
+          variables: contain_exactly(
+            have_attributes(name: "Email", value: "test1@email.com"),
+            have_attributes(name: "Imię i nazwisko", value: "John Doe"),
+            have_attributes(name: "PIT Kwota podatku", value: "1000 zł"),
+            have_attributes(name: "PIT Rodzaj podatku", value: "PIT-36"),
+            have_attributes(name: "PIT Okres", value: "2021"),
+            have_attributes(name: "PIT Termin płatności", value: "2021-05-31"),
+            have_attributes(name: "Numer konta", value: "1234567890")
+          ),
           account_number: "1234567890",
           preview: "mail body to render"
         ),
@@ -94,7 +102,19 @@ RSpec.describe Mailbox::MessagesPackages::DraftPresenter do
           id: 2,
           email: "test2@email.com",
           full_name: "John Doe",
-          variables: "1000 zł/PIT-36/2021/2021-05-31/1000 zł/VAT-7/2021/2021-05-31",
+          variables: contain_exactly(
+            have_attributes(name: "Email", value: "test2@email.com"),
+            have_attributes(name: "Imię i nazwisko", value: "John Doe"),
+            have_attributes(name: "PIT Kwota podatku", value: "1000 zł"),
+            have_attributes(name: "PIT Rodzaj podatku", value: "PIT-36"),
+            have_attributes(name: "PIT Okres", value: "2021"),
+            have_attributes(name: "PIT Termin płatności", value: "2021-05-31"),
+            have_attributes(name: "VAT Kwota podatku", value: "1000 zł"),
+            have_attributes(name: "VAT Rodzaj podatku", value: "VAT-7"),
+            have_attributes(name: "VAT Okres", value: "2021"),
+            have_attributes(name: "VAT Termin płatności", value: "2021-05-31"),
+            have_attributes(name: "Numer konta", value: "1234567890")
+          ),
           account_number: "1234567890",
           preview: "mail body to render"
         )
